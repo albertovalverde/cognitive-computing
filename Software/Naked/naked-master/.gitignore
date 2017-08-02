@@ -1,0 +1,55 @@
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib64
+__pycache__
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+ascii.txt
+ascii.txt.gz
+unicode.txt
+unicode.txt.gz
+unicode2.txt
+binary.bin
+multi.txt
+systest.txt
+.idea/.name
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/naked.iml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+.idea/workspace.xml
+test.tar.gz
+test.txt
+tests/testfiles/testdir/post.gz
+tests/testfiles/testdir/post.txt

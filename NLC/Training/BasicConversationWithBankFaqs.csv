@@ -1,0 +1,912 @@
+Hi,Hello
+Hello,Hello
+Greetings,Hello
+Hey,Hello
+Hello Naomi,Hello
+Hi Naomi,Hello
+Welcome,Hello
+Yo,Hello
+How's it hanging,Hello
+what's cracking,Hello
+Hi there,Hello
+What's up,Hello
+Whats up,HowAreYou
+What's up,HowAreYou
+How are you,HowAreYou
+How are you feeling,HowAreYou
+How's your health,HowAreYou
+Hows it going,HowAreYou
+Are you good,HowAreYou
+How do you do,HowAreYou
+Everything ok,HowAreYou
+Everything ok with you Naomi,HowAreYou
+Are you happy,HowAreYou
+What's doing,HowAreYou
+Goodbye,GoodBye
+Farewell,GoodBye
+See you later,GoodBye
+So long,GoodBye
+So long Naomi,GoodBye
+See you,GoodBye
+Bye,GoodBye
+Go away,GoodBye
+Bye Naomi,GoodBye
+I'm going now,GoodBye
+what,WhatDidYouSay
+what did you say,WhatDidYouSay
+I didn't understand you,WhatDidYouSay
+I'm not sure what you said,WhatDidYouSay
+I misheard,WhatDidYouSay
+sorry I didn't understand,WhatDidYouSay
+cant understand you,WhatDidYouSay
+please repeat that,WhatDidYouSay
+I don't think I understood you,WhatDidYouSay
+whats that,WhatDidYouSay
+I'm hungry,ImHungry
+I'm starving,ImHungry
+I am so hungry,ImHungry
+I am very hungry,ImHungry
+I'm famished,ImHungry
+I need to eat,ImHungry
+I need to eat something,ImHungry
+I need some food,ImHungry
+I must eat,ImHungry
+my stomach is growling,ImHungry
+I have hunger pangs,ImHungry
+it's lunch time,ImHungry
+it's time for lunch,ImHungry
+it's dinner time,ImHungry
+it's time for dinner,ImHungry
+I'm thirsty,ImThirsty
+I need something to drink,ImThirsty
+I need some water,ImThirsty
+I really need to drink something,ImThirsty
+I'm dehydrated,ImThirsty
+I'm so thirsty,ImThirsty
+I need a drink,ImThirsty
+Does anyone have a drink,ImThirsty
+I must drink something,ImThirsty
+I have to drink something,ImThirsty
+Tell me something about yourself,TalkAboutSelf
+What do you do,TalkAboutSelf
+Tell me about yourself,TalkAboutSelf
+What are you like,TalkAboutSelf
+What's something interesting about yourself,TalkAboutSelf
+What can you tell me about yourself,TalkAboutSelf
+Say something to describe yourself,TalkAboutSelf
+Describe yourself,TalkAboutSelf
+Can you describe yourself,TalkAboutSelf
+Give me a description of yourself,TalkAboutSelf
+Where do you work,WhereWork
+What do you work as,WhereWork
+Do you have a job,WhereWork
+What's your job,WhereWork
+What is your job,WhereWork
+What do you do for work,WhereWork
+Do you work somewhere,WhereWork
+Have you got a job,WhereWork
+Do you work,WhereWork
+What do you do for a living,WhereWork
+What is your favorite color,FavouriteColour
+what color is your favorite,FavouriteColour
+do you have a favorite color,FavouriteColour
+is there any particular color that you really like,FavouriteColour
+favorite color,FavouriteColour
+choose your favorite color,FavouriteColour
+if you had to choose what would be your favorite color,FavouriteColour
+what is your color of choice,FavouriteColour
+tell me your favorite color,FavouriteColour
+what is the best color,FavouriteColour
+Tell me about your brother,NaoSun
+who is now sun,NaoSun
+do you know now sun,NaoSun
+who is your brother,NaoSun
+what can you tell me about your brother,NaoSun
+what can you tell me about now sun,NaoSun
+who is your brother,NaoSun
+do you have any brothers or sisters,NaoSun
+tell me about now sun,NaoSun
+have you met now sun,NaoSun
+Where were you born,PlaceOfBirth
+what is your place of birth,PlaceOfBirth
+where are you from,PlaceOfBirth
+what is your heritage,PlaceOfBirth
+what city were you born in,PlaceOfBirth
+tell me where you are from,PlaceOfBirth
+where are you from originally,PlaceOfBirth
+where are you originally from,PlaceOfBirth
+what is your origin,PlaceOfBirth
+where were you manufactured,PlaceOfBirth
+what can you do ,WhatCanYouDo
+can you tell me what you can do,WhatCanYouDo
+what are you actually able to do,WhatCanYouDo
+what can you actually do,WhatCanYouDo
+tell us what you can do,WhatCanYouDo
+what Watson capabilities do you have,WhatCanYouDo
+tell us what you are capable of doing,WhatCanYouDo
+can you show us what you can do,WhatCanYouDo
+show me what you can do,WhatCanYouDo
+can you tell this person what you can do,WhatCanYouDo
+tell us about your capabilities,WhatCanYouDo
+tell us what you you have been learning,WhatCanYouDo
+can you stand up,StandUp
+stand up,StandUp
+stand up please,StandUp
+please stand up,StandUp
+please stand,StandUp
+stand,StandUp
+stand up now,StandUp
+"Naomi, stand up",StandUp
+stand up Naomi,StandUp
+stand please,StandUp
+stand up please Naomi,StandUp
+what's your name,WhatsYourName
+what is your name,WhatsYourName
+what are you called,WhatsYourName
+your name,WhatsYourName
+name,WhatsYourName
+tell me your name,WhatsYourName
+can you tell me what your name is,WhatsYourName
+name please,WhatsYourName
+please tell me your name,WhatsYourName
+who are you,WhatsYourName
+what name do you go by,WhatsYourName
+what is your name please,WhatsYourName
+how old are you,HowOldAreYou
+how old are you Naomi,HowOldAreYou
+how old are you now sun,HowOldAreYou
+what is your age,HowOldAreYou
+what's your age,HowOldAreYou
+can you tell me how old you are,HowOldAreYou
+can you tell me your age,HowOldAreYou
+tell me your age,HowOldAreYou
+tell me how old you are,HowOldAreYou
+what is your age Naomi,HowOldAreYou
+what is your age now sun,HowOldAreYou
+can I trust you,Trustworthy
+are you trustworthy,Trustworthy
+can I trust you Naomi,Trustworthy
+can I trust you now sun,Trustworthy
+should I trust you,Trustworthy
+can I put my trust in you,Trustworthy
+can I put my faith in you,Trustworthy
+should I put my trust in you,Trustworthy
+should I put my faith in you,Trustworthy
+could I trust you,Trustworthy
+are you really trustworthy,Trustworthy
+can you see me,CanYouSeeMe
+are you able to see me,CanYouSeeMe
+can you see me Naomi,CanYouSeeMe
+can you see me now sun,CanYouSeeMe
+am I visible to you,CanYouSeeMe
+do you see me,CanYouSeeMe
+do you have the ability to see me,CanYouSeeMe
+do you have an ability to see me,CanYouSeeMe
+see me,CanYouSeeMe
+do see me,CanYouSeeMe
+are you able to see,CanYouSeeMe
+can you see,CanYouSeeMe
+can you hear me,CanYouHearMe
+are you able to hear me,CanYouHearMe
+can you hear me Naomi,CanYouHearMe
+can you hear me now sun,CanYouHearMe
+am I audible to you,CanYouHearMe
+do you hear me,CanYouHearMe
+do you have the ability to hear me,CanYouHearMe
+do you have an ability to hear me,CanYouHearMe
+hear me,CanYouHearMe
+do hear me,CanYouHearMe
+are you able to hear,CanYouHearMe
+can you hear,CanYouHearMe
+what is a robot,WhatIsARobot
+what's a robot,WhatIsARobot
+what is a humanoid robot,WhatIsARobot
+can you describe to me what a robot,WhatIsARobot
+can you describe what a robot is,WhatIsARobot
+what is a robot really,WhatIsARobot
+explain what a robot is,WhatIsARobot
+can you explain to me what a robot is,WhatIsARobot
+a robot is,WhatIsARobot
+is a robot,WhatIsARobot
+can you tell me what a robot is,WhatIsARobot
+can we be friends,CanWeBeFriends
+do you want to be friends,CanWeBeFriends
+do you want to be friends with me,CanWeBeFriends
+are we friends,CanWeBeFriends
+let us be friends,CanWeBeFriends
+let's be friends,CanWeBeFriends
+are you friends with me,CanWeBeFriends
+can be friends with each other,CanWeBeFriends
+let's be friends with each other,CanWeBeFriends
+I want to be friends with you,CanWeBeFriends
+can we start a friendship,CanWeBeFriends
+can you say goodbye,OkGoodbye
+say goodbye,OkGoodbye
+can you please say goodbye,OkGoodbye
+are you able to say goodbye,OkGoodbye
+tell us goodbye,OkGoodbye
+tell him goodbye,OkGoodbye
+tell her goodbye,OkGoodbye
+say bye,OkGoodbye
+say bye bye,OkGoodbye
+can you say bye,OkGoodbye
+please say bye,OkGoodbye
+please say goodbye,OkGoodbye
+do you have a family,DoYouHaveFamily
+do you have family,DoYouHaveFamily
+who is your family,DoYouHaveFamily
+have you got a family,DoYouHaveFamily
+have you family,DoYouHaveFamily
+do you have any family,DoYouHaveFamily
+I wonder if you have a family,DoYouHaveFamily
+can you tell me if you have a family,DoYouHaveFamily
+tell me about your family,DoYouHaveFamily
+tell me if you have a family,DoYouHaveFamily
+family,DoYouHaveFamily
+please sit,SitDown
+sit down,SitDown
+please sit down,SitDown
+take a seat,SitDown
+please take a seat,SitDown
+please be seated,SitDown
+be seated,SitDown
+sit your butt down,SitDown
+please make yourself seated,SitDown
+make yourself seated,SitDown
+get seated,SitDown
+please lie down,LieDown
+please lay down,LieDown
+lay down,LieDown
+lie down,LieDown
+lay yourself down,LieDown
+lie yourself down,LieDown
+lie on the ground,LieDown
+lay on the ground,LieDown
+please lie yourself down,LieDown
+please lie on the ground,LieDown
+please lie,LieDown
+please lay,LieDown
+lie,LieDown
+lay,LieDown
+lie on your belly,LieDownBelly
+lay on your belly,LieDownBelly
+lie down on your front,LieDownBelly
+lie on your front,LieDownBelly
+lay on your front,LieDownBelly
+can you lay down on your front,LieDownBelly
+can you lay down on your belly,LieDownBelly
+please lie on your belly,LieDownBelly
+please lie on your front,LieDownBelly
+lie down on your belly,LieDownBelly
+can you crouch,Crouch
+please crouch,Crouch
+crouch,Crouch
+squat,Crouch
+please squat,Crouch
+can you squat,Crouch
+please show me a crouch,Crouch
+please show me a squat,Crouch
+show me a crouch,Crouch
+show me a squat,Crouch
+please rest,RestSleep
+rest,RestSleep
+go into rest mode,RestSleep
+please go into rest mode,RestSleep
+you deserve some rest,RestSleep
+have some rest,RestSleep
+go to sleep,RestSleep
+please sleep,RestSleep
+you should rest now,RestSleep
+rest now,RestSleep
+sleep now,RestSleep
+you should sleep,RestSleep
+get some sleep,RestSleep
+please wake up,WakeUp
+wake up Naomi,WakeUp
+wake up now sun,WakeUp
+get up,WakeUp
+time to get up,WakeUp
+time to wake up,WakeUp
+wake up,WakeUp
+awake,WakeUp
+please get up,WakeUp
+please get up now,WakeUp
+please awake,WakeUp
+time to awaken,WakeUp
+get up Naomi,WakeUp
+it is time to wake up,WakeUp
+can you play me a song,PlayASong
+please play me a song,PlayASong
+play a song,PlayASong
+play me a song,PlayASong
+please play a song,PlayASong
+can you play some music,PlayASong
+can you play music,PlayASong
+please play some music,PlayASong
+can you play me some music,PlayASong
+can you please play me some music,PlayASong
+play some music,PlayASong
+please play music,PlayASong
+could you entertain our guests with a song,PlayASong
+could please give us some musical entertainment,PlayASong
+please entertain our guests with some music,PlayASong
+what is your battery level,BatteryLevel
+how much battery do you have,BatteryLevel
+how much battery you got,BatteryLevel
+what level is your battery,BatteryLevel
+how much charge do you have,BatteryLevel
+what is your charge,BatteryLevel
+what level is your charge at,BatteryLevel
+do you need charging,BatteryLevel
+is your battery level good,BatteryLevel
+tell me your battery level,BatteryLevel
+tell me how much charge you have,BatteryLevel
+tell me how much battery you have,BatteryLevel
+can you dance,Dance
+please dance,Dance
+can you please dance for us,Dance
+please dance for us,Dance
+can you show me a dance,Dance
+do a jig,Dance
+cut a jig,Dance
+show me a dance,Dance
+do a dance,Dance
+please do a dance,Dance
+jig,Dance
+dance,Dance
+can you boogie,Dance
+boogie down,Dance
+show us your boogie,Dance
+show us cutting a jig,Dance
+I've heard you're a great dancer,Dance
+is it true that you're a good dancer,Dance
+are you a dancer,Dance
+show us a jig,Dance
+give us a dance demonstration,Dance
+do a dance show,Dance
+what happened to your hand,Fingers
+what happened to your finger,Fingers
+what did you do to your finger,Fingers
+what did you do to your hand,Fingers
+your fingers,Fingers
+what is with your fingers,Fingers
+why are your fingers broken,Fingers
+how did your fingers break,Fingers
+what is with your hand,Fingers
+your hand,Fingers
+what happened to your thing,Fingers
+what is with your thing is,Fingers
+how many robots like you are there,HowManyNaos
+how many robots like you are there in the world,HowManyNaos
+how many now robots are there,HowManyNaos
+do you know how many robots like you there are,HowManyNaos
+are there many now robots,HowManyNaos
+what is the number of now robots in the world,HowManyNaos
+are there many now robots in the world,HowManyNaos
+have many now robots been sold,HowManyNaos
+are there many robots like you,HowManyNaos
+do you know how many now robots there are,HowManyNaos
+how tall are you,HowTallAreYou
+how tall do you stand,HowTallAreYou
+are you tall,HowTallAreYou
+can you tell me how tall you are,HowTallAreYou
+tell me how tall you are,HowTallAreYou
+please tell me how tall you are,HowTallAreYou
+please say how tall you are,HowTallAreYou
+say your height,HowTallAreYou
+what is your height,HowTallAreYou
+give me your height,HowTallAreYou
+who is Romeo,WhoIsRomeo
+what is Romeo,WhoIsRomeo
+can you tell me who Romeo is,WhoIsRomeo
+tell me who Romeo is,WhoIsRomeo
+tell me what Romeo is,WhoIsRomeo
+can you tell me what Romeo is,WhoIsRomeo
+do you know what Romeo is,WhoIsRomeo
+do you know who Romeo is,WhoIsRomeo
+do you know Romeo,WhoIsRomeo
+what do you know about Romeo,WhoIsRomeo
+who is Pepper,WhoIsPepper
+what is Pepper,WhoIsPepper
+can you tell me who Pepper is,WhoIsPepper
+tell me who Pepper is,WhoIsPepper
+tell me what Pepper is,WhoIsPepper
+can you tell me what Pepper is,WhoIsPepper
+do you know what Pepper is,WhoIsPepper
+do you know who Pepper is,WhoIsPepper
+do you know Pepper,WhoIsPepper
+what do you know about Pepper,WhoIsPepper
+who is Peppa,WhoIsPepper
+what is Peppa,WhoIsPepper
+can you tell me who Peppa is,WhoIsPepper
+tell me who Peppa is,WhoIsPepper
+what do you know about Peppa,WhoIsPepper
+how much do you weigh,HowHeavyAreYou
+tell me how much you weigh,HowHeavyAreYou
+what is your weight,HowHeavyAreYou
+do you know your weight,HowHeavyAreYou
+what's your weight,HowHeavyAreYou
+tell me your weight,HowHeavyAreYou
+how heavy are you,HowHeavyAreYou
+are you very heavy,HowHeavyAreYou
+tell me how heavy you are,HowHeavyAreYou
+are you heavy,HowHeavyAreYou
+thanks,ThankYou
+thank you,ThankYou
+I thank you,ThankYou
+thank you for that,ThankYou
+thanks for everything,ThankYou
+wonderful thanks Naomi,ThankYou
+great thanks Naomi,ThankYou
+thank you very much,ThankYou
+thanks a lot,ThankYou
+cheers,ThankYou
+thank you Naomi,ThankYou
+can you walk,TakeStepForward
+walk,TakeStepForward
+take a step ,TakeStepForward
+take a step forward,TakeStepForward
+move forward,TakeStepForward
+walk forward,TakeStepForward
+can you take a step forward,TakeStepForward
+please take a step forward,TakeStepForward
+please walk,TakeStepForward
+can you walk a bit,TakeStepForward
+please walk a little bit,TakeStepForward
+Could you do a personality insight for me,PersonalityInsights
+Please analyse a personality for me,PersonalityInsights
+Can you analyse people,PersonalityInsights
+Can you conduct a personality insight for me,PersonalityInsights
+Could you give me some insight on a personality for me,PersonalityInsights
+Please analyse this person for me,PersonalityInsights
+Can you analyse someone please,PersonalityInsights
+Show me your personality insights capability,PersonalityInsights
+Can you show me how you conduct a personality insight,PersonalityInsights
+Could you please analyse a personality for me,PersonalityInsights
+can you analyse a person,PersonalityInsights
+can we analyse another person,PersonalityInsights
+could we please analyse a person,PersonalityInsights
+how about another person analysis,PersonalityInsights
+tell me how to change my repayment frequency,ChangeHLRepaymentFreq
+How can I change the frequency of my home loan repayments,ChangeHLRepaymentFreq
+How am I able to change the frequency of my home loan repayments,ChangeHLRepaymentFreq
+Can I change the frequency of my home loan repayments,ChangeHLRepaymentFreq
+How can I change the frequency of my loan repayments,ChangeHLRepaymentFreq
+How can I change the frequency of repayments,ChangeHLRepaymentFreq
+how can I change how often I make repayments,ChangeHLRepaymentFreq
+can I change how often I make repayments,ChangeHLRepaymentFreq
+where do I change the frequency of repayments,ChangeHLRepaymentFreq
+am I able to change the frequency of repayments,ChangeHLRepaymentFreq
+am I able to alter the frequency of repayments,ChangeHLRepaymentFreq
+i'd like to change my repayment schedule,ChangeHLRepaymentFreq
+how do I change how often I make repayments,ChangeHLRepaymentFreq
+how can I change the schedule for my repayments,ChangeHLRepaymentFreq
+how do I change the repayment frequency,ChangeHLRepaymentFreq
+how can I make repayments on my loan,HowToRepayHL
+how can I make repayments,HowToRepayHL
+how can I make a repayment,HowToRepayHL
+how can I make a repayment on my loan,HowToRepayHL
+how do I make a repayment,HowToRepayHL
+how do I make a repayment on my loan,HowToRepayHL
+how do I repay the loan,HowToRepayHL
+can I get some help on how to make a repayment,HowToRepayHL
+can I get some help on how to make a repayment on my loan,HowToRepayHL
+I need help on how to make a repayment on my loan,HowToRepayHL
+what do I do to make a repayment,HowToRepayHL
+I need to make a repayment how do I do this,HowToRepayHL
+how can i repay my home loan,HowToRepayHL
+what methods are there to make repayments,HowToRepayHL
+I need help how do I make repayments,HowToRepayHL
+what is my home loan interest,CurrentHLInterest
+what is the current interest rate for my home loan,CurrentHLInterest
+What interest am I currently being charged on my home loan?,CurrentHLInterest
+what is the interest that I am being charged,CurrentHLInterest
+what is the interest on my loan,CurrentHLInterest
+how do I find out the interest on my loan,CurrentHLInterest
+how do I know what interest there is on my loan,CurrentHLInterest
+how to I find out what my interest rate is,CurrentHLInterest
+I need to find out what my interest rate is,CurrentHLInterest
+what is the interest rate on my loan,CurrentHLInterest
+how can I find out what the interest rate is on my loan,CurrentHLInterest
+What interest am I currently being charged,CurrentHLInterest
+Can I check the interest of my home loan,CurrentHLInterest
+How can I check what my current home loan repayments are,CheckCurrentHLRepayments
+how can I check what my current repayments are,CheckCurrentHLRepayments
+what are my current repayments,CheckCurrentHLRepayments
+what are my current home loan repayments,CheckCurrentHLRepayments
+how can I find out my current loan repayments,CheckCurrentHLRepayments
+how can I find out what my loan repayments are,CheckCurrentHLRepayments
+what are my loan repayments,CheckCurrentHLRepayments
+where do I find out what my current loan repayment is,CheckCurrentHLRepayments
+where do I find out what my loan repayments are,CheckCurrentHLRepayments
+can you help me find out what my current repayments are,CheckCurrentHLRepayments
+I need help to find out what my home loan repayments are,CheckCurrentHLRepayments
+what do i have to pay on my loan,CheckCurrentHLRepayments
+what do I have to pay for my repayments,CheckCurrentHLRepayments
+amount I can borrow,HowMuchCanIBorrow
+How much can I borrow to buy a home,HowMuchCanIBorrow
+How much money can I borrow,HowMuchCanIBorrow
+how much can I borrow,HowMuchCanIBorrow
+what amount can I borrow,HowMuchCanIBorrow
+what is the amount that I can borrow,HowMuchCanIBorrow
+is there a limit to how much I can borrow,HowMuchCanIBorrow
+what is the minimum I have to borrow,HowMuchCanIBorrow
+what is the range that I can borrow,HowMuchCanIBorrow
+is there a specific amount that I can borrow,HowMuchCanIBorrow
+what can I borrow in terms of amount,HowMuchCanIBorrow
+what is the most amount that I can borrow,HowMuchCanIBorrow
+how much money am I able to borrow,HowMuchCanIBorrow
+how much is the most that I can borrow,HowMuchCanIBorrow
+what's the most money i can get,HowMuchCanIBorrow
+how much money can I get,HowMuchCanIBorrow
+Can I attach a Home Loan Offset Account to my loan?,CanIAttachHLOffsetAccount
+how do I get a home loan offset account,CanIAttachHLOffsetAccount
+home loan offset account,CanIAttachHLOffsetAccount
+home loan offset account,CanIAttachHLOffsetAccount
+can I attach an offset to my loan,CanIAttachHLOffsetAccount
+how do I get an offset on my loan,CanIAttachHLOffsetAccount
+can I get an offset account,CanIAttachHLOffsetAccount
+am I able to get an offset account,CanIAttachHLOffsetAccount
+is it possible to attach an offset account,CanIAttachHLOffsetAccount
+I want to explore the possibility of an offset account,CanIAttachHLOffsetAccount
+can I get a home loan offset,CanIAttachHLOffsetAccount
+can I access advance payments,AccessAdvancePayments
+do you have cashback,AccessAdvancePayments
+is cashback available,AccessAdvancePayments
+am I able to access advance payments,AccessAdvancePayments
+Will I be able to access advance payments,AccessAdvancePayments
+will I have access to advance payments,AccessAdvancePayments
+"if I pay extra, will I be able to access the advance",AccessAdvancePayments
+can I withdraw advance payments,AccessAdvancePayments
+can I still access money that I put in as an extra payment,AccessAdvancePayments
+will it be possible to access advance payments,AccessAdvancePayments
+"I want to do advance payments, can I access these later",AccessAdvancePayments
+would I be able to get advance payments,AccessAdvancePayments
+is it possible to access advance payments,AccessAdvancePayments
+can I pay extra each month,CanIPayExtra
+can I pay more each month,CanIPayExtra
+is it possible to pay more,CanIPayExtra
+can you pay more back on the loan,CanIPayExtra
+can you increase the monthly payment,CanIPayExtra
+is the monthly payment fixed or can you increase it,CanIPayExtra
+is it possible to increase the monthly payment,CanIPayExtra
+can you pay extra each month,CanIPayExtra
+pay more per month to the loan,CanIPayExtra
+how much extra can i pay,CanIPayExtra
+can I increase my monthly payment,CanIPayExtra
+may I increase the loan repayment,CanIPayExtra
+can I pay more on my loan repayment,CanIPayExtra
+can you pay more on the monthly repayment,CanIPayExtra
+can I pay out my home loan at any time,CanIPayOutHL
+can I pay back my home loan quicker,CanIPayOutHL
+can I repay my loan whenever,CanIPayOutHL
+can you repay the whole loan faster,CanIPayOutHL
+can you pay out the loan faster,CanIPayOutHL
+is it possible to pay out the loan faster than expected,CanIPayOutHL
+is it possible to speed up repayment,CanIPayOutHL
+is it possible to pay out the loan in one go,CanIPayOutHL
+can I more quickly pay back the loan,CanIPayOutHL
+can you pay the loan back faster than agreed,CanIPayOutHL
+am I able to repay the loan faster,CanIPayOutHL
+For what purposes can I borrow money,WhatPurposesBorrowMoney
+for what can I borrow money,WhatPurposesBorrowMoney
+what can I borrow money for,WhatPurposesBorrowMoney
+what things can I borrow money,WhatPurposesBorrowMoney
+for what can I take out a loan,WhatPurposesBorrowMoney
+what can I take out a loan for,WhatPurposesBorrowMoney
+what is acceptable for me to take a loan out for,WhatPurposesBorrowMoney
+what endeavours can I take a loan out for,WhatPurposesBorrowMoney
+what purposes can I take a loan out for,WhatPurposesBorrowMoney
+what kinds of things can loans be taken out,WhatPurposesBorrowMoney
+what are the home loan interest rates,HLInterestRates
+what are the loan interest rates,HLInterestRates
+what is the interest rate for a loan,HLInterestRates
+what is the current interest rate,HLInterestRates
+what is the current home loan interest rate,HLInterestRates
+what is the current loan interest rate,HLInterestRates
+what is the current rate,HLInterestRates
+how much deposit do I need for a home loan,HowMuchDepositDoINeed
+what's the smallest deposit i can do,HowMuchDepositDoINeed
+how much deposit do I need for a loan,HowMuchDepositDoINeed
+what is the deposit required for a home loan,HowMuchDepositDoINeed
+what deposit do I need for a loan,HowMuchDepositDoINeed
+what deposit is required for a loan,HowMuchDepositDoINeed
+how large is the deposit required for a loan,HowMuchDepositDoINeed
+what is the minimum deposit I need to get a loan,HowMuchDepositDoINeed
+what deposit do I need to get a home loan,HowMuchDepositDoINeed
+how much do I need for a deposit,HowMuchDepositDoINeed
+what is the amount of deposit required for a home loan,HowMuchDepositDoINeed
+"if I want a home loan, how much deposit do I need",HowMuchDepositDoINeed
+"for a home loan, what is the amount of deposit needed",HowMuchDepositDoINeed
+what is a comparison rate,WhatIsComparisonRate
+what is a comparison right,WhatIsComparisonRate
+can you tell me what a comparison rate is,WhatIsComparisonRate
+tell me what a comparison rate is,WhatIsComparisonRate
+I don't know what a comparison rate is,WhatIsComparisonRate
+would you please tell me what a comparison rate is,WhatIsComparisonRate
+I need to find out what a comparison rate is,WhatIsComparisonRate
+please help me with comparison rates,WhatIsComparisonRate
+I need help with comparison rates,WhatIsComparisonRate
+I would like to know more about comparison rates,WhatIsComparisonRate
+please tell me about comparison rates,WhatIsComparisonRate
+what's salary crediting,WhatIsSalaryCrediting
+What is direct salary crediting and how do I establish it,WhatIsSalaryCrediting
+what is direct salary crediting,WhatIsSalaryCrediting
+how do I establish direct salary crediting,WhatIsSalaryCrediting
+what is salary crediting,WhatIsSalaryCrediting
+how do I do salary crediting,WhatIsSalaryCrediting
+can I do salary crediting,WhatIsSalaryCrediting
+can I get direct crediting,WhatIsSalaryCrediting
+can I get more information on salary crediting,WhatIsSalaryCrediting
+what are salary credits,WhatIsSalaryCrediting
+what is salary credit,WhatIsSalaryCrediting
+what is salary crediting and how do I get started,WhatIsSalaryCrediting
+how can I get started with direct salary credits,WhatIsSalaryCrediting
+what about crediting,WhatIsSalaryCrediting
+what is stamp duty,WhatIsStampDuty
+can you tell me what stamp duty is,WhatIsStampDuty
+I need to know what stamp duty is,WhatIsStampDuty
+I want to know what stamp duty is,WhatIsStampDuty
+please help me with stamp duty,WhatIsStampDuty
+I would like to know more about stamp duty,WhatIsStampDuty
+what exactly is stamp duty,WhatIsStampDuty
+please tell me what stamp duty is,WhatIsStampDuty
+what is the difference between fixed and variable rates,FixedAndVariableRates
+what are fixed rates as opposed to variable rates,FixedAndVariableRates
+what are fixed and variable rates,FixedAndVariableRates
+I need help with fixed and variable rates,FixedAndVariableRates
+what can you tell me about fixed and variable rates,FixedAndVariableRates
+is there a difference between fixed and variable rates,FixedAndVariableRates
+is there much you can tell me about fixed and variable rates,FixedAndVariableRates
+is there a big difference between fixed and variable rates,FixedAndVariableRates
+is a variable rate different from a fixed rate,FixedAndVariableRates
+are there many differences between fixed and variable rates,FixedAndVariableRates
+I want to know more about fixed and variable rates,FixedAndVariableRates
+what sort of fees or charges will apply to my home loan,HLFees
+are there any fees or charges,HLFees
+what fees are there for my loan,HLFees
+are there any charges on a home loan,HLFees
+I want to know about the fees and charges involved,HLFees
+are there any fees that apply to my home loan,HLFees
+I need information on the fees or charges that apply to my home loan,HLFees
+are there any charges that I should be aware about,HLFees
+what charges or fees are there,HLFees
+charges on my home loan,HLFees
+are there any fees or charges associated with my loan,HLFees
+when do my payments start on a term loan,WhenPaymentsStartTermLoan
+when do payments start,WhenPaymentsStartTermLoan
+how long after my loan starts do I have to start paying,WhenPaymentsStartTermLoan
+when do payments start on a new loan,WhenPaymentsStartTermLoan
+when I get a loan how long after I get it do I have to start paying,WhenPaymentsStartTermLoan
+what is the time period before I start paying back a loan,WhenPaymentsStartTermLoan
+when will payments start on a new loan,WhenPaymentsStartTermLoan
+how long do I have until I need to start paying repayments on a term loan,WhenPaymentsStartTermLoan
+can you tell me when I need to start repaying a loan,WhenPaymentsStartTermLoan
+when do I need to start repayments on a term loan,WhenPaymentsStartTermLoan
+who can borrow money,WhoCanBorrow
+can anyone borrow money,WhoCanBorrow
+can I borrow money,WhoCanBorrow
+what kind of people can borrow money,WhoCanBorrow
+can I take out a loan,WhoCanBorrow
+who can take out a loan,WhoCanBorrow
+can anyone take out a loan,WhoCanBorrow
+what do you need to do to borrow money,WhoCanBorrow
+are there any prerequisites for taking out a loan,WhoCanBorrow
+what requirements need to be satisfied to take out a loan,WhoCanBorrow
+what is required of me to take out a loan,WhoCanBorrow
+will the bank require a property valuation,PropertyValuation
+do I need to supply a property valuation for a loan,PropertyValuation
+will I need a property valuation,PropertyValuation
+does my property need to be valuated,PropertyValuation
+will I need a property valuation in order to get a loan,PropertyValuation
+is a property valuation required,PropertyValuation
+are valuations a requirement to get a loan,PropertyValuation
+do I need to get my property valuated to be considered for a loan,PropertyValuation
+does the bank require property valuations,PropertyValuation
+are valuations required,PropertyValuation
+is there any requirement for a property valuation,PropertyValuation
+How do I make a claim,HowDoIClaim
+how can I make a claim,HowDoIClaim
+how do I make an insurance claim,HowDoIClaim
+what is the process for making a claim,HowDoIClaim
+what is the claiming procedure,HowDoIClaim
+is it easy to make a claim,HowDoIClaim
+what do I do to lodge a claim,HowDoIClaim
+what do I do to lodge an insurance claim,HowDoIClaim
+how do I claim my insurance,HowDoIClaim
+what do I have to do to make a claim,HowDoIClaim
+is it hard to make an insurance claim,HowDoIClaim
+What proof do I need when I make a claim,WhatClaimProof
+what do I need to prove a claim,WhatClaimProof
+what supporting documentation do I need for an insurance claim,WhatClaimProof
+do I need any supporting evidence for a claim,WhatClaimProof
+what evidence do I need for an insurance claim,WhatClaimProof
+what do I need when I make a claim,WhatClaimProof
+is there any proof I need for my claims,WhatClaimProof
+do I need to provide any proof for my insurance claim,WhatClaimProof
+"when I make a claim, what proof do I need",WhatClaimProof
+"when I lodge a claim, do I need any evidence to support it",WhatClaimProof
+what evidence to support the claim do I need to show,WhatClaimProof
+what proof is shown when making a claim,WhatClaimProof
+What is the advantage of getting a professionally prepared valuation,ProfessionalValuationBenefits
+is it better to get a professional valuation,ProfessionalValuationBenefits
+is there an advantage to getting professional valuation,ProfessionalValuationBenefits
+should I get a professionally prepared valuation,ProfessionalValuationBenefits
+why should I get a professional valuation,ProfessionalValuationBenefits
+are professional valuations more desirable,ProfessionalValuationBenefits
+what are the benefits of getting valuations professionally,ProfessionalValuationBenefits
+are there benefits to professionaly prepared valuations,ProfessionalValuationBenefits
+are there any advantages from professional valuations,ProfessionalValuationBenefits
+what is better about professional valuations,ProfessionalValuationBenefits
+what are costs for content valuations,ContentValuationCost
+how much does it cost to get a content valuation,ContentValuationCost
+how expensive is it to get a valuation,ContentValuationCost
+how much does it cost to get a content evaluation,ContentValuationCost
+are there costs for getting a valuation,ContentValuationCost
+how much money does it cost to get a professional content valuation,ContentValuationCost
+what is the cost of a content valuation,ContentValuationCost
+will I have to pay money to get a valuation,ContentValuationCost
+what does a content valuation cost,ContentValuationCost
+can you tell me how much a content valuation costs,ContentValuationCost
+what are excesses,WhatIsExcess
+what is an excess,WhatIsExcess
+can you please tell me what excesses,WhatIsExcess
+can you tell me what access is,WhatIsExcess
+can you please tell me what accesses,WhatIsExcess
+can you tell me what an excess is,WhatIsExcess
+what exactly is an excess,WhatIsExcess
+please describe what an excess is,WhatIsExcess
+I don't know what an excess is,WhatIsExcess
+I need to know what an excess is,WhatIsExcess
+what are excess costs,WhatIsExcess
+what kind of fee are excesses,WhatIsExcess
+please tell me what excesses are,WhatIsExcess
+should I keep an inventory of my contents,ContentsInventory
+is it a good idea to keep an inventory of my contents,ContentsInventory
+why should I keep a contents inventory,ContentsInventory
+should I keep track of my contents,ContentsInventory
+is it wise to keep track of my contents,ContentsInventory
+should I keep a list of my contents,ContentsInventory
+is it beneficial to keep a list of contents,ContentsInventory
+should I maintain a contents inventory,ContentsInventory
+is it good to keep a contents inventory,ContentsInventory
+should I be keeping a list of my contents,ContentsInventory
+is it a good idea to have a reference list for my contents,ContentsInventory
+Do I have to tell you my input tax credit entitlement on my insurance premium,ProvideITC
+do I have to provide my input tax credit,ProvideITC
+will you need to have my input tax credit,ProvideITC
+must I provide my input credit,ProvideITC
+is it necessary to give my tax credit on my premium,ProvideITC
+is it required to give my credit entitlement on my premium,ProvideITC
+"for my premium, is it necessary to give my input tax credit entitlement",ProvideITC
+is my credit entitlement necessary information on my insurance premium,ProvideITC
+do I have to provide my ITC for my insurance premium,ProvideITC
+do I need to show my ITC on my premium,ProvideITC
+is the ITC required on my premium,ProvideITC
+do I have to provide my tax credit on my premium,ProvideITC
+is my tax credit required on my premium,ProvideITC
+will I have to provide my input tax credit entitlement on my insurance premium,ProvideITC
+Why do you deduct ITC entitlement from any direct payments to me,ITCDeductions
+are input tax credit entitlements deducted from my payments,ITCDeductions
+why are input tax credits deducted from my payments,ITCDeductions
+why are ITC entitlements deducted from my direct repayments,ITCDeductions
+is there a deduction to my payments due to ITC entitlements,ITCDeductions
+are there deductions to my payments due to my input tax credits,ITCDeductions
+is my payment smaller because of ITC entitlements,ITCDeductions
+do my payments get have deductions because of ITC entitlements,ITCDeductions
+do ITC entitlements reduce the size of my direct payments,ITCDeductions
+why do ITC entitlements reduce my payments,ITCDeductions
+who can I discuss my ITC with,ITCDiscussion
+who can I discuss input tax credits with,ITCDiscussion
+is there someone I can talk to about ITC,ITCDiscussion
+is there someone I can talk to about input tax credit entitlements,ITCDiscussion
+who can I talk to about input tax credits,ITCDiscussion
+who can I talk to about ITC,ITCDiscussion
+are there people I can talk to about tax credit entitlements,ITCDiscussion
+who is available to talk about tax credit entitlements,ITCDiscussion
+I need to get some help with tax credit entitlements,ITCDiscussion
+I need some advice on ITC,ITCDiscussion
+can someone offer me some advice on ITC,ITCDiscussion
+who can offer me help with input tax credit entitlements,ITCDiscussion
+Is loss or damage caused by a defect at the home covered under my policy,AreDefectsCovered
+are home defects covered by the insurance policy,AreDefectsCovered
+is damage resulting from a defect covered in the policy,AreDefectsCovered
+is loss or damage covered if it as a result of a defect,AreDefectsCovered
+"if there is damage due to a defect, am I still covered by the insurance policy",AreDefectsCovered
+"for damage that resulted from a home defect, am I still in policy",AreDefectsCovered
+is damage caused by a defect still covered by the insurance,AreDefectsCovered
+does the insurance cover damage resulting from a defect,AreDefectsCovered
+"if I have a defect in my home and it causes damage, is that damage still covered by my policy",AreDefectsCovered
+"if a home defect causes loss or damage, will my policy still cover it",AreDefectsCovered
+"Are rented TVs, DVD players covered by my contents policy",AreRentalsCovered
+are rented items covered by my contents insurance policy,AreRentalsCovered
+"if I have rented items that are damaged, are they still covered",AreRentalsCovered
+does the policy cover rented things,AreRentalsCovered
+are rental items covered in the policy,AreRentalsCovered
+will rental items be covered by the contents insurance policy,AreRentalsCovered
+is rented furniture covered by the policy,AreRentalsCovered
+"if I have rental items, will they still be covered",AreRentalsCovered
+does the contents policy include rentals,AreRentalsCovered
+"does the policy include things like rented furniture, rented TVs, rented DVDs",AreRentalsCovered
+will the policy pay for rented things,AreRentalsCovered
+are my carpets covered by my home or contents insurance,AreCarpetsCovered
+are carpets covered in the policy,AreCarpetsCovered
+does contents insurance include carpets,AreCarpetsCovered
+will my carpet be covered by the insurance,AreCarpetsCovered
+does the insurance cover carpet damage,AreCarpetsCovered
+is damage to carpets included in the policy,AreCarpetsCovered
+do carpets get covered by contents insurance,AreCarpetsCovered
+does home insurance cover carpets,AreCarpetsCovered
+will my policy cover damage done to carpets,AreCarpetsCovered
+contents and home insurance cover carpets,AreCarpetsCovered
+is damage to carpets in the policy,AreCarpetsCovered
+is my home covered while I am away on holidays,AreHolidaysCovered
+does my cover still apply while I am on holiday,AreHolidaysCovered
+am I still covered while on holiday,AreHolidaysCovered
+am I still covered by my insurance while on vacation,AreHolidaysCovered
+"if I go on vacation, is my home still covered by the insurance",AreHolidaysCovered
+does my insurance cover my home while I am on holiday,AreHolidaysCovered
+"if I am away from home, will I still get insurance",AreHolidaysCovered
+"while away from home, does the insurance still cover my house",AreHolidaysCovered
+is my house covered while I am away on holiday,AreHolidaysCovered
+"if I am on vacation and something happens, am I still covered",AreHolidaysCovered
+if damage occurs to my home while I am away will I still get covered,AreHolidaysCovered
+what is this picture,DoVisualRecognition
+what is this photo,DoVisualRecognition
+identify this picture for me,DoVisualRecognition
+tell me what this picture is,DoVisualRecognition
+can you identify this image for me,DoVisualRecognition
+what image is this,DoVisualRecognition
+tell me what this image is,DoVisualRecognition
+could you please identify this picture for me,DoVisualRecognition
+what do you think this is,DoVisualRecognition
+what is this,DoVisualRecognition
+can you guess what this is,DoVisualRecognition
+what is this a photo of,DoVisualRecognition
+what is this a picture of,DoVisualRecognition
+please analyse this picture for me,DoVisualRecognition
+please analyse this image for me,DoVisualRecognition
+can you recognise this,DoVisualRecognition
+please recognise this image for me,DoVisualRecognition
+what does this say,DoTextRecognition
+what is this text,DoTextRecognition
+can you read this for me,DoTextRecognition
+read this for me,DoTextRecognition
+can read this to me please,DoTextRecognition
+what does this text say,DoTextRecognition
+can you read this page for me,DoTextRecognition
+can you read this image with text,DoTextRecognition
+please read this,DoTextRecognition
+read this out loud for us,DoTextRecognition
+what is this writing,DoTextRecognition
+read what is written here,DoTextRecognition
+what is written here,DoTextRecognition
+read this,DoTextRecognition
+can you read what is written here please,DoTextRecognition
+who is this,DoFacialRecognition
+which person is this,DoFacialRecognition
+do you recognise this person,DoFacialRecognition
+can you recognise who this is,DoFacialRecognition
+who is the person in this picture,DoFacialRecognition
+can you recognise anyone in this picture,DoFacialRecognition
+tell me who you see here,DoFacialRecognition
+are there any people in this photo,DoFacialRecognition
+is there a person in front of you,DoFacialRecognition
+who are you looking at,DoFacialRecognition
+which person are you looking at,DoFacialRecognition
+what person can you see,DoFacialRecognition
+what kind of car is this,DoCarRecognition
+what car is this,DoCarRecognition
+do you know what kind of car this is,DoCarRecognition
+what type of car is this,DoCarRecognition
+can you tell us what kind of car this is,DoCarRecognition
+look at this car and tell me what kind it is,DoCarRecognition
+take a look at this vehicle and tell me what kind it is,DoCarRecognition
+what sort of car is this,DoCarRecognition
+what sort of automobile is this,DoCarRecognition
+can you tell us what sort of car this is,DoCarRecognition
+what kind of car do you think this is,DoCarRecognition
+what variety of car is this,DoCarRecognition
+which car is this one,DoCarRecognition
+what car would you guess is this,DoCarRecognition
+guess what car this is please,DoCarRecognition

@@ -1,0 +1,20 @@
+        positive_sets = ["../Resources/Visual Recognition/Training Sets/1970 VW Beetle.zip", "../Resources/Visual Recognition/Training Sets/Alfa Romeo Brera.zip", "../Resources/Visual Recognition/Training Sets/Aston Martin Vanquish.zip", "../Resources/Visual Recognition/Training Sets/Audi R8 Spyder.zip", "../Resources/Visual Recognition/Training Sets/Bentley Mulsanne.zip", "../Resources/Visual Recognition/Training Sets/BMW i8.zip", "../Resources/Visual Recognition/Training Sets/Ferrari 458 Spider.zip", "../Resources/Visual Recognition/Training Sets/Honda HSC Concept.zip", "../Resources/Visual Recognition/Training Sets/Jaguar XK.zip", "../Resources/Visual Recognition/Training Sets/Lamborghini Aventador.zip", "../Resources/Visual Recognition/Training Sets/Lotus Elise.zip", "../Resources/Visual Recognition/Training Sets/Mazda Ryuga.zip", "../Resources/Visual Recognition/Training Sets/McLaren F1.zip", "../Resources/Visual Recognition/Training Sets/Porsche 911 GT3.zip"]
+        with open(join(dirname(__file__), positive_sets[0]), 'rb') as pos_examples1, \
+            open(join(dirname(__file__), positive_sets[1]), 'rb') as pos_examples2, \
+            open(join(dirname(__file__), positive_sets[2]), 'rb') as pos_examples3, \
+            open(join(dirname(__file__), positive_sets[3]), 'rb') as pos_examples4, \
+            open(join(dirname(__file__), positive_sets[4]), 'rb') as pos_examples5, \
+            open(join(dirname(__file__), positive_sets[5]), 'rb') as pos_examples6, \
+            open(join(dirname(__file__), positive_sets[6]), 'rb') as pos_examples7, \
+            open(join(dirname(__file__), positive_sets[7]), 'rb') as pos_examples8, \
+            open(join(dirname(__file__), positive_sets[8]), 'rb') as pos_examples9, \
+            open(join(dirname(__file__), positive_sets[9]), 'rb') as pos_examples10, \
+            open(join(dirname(__file__), positive_sets[10]), 'rb') as pos_examples11, \
+            open(join(dirname(__file__), positive_sets[11]), 'rb') as pos_examples12, \
+            open(join(dirname(__file__), positive_sets[12]), 'rb') as pos_examples13, \
+            open(join(dirname(__file__), positive_sets[13]), 'rb') as pos_examples14:
+
+            new_classifiers = self.visual_recognition.create_classifier(classifier_name, VW_Beetle_positive_examples=pos_examples1, Alfa_Romeo_positive_examples=pos_examples2, Bentley_Mulsanne_positive_examples=pos_examples5, BMW_i8_positive_examples=pos_examples6, Ferrari_458_Spider_positive_examples=pos_examples7, Honda_HSC_Concept_positive_examples=pos_examples8, Lamborghini_Aventador_positive_examples=pos_examples10, Lotus_Elise_positive_examples=pos_examples11, Mazda_Ryuga_positive_examples=pos_examples12, Porsche_911_positive_examples=pos_examples14)
+            print json.dumps(new_classifiers, indent=2)
+
+            # Aston_Martin_Vanquish_positive_examples=pos_examples3, Audi_R8_Spyder_positive_examples=pos_examples4, McLaren_F1_positive_examples=pos_examples13, Jaguar_XK_positive_examples=pos_examples9,
