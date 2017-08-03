@@ -43,6 +43,11 @@ class SpeechRecoModule(ALModule):
         self.hasPushed = False
         self.hasSubscribed = False
         self.BIND_PYTHON(self.getName(), "onWordRecognized")
+        self.tts = ALProxy("ALTextToSpeech", IP_global, PORT)
+        self.audio = ALProxy("ALAudioDevice", IP_global, PORT)
+        self.record = ALProxy("ALAudioRecorder", IP_global, PORT)
+        self.aup = ALProxy("ALAudioPlayer", IP_global, PORT)
+        self.record_path = '/home/nao/out.wav'
 
     def onUnload(self):
         self.mutex.acquire()
@@ -80,20 +85,13 @@ class SpeechRecoModule(ALModule):
                 self.hasSubscribed = True
                 self.asr.pause(False)
 
-
-                self.tts = ALProxy("ALTextToSpeech", IP_global, PORT)
-                self.audio = ALProxy("ALAudioDevice", IP_global, PORT)
-                self.record = ALProxy("ALAudioRecorder", IP_global, PORT)
-                self.aup = ALProxy("ALAudioPlayer", IP_global, PORT)
                 # # # ----------> recording <----------
-                #print 'start recording...'
-                self.record_path = '/home/nao/out.wav'
+                # print 'start recording...'
                 self.record.stopMicrophonesRecording()
                 self.record.startMicrophonesRecording(self.record_path, 'wav', 16000, (0, 0, 1, 0))
 
                 # ----------> playing the recorded file <----------
                 #fileID = aup.playFile(record_path, 0.7, 0)
-
 
 
         except RuntimeError, e:
