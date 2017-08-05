@@ -45,7 +45,7 @@ class SoundReceiverModule(naoqi.ALModule):
         print("INF: SoundReceiverModule.__del__: cleaning everything");
         self.stop();
 
-    def start(self, nSampleRate=48000, nChannelConfiguration=0, bSaveOneFilePerChannel=False, bExportAsWav=True,
+    def start(self, nSampleRate=48000, nChannelConfiguration=0, bSaveOneFilePerChannel=True, bExportAsWav=True,
               bVerbose=False):
         """
         - nChannelConfiguration: ALL_Channels: 0,  AL::LEFTCHANNEL: 1, AL::RIGHTCHANNEL: 2; AL::FRONTCHANNEL: 3  or AL::REARCHANNEL: 4.
@@ -152,6 +152,8 @@ class SoundReceiverModule(naoqi.ALModule):
 
                 if self.bExportAsWav:
                     import abcdk.sound
+
+
                     if not self.bSaveOneFilePerChannel:
                         wavTempJustForHeader = abcdk.sound.Wav();
                         wavTempJustForHeader.new(nSamplingRate=self.nSampleRate, nNbrChannel=nbOfChannels,
@@ -245,7 +247,7 @@ def main():
         pip=NAO_IP,
         nSampleRate=48000,
         nChannelConfiguration=0,
-        bSaveOneFilePerChannel=False,
+        bSaveOneFilePerChannel=True,
         bExportAsWav=True,
         bVerbose=False,
         pport=9559)
