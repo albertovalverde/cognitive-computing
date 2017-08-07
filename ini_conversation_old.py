@@ -12,8 +12,13 @@
 import time, pickle
 import cognitive_services
 from naoqi import *
+from PythonForNaomi import StartNaomi
 from ftplib import FTP
+
 from PythonForNaomi import RobotFunctions, StartNaomi
+from NLC import NLC, NLCClassifierAdmin
+from VisualRecognition import WatsonVisualRecognition
+
 import json
 from watson_developer_cloud import ConversationV1
 
@@ -27,6 +32,8 @@ credentials = json.load(open('Config/credentials.json'))  # Loads all Bluemix cr
 robotCheck = StartNaomi.checkIfRobotIsConnected()  # Check if robot is connected
 PORT = 9559  # Get Naomi's port
 IP_global = StartNaomi.getIP(robotCheck)  # Get Naomi's IP address
+
+
 
 class SpeechRecoModule(ALModule):
     """ A module to use speech recognition """
@@ -60,6 +67,7 @@ class SpeechRecoModule(ALModule):
                                                   message_input={'text': 'What\'s the weather like?'})
         print(json.dumps(self.response, indent=2))
 
+
     def onLoad(self):
         # Module for Cognitive Services
         self.CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
@@ -76,6 +84,8 @@ class SpeechRecoModule(ALModule):
         self.aup = ALProxy("ALAudioPlayer", IP_global, PORT)
         self.record_path = '/home/nao/out.wav'
 
+
+
     def onUnload(self):
         self.mutex.acquire()
         try:
@@ -89,6 +99,7 @@ class SpeechRecoModule(ALModule):
             raise e
         self.bIsRunning = False;
         self.mutex.release()
+
 
     def onInput_onStart(self):
 
@@ -182,6 +193,7 @@ class SpeechRecoModule(ALModule):
         # Restart the iteration bucle
         StartIteration()
 
+
 def StartIteration():
     if robotCheck:
         pythonSpeechModule.onLoad()
@@ -189,6 +201,11 @@ def StartIteration():
         time.sleep(200)
         pythonSpeechModule.onUnload()
     else:
+        print "Without Robot"
+        # CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
+        # CognitiveConnection.on_modified("out.wav")
+
+        transcript = StartNaomi.getTextFake()
         conversation = ConversationV1(
             username='ea9f8961-00bd-46ab-8b57-07d2760ad99a',
             password='7EqPZ1PjSb7l',
@@ -197,34 +214,37 @@ def StartIteration():
         # # replace with your own workspace_id
         workspace_id = 'b8267685-5fb7-450c-bd3c-55d9a6723ee9'
 
+        stringToSay = StartNaomi.getTextFake()
+
         # response = conversation.message(workspace_id=workspace_id,
         #                                           message_input={'text':  stringToSay})
         # print(json.dumps(response, indent=2))
         # print json.dumps(response["output"]["text"])
         # print response["intents"][0]["intent"]
         # print response['context']
+
+
+
         try:
             with open('response.json') as data_file:
                     data = json.load(data_file)
-            response = data
+            response= data
         except:
-            response = None
-
-        stringToSay = StartNaomi.getTextFake()
+            response=None
 
         response = conversation.message(workspace_id=workspace_id,
                                                   message_input={'text': stringToSay}, context=response['context'])
-        #print(json.dumps(response, indent=2))
-        print json.dumps(response["output"]["text"])
-        print response["intents"][0]["intent"]
+        print(json.dumps(response, indent=2))
 
         with open('response.json', 'w') as outfile:
             json.dump(response, outfile)
 
         StartIteration()
 
+
 def confirmReadyForStartUp():
     print "\nReady to get started!"
+
 
 # This function is for testing in a NO robot mode "without robot
 # Say first hello bot and save the response in a local file "response.json"
@@ -237,6 +257,7 @@ def TestConversation():
         print "deleting response.json for restart the process"
     except:
         print "no response.json to delete"
+
     conversation = ConversationV1(
         username='ea9f8961-00bd-46ab-8b57-07d2760ad99a',
         password='7EqPZ1PjSb7l',
@@ -247,10 +268,10 @@ def TestConversation():
 
     response = conversation.message(workspace_id=workspace_id,
                                     message_input={'text': 'What\'s the weather like?'})
-    #print(json.dumps(response, indent=2))
-    print json.dumps(response["output"]["text"])
+    print(json.dumps(response, indent=2))
     with open('response.json', 'w') as outfile:
         json.dump(response, outfile)
+
 
 def main():
     try:

@@ -140,7 +140,7 @@ def main():
          else:
              print "Without Robot"
              CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
-             CognitiveConnection.on_modified("out.wav")
+             CognitiveConnection.on_modified("hello.wav")
 
          StartIteration()
 
