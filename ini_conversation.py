@@ -49,12 +49,13 @@ class SpeechRecoModule(ALModule):
         # self.speechToPath = speech_path
 
         self.conversation = ConversationV1(
-            username='ea9f8961-00bd-46ab-8b57-07d2760ad99a',
-            password='7EqPZ1PjSb7l',
+            username='5f0c7cef-dc6f-4c1d-bf1d-9eb6997709e6',
+            password='RnKnTCXaK6YW',
             version='2016-09-20')
 
+
         # # replace with your own workspace_id
-        self.workspace_id = 'b8267685-5fb7-450c-bd3c-55d9a6723ee9'
+        self.workspace_id = 'a874cb5f-13d9-4d51-a210-f8d570aad15b'
 
         self.response = self.conversation.message(workspace_id=self.workspace_id,
                                                   message_input={'text': 'What\'s the weather like?'})
@@ -190,12 +191,12 @@ def StartIteration():
         pythonSpeechModule.onUnload()
     else:
         conversation = ConversationV1(
-            username='ea9f8961-00bd-46ab-8b57-07d2760ad99a',
-            password='7EqPZ1PjSb7l',
+            username='5f0c7cef-dc6f-4c1d-bf1d-9eb6997709e6',
+            password='RnKnTCXaK6YW',
             version='2016-09-20')
 
         # # replace with your own workspace_id
-        workspace_id = 'b8267685-5fb7-450c-bd3c-55d9a6723ee9'
+        workspace_id = 'a874cb5f-13d9-4d51-a210-f8d570aad15b'
 
         # response = conversation.message(workspace_id=workspace_id,
         #                                           message_input={'text':  stringToSay})
@@ -238,12 +239,12 @@ def TestConversation():
     except:
         print "no response.json to delete"
     conversation = ConversationV1(
-        username='ea9f8961-00bd-46ab-8b57-07d2760ad99a',
-        password='7EqPZ1PjSb7l',
+        username='5f0c7cef-dc6f-4c1d-bf1d-9eb6997709e6',
+        password='RnKnTCXaK6YW',
         version='2016-09-20')
 
     # # replace with your own workspace_id
-    workspace_id = 'b8267685-5fb7-450c-bd3c-55d9a6723ee9'
+    workspace_id = 'a874cb5f-13d9-4d51-a210-f8d570aad15b'
 
     response = conversation.message(workspace_id=workspace_id,
                                     message_input={'text': 'What\'s the weather like?'})
