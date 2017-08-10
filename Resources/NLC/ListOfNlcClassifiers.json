@@ -1,25 +1,25 @@
 {
     "classifiers": [
         {
-            "classifier_id": "359f3fx202-nlc-204315",
-            "created": "2017-07-20T15:08:04.841Z",
+            "classifier_id": "ad940ex207-nlc-2122",
+            "created": "2017-08-10T19:49:30.778Z",
             "language": "en",
             "name": "BasicConversationWithTherapy",
-            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/359f3fx202-nlc-204315"
+            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/ad940ex207-nlc-2122"
         },
         {
-            "classifier_id": "359f3fx202-nlc-203475",
-            "created": "2017-07-20T11:50:19.508Z",
-            "language": "en",
-            "name": "BasicConversation",
-            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/359f3fx202-nlc-203475"
-        },
-        {
-            "classifier_id": "359f41x201-nlc-203668",
-            "created": "2017-07-20T11:50:31.636Z",
+            "classifier_id": "ad940ex207-nlc-2125",
+            "created": "2017-08-10T20:08:50.712Z",
             "language": "en",
             "name": "BasicConversationWithBankFaqs",
-            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/359f41x201-nlc-203668"
+            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/ad940ex207-nlc-2125"
+        },
+        {
+            "classifier_id": "ad940bx206-nlc-2165",
+            "created": "2017-08-10T20:08:40.011Z",
+            "language": "en",
+            "name": "BasicConversation",
+            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/ad940bx206-nlc-2165"
         }
     ]
 }

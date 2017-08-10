@@ -215,9 +215,11 @@ def StartIteration():
 
         response = conversation.message(workspace_id=workspace_id,
                                                   message_input={'text': stringToSay}, context=response['context'])
-        #print(json.dumps(response, indent=2))
+        print(json.dumps(response, indent=2))
         print json.dumps(response["output"]["text"])
         print response["intents"][0]["intent"]
+        print response["entities"][0]["entity"]
+        print response["entities"][0]["value"]
 
         with open('response.json', 'w') as outfile:
             json.dump(response, outfile)
