@@ -1,11 +1,11 @@
 {
     "classifiers": [
         {
-            "classifier_id": "ad940ex207-nlc-2122",
-            "created": "2017-08-10T19:49:30.778Z",
+            "classifier_id": "ad937ax205-nlc-2300",
+            "created": "2017-08-11T15:58:28.277Z",
             "language": "en",
             "name": "BasicConversationWithTherapy",
-            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/ad940ex207-nlc-2122"
+            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/ad937ax205-nlc-2300"
         },
         {
             "classifier_id": "ad940ex207-nlc-2125",

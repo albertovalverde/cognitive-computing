@@ -1,0 +1,33 @@
+html,body{height:100%;}
+
+.container {
+  /*  height:100%;*/
+}
+
+.fill{
+    width:100%;
+    height:60%;
+    min-height:60%;   
+    padding: 10px 0px 20px 0px;  
+}
+
+.centeralign
+{
+text-align:center;
+}
+
+
+
+   
+/* STRUCTURE */
+
+.response_btn {
+	display: block;
+	width: 100%;
+}
+
+.btn-group-lg>.btn, .btn-lg {    
+    font-size: 40px;   
+}
+
+

@@ -19,6 +19,7 @@ class Robot:
         self.robotFunctionsDict["DoVisualRecognition"] = Robot.__dict__["takeAPicture"] # Set the visual recognition command to take a picture
         self.robotFunctionsDict["DoTextRecognition"] = Robot.__dict__["takeAPicture"] # Set the text recognition command to take a picture
         self.robotFunctionsDict["DoCarRecognition"] = Robot.__dict__["takeAPicture"] # Set the custom visual recognition command to take a picture
+        self.robotFunctionsDict["PlayGame"] = Robot.__dict__["playGame"]  # Set the custom visual recognition command to take a picture
 
         if self.robotCheck:
             # # Initialise communication proxies for Naomi
@@ -45,8 +46,8 @@ class Robot:
     def StartUp(self):
         if self.robotCheck:
             # Set starting parameters for Naomi
-            self.WakeUp() # wake it up
-            self.StandUp() # make Naomi stand up if not already standing
+            #self.WakeUp() # wake it up
+            #self.StandUp() # make Naomi stand up if not already standing
             self.leds.fadeRGB("FaceLeds", self.config["listeningColour"], 0) # set eye colour to listeningColour (set in config file)
             self.autonomousMovement.setBackgroundStrategy("backToNeutral") # turn on humanoid 'swaying'
 
@@ -132,6 +133,16 @@ class Robot:
         if self.robotCheck:
             self.leds.post.fadeRGB("FaceLeds", self.config["responseColour"], self.config["ledTiming"]*1.5)
             self.audibleListen()
+
+    def playGame(self):
+        print "into the playgame of robotutils"
+        # create proxy on ALMemory for comunicate with webview
+        memProxy = ALProxy("ALMemory", self.IP, self.PORT)
+        # raise event. Data can be int, float, list, string
+        memProxy.raiseEvent("PlayGame", "todo:color selection")
+
+
+
     def takeAPicture(self):
         print "take a picture"
         #First get an image from Nao, then show it on the screen with PIL.

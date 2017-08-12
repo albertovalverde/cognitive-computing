@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Vison teraphy - Child name</title>
+<link href="assets/css/default.css" rel="stylesheet" />
+</head>
+<body>  
+  <div class="left-up" id="0">LEMON</div>
+  <div class="right-up" id="1">APPLE</div>
+  <div class="right-down" id="2">BERRY</div>
+  <!--  <div class="left-down" id="3">ORANGE</div> -->
+  <div class="screen-middle" id="4"><h1>Clic to result!</h1></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</html>
+
+<script>
+var myVar = setInterval(function(){ myTimer() }, 1000);
+var childNames = ['Hector', 'Alberto', 'Pablo', 'Jesus', "Marcos", "Pedro"];    
+var interval = 0;
+var counter = 0;
+var nameFound = 0;
+
+hideAll();
+
+function hideAll()
+{
+	$("#0").hide();
+	$("#1").hide();
+	$("#2").hide();
+	$("#3").hide();
+	$("#4").hide();
+}
+
+function myTimer() {	
+	hideAll()
+	var NameChild=childNames[Math.floor(Math.random() * childNames.length)];
+	$("#" + interval).html("<h1>"+NameChild+"</h1>");
+	var div = $("#" + interval).show();
+     ++interval;
+	 ++counter;
+	 
+	
+	 if (NameChild=="Pedro")
+	 ++ nameFound;
+	 
+	 if (interval==3)
+	 interval =0;
+	 if (counter==20)
+	 {
+		hideAll()
+		clearInterval(myVar);
+		var div = $("#4").show();		
+	 }
+}
+
+$( "#4" ).click(function() {
+  $("#4").html("<h1> Total: "+nameFound+"</h1>");
+});
+</script>

@@ -43,3 +43,4 @@ DoVisualRecognition,BasicConversationWithBankFaqs,"Alright, please show me the p
 DoTextRecognition,BasicConversationWithBankFaqs,"Ok, let me get out my reading glasses.",,,
 DoFacialRecognition,BasicConversationWithBankFaqs,Let me see the picture of the person!,,,
 DoCarRecognition,BasicConversationWithBankFaqs,"No worries, let me take a look",,,
+DoPlayGame,BasicConversation,"Sure, I love to play a games. Please show the screen...",,,

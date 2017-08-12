@@ -1,4 +1,4 @@
-import json, sys, pickle
+import json, sys, pickle, time
 import speech_recognition as sr
 from PythonForNaomi import RobotFunctions, StartNaomi
 from NLC import NLC, NLCClassifierAdmin
@@ -74,6 +74,12 @@ def DoCustomVisualRecognition():
     return [response_phrase, picture["time_elapsed"]]
 
 
+def DoPlayGame():
+    print "into DoPlayGame of Cognitive_services"
+    response_phrase = "Into playGame congnitive services"
+    time.sleep(100)
+    return [response_phrase, 0]
+
 def DoNothing():
     return [0, 0]
 
@@ -83,7 +89,8 @@ watsonFunctions = {  # dictionary of the Watson demos that Naomi can perform
         'DoVisualRecognition': DoVisualRecognition,
         'DoFacialRecognition': DoFacialRecognition,
         'DoCarRecognition': DoCustomVisualRecognition,
-        'PersonalityInsights': PersonalityInsights
+        'PersonalityInsights': PersonalityInsights,
+        'PlayGame': DoPlayGame
 }
 
 class CognitiveService():
@@ -143,6 +150,7 @@ class CognitiveService():
                 #print nlcClassification + "___" + self.nlcClassifierName
                 nlcResponse = self.HandleNlc.returnResponse(self.nlcClassifierName,
                                                        nlcClassification)  # Retrieve correct response for the NLC classification
+                print nlcResponse
 
                 self.Naomi.printAndSay(nlcResponse[0])  # Print and say (if the robot is connected) the verbal response
                 self.nlcClassifierID = nlcResponse[1]  # Set the classifier ID to be used for the next NLC request

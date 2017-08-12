@@ -1,0 +1,41 @@
+	h1 {
+		font-size: 300%;
+		color:red;
+	}	
+	h2 {
+		font-size: 200%;
+		color:red;
+	}	
+
+  .left-down {
+    position: fixed;
+    bottom: 0;
+    right: 0;	
+		
+  }
+  .left-up {
+    position: fixed;
+	top: 40%;
+    left: 10px;	
+		
+  }
+  .right-down {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+	
+  }
+  .right-up {
+    position: fixed;
+    top: 0;
+    right: 10px;	
+	
+  }
+  .screen-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;   
+	cursor: pointer;
+  }  
