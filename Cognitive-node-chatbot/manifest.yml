@@ -1,0 +1,26 @@
+---
+declared-services:
+  wbc-conversation-service:
+    label: conversation
+    plan: free
+  wbc-discovery-service:
+    label: discovery
+    plan: lite
+  wbc-natural-language-understanding-service:
+    label: natural-language-understanding
+    plan: free
+  wbc-tone-analyzer-service:
+    label: tone_analyzer
+    plan: standard
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  name: watson-banking-chatbot
+  disk_quota: 256M
+  random-route: true
+  services:
+  - wbc-conversation-service
+  - wbc-tone-analyzer-service
+  - wbc-natural-language-understanding-service
+  - wbc-discovery-service
