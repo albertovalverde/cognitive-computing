@@ -12,17 +12,14 @@
 import time
 import cognitive_services
 from naoqi import *
-from PythonForNaomi import StartNaomi
+from PythonForNaomi import RobotFunctions, StartNaomi
 from ftplib import FTP
-
 # ~--- Initial startup stuff ---~#
 robotCheck = StartNaomi.checkIfRobotIsConnected()  # Check if robot is connected
 PORT = 9559  # Get Naomi's port
 IP_global = StartNaomi.getIP(robotCheck)  # Get Naomi's IP address
-
 class SpeechRecoModule(ALModule):
     """ A module to use speech recognition """
-
     def __init__(self, name):
         ALModule.__init__(self, name)
         try:
@@ -32,14 +29,12 @@ class SpeechRecoModule(ALModule):
         except Exception as e:
             self.asr = None
         self.memory = ALProxy("ALMemory")
-
         self.memory.subscribeToMicroEvent("myMicroEvent", "pythonSpeechModule", "message", "playGameEnd")
-
-
+        self.isOnPlaying = False
+        self.valuePlaying = 0
     def onLoad(self):
         # Module for Cognitive Services
         self.CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
-
         from threading import Lock
         self.bIsRunning = False
         self.mutex = Lock()
@@ -51,7 +46,6 @@ class SpeechRecoModule(ALModule):
         self.record = ALProxy("ALAudioRecorder", IP_global, PORT)
         self.aup = ALProxy("ALAudioPlayer", IP_global, PORT)
         self.record_path = '/home/nao/out.wav'
-
     def onUnload(self):
         self.mutex.acquire()
         try:
@@ -65,7 +59,6 @@ class SpeechRecoModule(ALModule):
             raise e
         self.bIsRunning = False;
         self.mutex.release()
-
     def onInput_onStart(self):
 
         from threading import Lock
@@ -101,31 +94,36 @@ class SpeechRecoModule(ALModule):
             self.onUnload()
             raise e
         self.mutex.release()
-
     def onWordRecognized(self, key, value, message):
+        print "entro en wordrecognition MAIN"
         self.onUnload()
         self.record.stopMicrophonesRecording()
         print 'record over'
-
         filename = 'out.wav'
         file = open(filename, 'wb')
         self.ftp.retrbinary('RETR %s' % filename, file.write)
-
-        # Call to Cognitive services in Cloud
-        self.CognitiveConnection.on_modified(filename)
-
+        if self.isOnPlaying:
+            if self.CognitiveConnection.on_CheckPlay(filename,self.valuePlaying):
+                print "good"
+                self.isOnPlaying = False
+                self.valuePlaying = 0
+            else:
+                print  "Bad"
+        else:
+            # Call to Cognitive services in Cloud
+            self.CognitiveConnection.on_modified(filename)
         # Restart the iteration bucle
         StartIteration()
-
     #raise from webView when game is finish
     def playGameEnd(self, strVarName, value, message):
         """callback when WebView trigger"""
-        print "Micro-event is raise callback is called by ALMemory"
+        # how many red robots appear in the scene?
         print value
-        # print "datachanged", strVarName, " ", value, " ", strMessage
+        self.isOnPlaying = True
+        self.valuePlaying = value
+        message= "Well, Can you say me how many red robots was displaying on the screen?"
+        self.CognitiveConnection.on_SayAndPrint(message)
         StartIteration()
-
-
 def StartIteration():
     if robotCheck:
         pythonSpeechModule.onLoad()
@@ -136,10 +134,8 @@ def StartIteration():
         print "Without Robot"
         CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
         CognitiveConnection.on_modified("out.wav")
-
 def confirmReadyForStartUp():
     print "\nReady to get started!"
-
 def main():
     try:
          if robotCheck:
@@ -153,10 +149,8 @@ def main():
              CognitiveConnection.on_modified("hello.wav")
 
          StartIteration()
-
     except KeyboardInterrupt:
         print "Interrupted by user, shutting down"
         sys.exit(0)
-
 if __name__ == "__main__":
     main()

@@ -8,8 +8,8 @@ currentipdocument = text_fileIP.readlines()
 IP = currentipdocument[0]; PORT = 9559
 print "Naomi's IP address is " + IP
 
-ttsa = ALProxy("ALAnimatedSpeech", IP_, PORT)
-autonomousMovement = ALProxy("ALAutonomousMoves", IP_, PORT)
+ttsa = ALProxy("ALAnimatedSpeech", IP, PORT)
+autonomousMovement = ALProxy("ALAutonomousMoves", IP, PORT)
 
 autonomousMovement.setBackgroundStrategy("backToNeutral")
 ttsa.say("^start(animations/Stand/Gestures/Hey_1)Hello everyone!")

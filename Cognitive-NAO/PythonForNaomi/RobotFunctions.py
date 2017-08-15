@@ -1,7 +1,6 @@
 from naoqi import ALProxy
-import time,  sys, pprint
-
 from PIL import Image
+import time,  sys, pprint
 
 class Robot:
     def __init__(self, IP, PORT, config, robotCheck):
@@ -41,16 +40,14 @@ class Robot:
             self.tts.setParameter("speed", int(self.config["speechSpeed"])) # Voice speed
             self.resolution = 2    # VGA
             self.colorSpace = 11   # RGB
-
     # ~--- Start the robot up with the default settings if it is connected ---~#
     def StartUp(self):
         if self.robotCheck:
             # Set starting parameters for Naomi
-            self.WakeUp() # wake it up
-            self.StandUp() # make Naomi stand up if not already standing
+           # self.WakeUp() # wake it up
+            #self.StandUp() # make Naomi stand up if not already standing
             self.leds.fadeRGB("FaceLeds", self.config["listeningColour"], 0) # set eye colour to listeningColour (set in config file)
             self.autonomousMovement.setBackgroundStrategy("backToNeutral") # turn on humanoid 'swaying'
-
     # define the robot functions
     def DoNothing(self): # Empty function, placeholder for when no robot function has been called in response to a user request
         pass
@@ -133,16 +130,12 @@ class Robot:
         if self.robotCheck:
             self.leds.post.fadeRGB("FaceLeds", self.config["responseColour"], self.config["ledTiming"]*1.5)
             self.audibleListen()
-
     def playGame(self):
-        print "into the playgame of robotutils"
+        self.printAndSay("Now, Pay Attention! The player has to count the RED Robots that displaying on the screen, please keep your attention on the screen!")
         # create proxy on ALMemory for comunicate with webview
         memProxy = ALProxy("ALMemory", self.IP, self.PORT)
         # raise event. Data can be int, float, list, string
         memProxy.raiseEvent("PlayGame", "todo:color selection")
-
-
-
     def takeAPicture(self):
         print "take a picture"
         #First get an image from Nao, then show it on the screen with PIL.
@@ -182,10 +175,8 @@ class Robot:
             self.tts.say("Ok, let me ask Watson!")
             self.leds.fadeRGB("FaceLeds", "yellow", 0)
             self.autonomousMovement.setBackgroundStrategy("backToNeutral")
-
     def WhatDidYouSay(self):
         self.printAndSay(self.previousUtterance)
-
     def RobotFunctionDec(self, robotFunction):
         # Controls eye colour for robot functions, as well as executing the desired robot function
         if self.robotCheck:
@@ -194,7 +185,6 @@ class Robot:
         if self.robotCheck:
             self.leds.fadeRGB("FaceLeds", self.config["listeningColour"], 0)
             self.audibleComprehension()
-
     def printAndSay(self, phrase):
         print 'Luxilor:', phrase, "\n"
         if self.robotCheck: # Speak the response phrase, changing eye colour appropriately, playing comprehension noise, etc.

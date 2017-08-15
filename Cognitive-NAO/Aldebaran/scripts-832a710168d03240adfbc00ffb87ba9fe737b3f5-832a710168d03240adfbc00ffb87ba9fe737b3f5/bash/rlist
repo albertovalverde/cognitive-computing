@@ -1,0 +1,79 @@
+#!/bin/sh
+
+#~ /**
+#~ * A script to detect robot on the network and see their IPs.
+#~ 
+#~ * WARNING: it requires avahi-browse on your computer
+#~ 
+#~ alex@rgelin1-po:~/dev/git/romeo_work_tree/core/naoqicore$ ~/dev/git/appu_shared/scripts/bash/rlist 
+#~ 10.0.160.11     => RomeoHead4
+#~ 10.0.160.147    => NaoAlex16                 
+#~ 10.0.160.157    => NaoAlexV5
+#~ 10.0.160.172    => PepperAlex
+#~ 10.0.160.183    => nao
+#~ 10.0.160.190    => nao-2               
+#~ 
+#~ 
+#~ * @author A. Mazel, B. Libeau, ...
+#~ * Copyright (c) Aldebaran Robotics 2007, 2011 All Rights Reserved - This file is confidential.\n
+#~ */
+
+
+usage() {
+  echo "Usage: rlist [-i | -n]" >&2
+  echo "" >&2
+  echo "Options:" >&2
+  echo "  -i               sort by hostname (default)" >&2
+  echo "  -n               sort by IP address" >&2
+  echo "  --naoqi          display NAOqi status" >&2
+  exit 1
+}
+
+OPT_ORDER="-i"
+OPT_NAOQI='false'
+
+while [ $# -gt 0 ] ; do
+  case $1 in
+    '-n'|'-i')
+      OPT_ORDER="$1"
+      ;;
+    '--naoqi')
+      OPT_NAOQI="true"
+      ;;
+    '-h')
+      usage
+      ;;
+    *)
+      usage
+      ;;
+  esac
+  shift
+done
+
+
+IFS="
+"
+
+naoqi_list=
+if ${OPT_NAOQI} ; then
+  naoqi_list=$(avahi-browse -p -r -t _naoqi._tcp 2> /dev/null | grep "^=" | cut -f8 -d';')
+fi
+
+avahi-browse -p -r -t _nao._tcp 2> /dev/null | grep "^=" | while read I;
+do
+  [ "$(echo -n $I | cut -f3 -d ';')" = 'IPv4' ] || continue
+  HOST=`echo -n $I | cut -f 4 -d ';'`
+  IP=`echo -n$I | cut -f 8 -d ';'`
+  NAOQI_STATUS=" "
+  if ${OPT_NAOQI} ; then
+    NAOQI_STATUS="naoqi: $(echo ${naoqi_list} | grep ${IP} &>/dev/null && echo 'run' || echo '-')"
+  fi
+  case $OPT_ORDER in
+    "-n")
+      printf "%-25s => %-15s  %s\n" $HOST $IP $NAOQI_STATUS
+      ;;
+    *)
+      printf "%-15s => %-25s  %s\n" $IP $HOST $NAOQI_STATUS
+      ;;
+  esac
+done | sort

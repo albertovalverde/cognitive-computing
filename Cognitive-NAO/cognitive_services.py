@@ -3,30 +3,21 @@ import speech_recognition as sr
 from PythonForNaomi import RobotFunctions, StartNaomi
 from NLC import NLC, NLCClassifierAdmin
 from VisualRecognition import WatsonVisualRecognition
-
 config = pickle.load(
     open('Config/configurationDictionary.pkl', 'rb'))  # Loads configuration .pkl file into a Python dictionary
 credentials = json.load(open('Config/credentials.json'))  # Loads all Bluemix credentials
-
 # NLCClassifierAdmin.ClassifierOrganiser().updateMasterSpreadsheet() # Make sure that all NLC classifier IDs are up to date
 # print "File containing NLC classifier information successfully updated.\n"
 ## ~--~ ~--~ ~--~ ~--~ ~--~ ~--~ ~--~ ~--~ ~--~ ~--~ ~--~ ~--~ ~--~ ~--~ ~--~ ##
-
 # ~--- Define the Watson demos ---~#
 watsonVisRec = WatsonVisualRecognition.VisRecHandler(credentials["region"][config["regionVr"]]["VisualRecognition"],
                                                      config)
 HandleNlc = NLC.ResponseHandler(credentials["region"][config["regionNlc"]]["NLC"],
                                 config)  # This handles the determination of response for each NLC classification.
-
-
 def confirmReadyForStartUp():
     print "\nReady to get started!"
-
-
 def PersonalityInsights():
     personSunburst = PersonalityInsights.PI_Request()
-
-
 def DoVisualRecognition():
     picture = watsonVisRec.identifyPicture("/Resources/Visual Recognition/" + config["pictureFileName"])
     response_phrase = "This could be a " + picture["top_classification"] + ". I am " + str(
@@ -42,8 +33,6 @@ def DoVisualRecognition():
     else:
         print "None. This could be an error."
     return [response_phrase, picture["time_elapsed"]]
-
-
 def DoTextRecognition():
     picture = watsonVisRec.recogniseText("/Resources/Visual Recognition/" + config["pictureFileName"])
     text = ', '.join(picture["text"])
@@ -51,8 +40,6 @@ def DoTextRecognition():
     if text == '':
         response_phrase = "I can't read any text in this picture!"
     return [response_phrase, picture["time_elapsed"]]
-
-
 def DoFacialRecognition():
     picture = watsonVisRec.recogniseFaces("/Resources/Visual Recognition/" + config["pictureFileName"])
 
@@ -65,24 +52,18 @@ def DoFacialRecognition():
     else:
         response_phrase = "I can't recognise a person in this picture!"
     return [response_phrase, picture["time_elapsed"]]
-
-
 def DoCustomVisualRecognition():
     picture = watsonVisRec.identifyCustomClassifier("/Resources/Visual Recognition/" + config["pictureFileName"])
     response_phrase = "I think this is a " + picture["top_classification"] + ". I am " + str(
         picture["top_confidence"]) + "% sure."
     return [response_phrase, picture["time_elapsed"]]
-
-
 def DoPlayGame():
-    print "into DoPlayGame of Cognitive_services"
-    response_phrase = "Into playGame congnitive services"
-    time.sleep(100)
-    return [response_phrase, 0]
-
+     print "into DoPlayGame of Cognitive_services"
+    # response_phrase = "Into playGame congnitive services"
+    # time.sleep(100)
+    # return [response_phrase, 0]
 def DoNothing():
     return [0, 0]
-
 watsonFunctions = {  # dictionary of the Watson demos that Naomi can perform
         'DoNothing': DoNothing,
         'DoTextRecognition': DoTextRecognition,
@@ -92,7 +73,6 @@ watsonFunctions = {  # dictionary of the Watson demos that Naomi can perform
         'PersonalityInsights': PersonalityInsights,
         'PlayGame': DoPlayGame
 }
-
 class CognitiveService():
     def __init__(self, IP_global, PORT, robotCheck):
         #threading.Thread.__init__(self)
@@ -112,12 +92,8 @@ class CognitiveService():
         self.HandleNlc= HandleNlc
 
         confirmReadyForStartUp()  # Print start-up message to let user know that everything has been started smoothly
-
-
-
     def on_deleted(self, event):
         pass  # Ignore file deletions from the transcripts folder
-
     def on_modified(self,filename):
 
         print filename
@@ -173,12 +149,36 @@ class CognitiveService():
                 print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
             #Start()
+    def on_CheckPlay(self, filename, value):
+        print filename
+        with sr.WavFile(filename) as source:  # use "test.wav" as the audio source
+            audio = self.google.record(source)
+            # Speech recognition using Google Speech Recognition
+            try:
+                # for testing purposes, we're just using the default API key
+                # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
+                # instead of `r.recognize_google(audio)`
+                if self.roboCheck:
+                    transcript = self.google.recognize_google(audio)
+                else:
+                    transcript = StartNaomi.getTextFake()
+                print "User Say: " + transcript # Print and say (if the robot is connected) the verbal response
+                self.Naomi.printAndSay(
+                    "You say: " + transcript)
 
+                print "Compare:" + str(value) + " = " + str(transcript)
+                if str(value) == str(transcript):
+                    self.Naomi.printAndSay("WOU! You are a champion!, congratulations!")  # Print and say (if the robot is connected) the verbal response
+                else:
+                    self.Naomi.printAndSay(
+                        "Ohhhh! Sorry! you must to improve your vision becouse the correct number is: " + str(value))  # Print and say (if the robot is connected) the verbal response
 
-    # def run(Self):
-    #     print " event started"
-    #     Self.on_modified()
-    #     pass
-    #
-    # def stop(Self):
-    #     pass
+                return True
+            except sr.UnknownValueError:
+                print("Google Speech Recognition could not understand audio")
+                return False
+            except sr.RequestError as e:
+                print("Could not request results from Google Speech Recognition service; {0}".format(e))
+                return False
+    def on_SayAndPrint(self,message):
+        self.Naomi.printAndSay(message)
