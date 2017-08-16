@@ -1,6 +1,22 @@
-NAO_IP = "localhost"
-#~ NAO_IP = "10.0.164.132"
-NAO_IP = "192.168.1.36"
+def getIP():
+    text_fileIP = open("../Resources/IP.txt", "r")
+    currentipdocument = text_fileIP.readlines()
+    IP_ = currentipdocument[0]
+    text_fileIP.close()
+    print "Type in Naomi's IP address.\nIf this is Naomi's IP address, just hit enter.\n", IP_
+    IPDefining = raw_input()
+    if IPDefining == '':
+        return IP_
+    else:
+        text_fileIP = open("../Resources/IP.txt", "w")
+        IP_ = IPDefining
+        text_fileIP.write(IP_)
+        text_fileIP.close()
+        return NAO_IP
+
+PORT = 9559
+NAO_IP = getIP() # Get Essi's IP address
+
 
 
 import sys

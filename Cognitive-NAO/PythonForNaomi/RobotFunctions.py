@@ -13,12 +13,15 @@ class Robot:
         self.previousUtterance = ''
 
         # Dictionary of non-Watson functions that Naomi can perform
+        # function for NLC
         self.robotFunctionsDict = Robot.__dict__
         self.robotFunctionsDict["DoFacialRecognition"] = Robot.__dict__["takeAPicture"] # Set the facial recognition command to take a picture
         self.robotFunctionsDict["DoVisualRecognition"] = Robot.__dict__["takeAPicture"] # Set the visual recognition command to take a picture
         self.robotFunctionsDict["DoTextRecognition"] = Robot.__dict__["takeAPicture"] # Set the text recognition command to take a picture
         self.robotFunctionsDict["DoCarRecognition"] = Robot.__dict__["takeAPicture"] # Set the custom visual recognition command to take a picture
-        self.robotFunctionsDict["PlayGame"] = Robot.__dict__["playGame"]  # Set the custom visual recognition command to take a picture
+
+        #function for conversation
+        self.robotFunctionsDict["play-game-vision-1"] = Robot.__dict__["playGame"]  # Set the custom visual recognition command to take a picture
 
         if self.robotCheck:
             # # Initialise communication proxies for Naomi
@@ -131,6 +134,7 @@ class Robot:
             self.leds.post.fadeRGB("FaceLeds", self.config["responseColour"], self.config["ledTiming"]*1.5)
             self.audibleListen()
     def playGame(self):
+        print "INTO THE PLAY GAME OF ROBOTFUNCTIONS"
         self.printAndSay("Now, Pay Attention! The player has to count the RED Robots that displaying on the screen, please keep your attention on the screen!")
         # create proxy on ALMemory for comunicate with webview
         memProxy = ALProxy("ALMemory", self.IP, self.PORT)

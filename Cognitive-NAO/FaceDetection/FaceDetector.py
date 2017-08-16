@@ -8,6 +8,25 @@ import time
 import sys
 import argparse
 
+def getIP():
+    text_fileIP = open("../Resources/IP.txt", "r")
+    currentipdocument = text_fileIP.readlines()
+    IP_ = currentipdocument[0]
+    text_fileIP.close()
+    print "Type in Naomi's IP address.\nIf this is Naomi's IP address, just hit enter.\n", IP_
+    IPDefining = raw_input()
+    if IPDefining == '':
+        return IP_
+    else:
+        text_fileIP = open("../Resources/IP.txt", "w")
+        IP_ = IPDefining
+        text_fileIP.write(IP_)
+        text_fileIP.close()
+        return IP
+
+PORT = 9559
+IP = getIP() # Get Essi's IP address
+
 
 class HumanGreeter(object):
     """
@@ -78,9 +97,9 @@ class HumanGreeter(object):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ip", type=str, default="192.168.1.36",
+    parser.add_argument("--ip", type=str, default=IP,
                         help="Robot IP address. On robot or Local Naoqi: use '127.0.0.1'.")
-    parser.add_argument("--port", type=int, default=9559,
+    parser.add_argument("--port", type=int, default=PORT,
                         help="Naoqi port number")
 
     args = parser.parse_args()

@@ -4,7 +4,7 @@ import wave
 
 
 
-def play( filename):
+def play(filename):
     """ Main entry point
 
 
@@ -42,7 +42,7 @@ def play( filename):
 
 
 if __name__ == "__main__":
-    play()
+    play("hello.wav")
 
 
 

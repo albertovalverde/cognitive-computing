@@ -47,17 +47,25 @@ class SpeechRecoModule(ALModule):
             self.asr = ALProxy("ALSpeechRecognition")
             self.ftp = FTP(IP_global)
             self.ftp.login("nao", "nao")
+            self.memory = ALProxy("ALMemory")
+            self.memory.subscribeToMicroEvent("myMicroEvent", "pythonSpeechModule", "message", "playGameEnd") # catch event from webview
+            self.google = sr.Recognizer()  # google specch recognition
+            self.Naomi = RobotFunctions.Robot(IP_global, PORT, config,
+                                              robotCheck)  # Initialise all robot functions in variable "Naomi"
+            # self.speechToPath = speech_path
+            self.response = conversation.message(workspace_id=workspace_id,
+                                                 message_input={'text': ''})
+            print(json.dumps(self.response, indent=2))
+
+            self.Naomi.StartUp()  # Get Naomi out of rest mode, stand it up, set eye colour, etc.
+            self.Naomi.printAndSay(json.dumps(
+                self.response["output"]["text"]))  # Print and say (if the robot is connected) the verbal response
+
         except Exception as e:
             self.asr = None
-        self.memory = ALProxy("ALMemory")
-        self.google = sr.Recognizer()  # google specch recognition
-        self.Naomi = RobotFunctions.Robot(IP_global, PORT, config,
-                                          robotCheck)  # Initialise all robot functions in variable "Naomi"
-        self.Naomi.StartUp()  # Get Naomi out of rest mode, stand it up, set eye colour, etc.
-        # self.speechToPath = speech_path
-        self.response = conversation.message(workspace_id=workspace_id,
-                                                  message_input={'text': 'What\'s the weather like?'})
-        print(json.dumps(self.response, indent=2))
+            print Exception
+
+
     def onLoad(self):
         # Module for Cognitive Services
         self.CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
@@ -72,6 +80,7 @@ class SpeechRecoModule(ALModule):
         self.record = ALProxy("ALAudioRecorder", IP_global, PORT)
         self.aup = ALProxy("ALAudioPlayer", IP_global, PORT)
         self.record_path = '/home/nao/out.wav'
+
     def onUnload(self):
         self.mutex.acquire()
         try:
@@ -85,6 +94,7 @@ class SpeechRecoModule(ALModule):
             raise e
         self.bIsRunning = False;
         self.mutex.release()
+
     def onInput_onStart(self):
         from threading import Lock
         self.mutex.acquire()
@@ -109,12 +119,15 @@ class SpeechRecoModule(ALModule):
                 self.record.startMicrophonesRecording(self.record_path, 'wav', 16000, (0, 0, 1, 0))
                 # ----------> playing the recorded file <----------
                 #fileID = aup.playFile(record_path, 0.7, 0)
+
         except RuntimeError, e:
             self.mutex.release()
             self.onUnload()
             raise e
         self.mutex.release()
+
     def onWordRecognized(self, key, value, message):
+
         self.onUnload()
         self.record.stopMicrophonesRecording()
         print 'record over'
@@ -130,9 +143,22 @@ class SpeechRecoModule(ALModule):
                 # instead of `r.recognize_google(audio)`
                 transcript = self.google.recognize_google(audio)
                 print transcript
-                self.response = self.conversation.message(workspace_id=self.workspace_id,
+                self.response = conversation.message(workspace_id=workspace_id,
                                                      message_input={'text': transcript},context=self.response['context'])
-                #print(json.dumps(self.response, indent=2))
+                print(json.dumps(self.response, indent=2))
+
+
+                try:
+                    classified = self.response["output"]["nodes_visited"][2]  # scope
+                    print "classified: " + classified
+                    self.Naomi.RobotFunctionDec(
+                        classified)  # If user requested a robot function, execute that function
+                except:
+                    classified = None
+
+
+
+                self.Naomi.StartUp()
                 self.Naomi.printAndSay(json.dumps(self.response["output"]["text"]))  # Print and say (if the robot is connected) the verbal response
                 print self.response["intents"][0]["intent"]
             except sr.UnknownValueError:
@@ -142,6 +168,14 @@ class SpeechRecoModule(ALModule):
                 print("Could not request results from Google Speech Recognition service; {0}".format(e))
         # Restart the iteration bucle
         StartIteration()
+
+    def playGameEnd(self, strVarName, value, message):
+        """callback when WebView trigger"""
+        print value
+
+        message= "Well, Can you say me how many red robots was displaying on the screen?"
+        #self.CognitiveConnection.on_SayAndPrint(message)
+       # StartIteration()
 def StartIteration():
     if robotCheck:
         pythonSpeechModule.onLoad()
@@ -165,11 +199,21 @@ def StartIteration():
         response = conversation.message(workspace_id=workspace_id,
                                                   message_input={'text': stringToSay}, context=response['context'])
 
-        print "STARTITERATION"
+        print response["intents"][0]["intent"] #scope
+
+
+
         print(json.dumps(response, indent=2))
-        # print(json.dumps(response, indent=2))
-        # print json.dumps(response["output"]["text"])
-        print response["intents"][0]["intent"]
+        print json.dumps(response["output"]["text"])
+
+        # play - game - vision - 1
+        try:
+            classified = response["output"]["nodes_visited"][2]  # scope
+            print "classified: " + str(classified)
+        except:
+            classified= None
+
+
         # try:
         #     print response["entities"][0]["entity"]
         #     print response["entities"][0]["value"]
@@ -194,11 +238,11 @@ def TestConversation():
     response = conversation.message(workspace_id=workspace_id,
                                     message_input={'text': ''})
     #print(json.dumps(response, indent=2))
-    try:
-        print json.dumps(response["output"]["text"])
-        print response["intents"][0]["intent"]
-    except:
-        print "error to catch intents"
+    # try:
+    #     print response["intents"][0]["intent"]
+    #     print json.dumps(response["output"]["text"])
+    # except:
+    #     print "error to catch intents"
 
     with open('response.json', 'w') as outfile:
         json.dump(response, outfile)
