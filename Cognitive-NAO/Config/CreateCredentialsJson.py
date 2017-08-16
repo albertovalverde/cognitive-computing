@@ -30,8 +30,9 @@ USNLC = {
   "password": "OtPbLTcH6dvl"
 }
 USConversation = {"url": "https://gateway.watsonplatform.net/conversation/api",
-  "username": "55428ee7-07a6-4fc9-b50e-16e777c55757",
-  "password": "CnfqyNKOmFRo"
+  "username": "5f0c7cef-dc6f-4c1d-bf1d-9eb6997709e6",
+  "password": "RnKnTCXaK6YW",
+  "ID": "511f31bc-ff84-4c69-b751-54b70d4d7a80"
 }
 USSpeechToText = {"url": "https://stream.watsonplatform.net/speech-to-text/api",
   "username": "34639a58-279e-4f9a-a3cc-7ba6a8f3bd54",
