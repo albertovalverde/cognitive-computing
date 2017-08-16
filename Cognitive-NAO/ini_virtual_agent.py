@@ -58,8 +58,7 @@ class SpeechRecoModule(ALModule):
             print(json.dumps(self.response, indent=2))
 
             self.Naomi.StartUp()  # Get Naomi out of rest mode, stand it up, set eye colour, etc.
-            self.Naomi.printAndSay(json.dumps(
-                self.response["output"]["text"]))  # Print and say (if the robot is connected) the verbal response
+            self.Naomi.printAndSay(self.response["output"]["text"][0])  # Print and say (if the robot is connected) the verbal response
 
         except Exception as e:
             self.asr = None
@@ -147,19 +146,20 @@ class SpeechRecoModule(ALModule):
                                                      message_input={'text': transcript},context=self.response['context'])
                 print(json.dumps(self.response, indent=2))
 
-
+                #swich for continues with conversation
+                #FALSE to stop and wait Webview or IoT response
+                doWhile = True
                 try:
                     classified = self.response["output"]["nodes_visited"][2]  # scope
                     print "classified: " + classified
                     self.Naomi.RobotFunctionDec(
                         classified)  # If user requested a robot function, execute that function
+                    doWhile= False
                 except:
-                    classified = None
-
-
+                    classified = "doNothing"
 
                 self.Naomi.StartUp()
-                self.Naomi.printAndSay(json.dumps(self.response["output"]["text"]))  # Print and say (if the robot is connected) the verbal response
+                self.Naomi.printAndSay(self.response["output"]["text"][0])  # Print and say (if the robot is connected) the verbal response
                 print self.response["intents"][0]["intent"]
             except sr.UnknownValueError:
                 print("Google Speech Recognition could not understand audio")
@@ -167,12 +167,14 @@ class SpeechRecoModule(ALModule):
             except sr.RequestError as e:
                 print("Could not request results from Google Speech Recognition service; {0}".format(e))
         # Restart the iteration bucle
-        StartIteration()
+
+        if doWhile:
+            StartIteration()
 
     def playGameEnd(self, strVarName, value, message):
         """callback when WebView trigger"""
         print value
-
+        StartIteration()
         message= "Well, Can you say me how many red robots was displaying on the screen?"
         #self.CognitiveConnection.on_SayAndPrint(message)
        # StartIteration()
