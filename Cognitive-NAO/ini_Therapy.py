@@ -164,14 +164,17 @@ def StartIteration():
         stringToSay = StartNaomi.getTextFake()
         response = conversation.message(workspace_id=workspace_id,
                                                   message_input={'text': stringToSay}, context=response['context'])
+
+        print "STARTITERATION"
         print(json.dumps(response, indent=2))
-        print json.dumps(response["output"]["text"])
+        # print(json.dumps(response, indent=2))
+        # print json.dumps(response["output"]["text"])
         print response["intents"][0]["intent"]
-        try:
-            print response["entities"][0]["entity"]
-            print response["entities"][0]["value"]
-        except:
-            print "error loading entities"
+        # try:
+        #     print response["entities"][0]["entity"]
+        #     print response["entities"][0]["value"]
+        # except:
+        #     print "error loading entities"
         with open('response.json', 'w') as outfile:
             json.dump(response, outfile)
         StartIteration()
@@ -189,9 +192,14 @@ def TestConversation():
     except:
         print "no response.json to delete"
     response = conversation.message(workspace_id=workspace_id,
-                                    message_input={'text': 'What\'s the weather like?'})
+                                    message_input={'text': ''})
     #print(json.dumps(response, indent=2))
-    print json.dumps(response["output"]["text"])
+    try:
+        print json.dumps(response["output"]["text"])
+        print response["intents"][0]["intent"]
+    except:
+        print "error to catch intents"
+
     with open('response.json', 'w') as outfile:
         json.dump(response, outfile)
 def main():
