@@ -146,6 +146,14 @@ class SpeechRecoModule(ALModule):
                                                      message_input={'text': transcript},context=self.response['context'])
                 print(json.dumps(self.response, indent=2))
 
+                Deserialize = DeserializeResponse(self.response)
+
+                if Deserialize.playgame == "on":
+                    print "DESERIALIZE: on"
+                else:
+                    print "DESERIALIZE: off"
+
+
                 #swich for continues with conversation
                 #FALSE to stop and wait Webview or IoT response
                 doWhile = True

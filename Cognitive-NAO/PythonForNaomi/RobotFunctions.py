@@ -135,7 +135,7 @@ class Robot:
             self.audibleListen()
     def playGame(self):
         print "INTO THE PLAY GAME OF ROBOTFUNCTIONS"
-        self.printAndSay("Now, Pay Attention! The player has to count the RED Robots that displaying on the screen, please keep your attention on the screen!")
+        #self.printAndSay("Now, Pay Attention! The player has to count the RED Robots that displaying on the screen, please keep your attention on the screen!")
         # create proxy on ALMemory for comunicate with webview
         memProxy = ALProxy("ALMemory", self.IP, self.PORT)
         # raise event. Data can be int, float, list, string

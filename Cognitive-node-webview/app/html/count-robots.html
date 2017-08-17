@@ -33,8 +33,20 @@
   <div class="right-down" id="2">ROBOT3</div>
   <!--<div class="left-down" id="3">ORANGE</div> -->   
   <!--ready/go --> 
-  <div class="screen-middle" id="4"><h1>Show result!</h1></div>
+  <div class="screen-middle" id="4"><h1>Show result!</h1></div>  
   <div class="screen-middle" id="5"><h1>Ready!</h1></div>  
+  
+  <div class="centerDiv" id="6">
+		<div class="div1">		
+			<img height="99%" width="99%" src="assets/images/robots/robot-1.png">
+		</div>
+		<div class="div2">
+			<img height="99%" width="99%" src="assets/images/robots/robot-7.png">			
+		</div>
+		<div class="div3">
+			<img height="99%" width="99%" id="fire" style ="border: 3px solid rgba(238,238,238,0.9);" src="assets/images/robots/robot-3.png">
+		</div>
+	</div>
   
   <!--modal--> 
   <div id="modal-alert2" data-iziModal-group="alert"></div> 
@@ -74,12 +86,17 @@ var audio=null
 hideAll();
 var start
 var ready
+
+
+var imgId = 'fire';
+var imgOnTime = 1500;
+var imgOffTime = 750;
+var imgOffTime = 1500;
     
     
     
     var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
 var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
-
 function inWords (num) {
     if ((num = num.toString()).length > 9) return 'overflow';
     n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
@@ -91,9 +108,6 @@ function inWords (num) {
     str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) : '';
     return str;
 }
-
-
-
 //modal windows
 $("#modal").iziModal({
 	 transitionIn: 'fadeInUp',
@@ -105,7 +119,6 @@ $("#modal").iziModal({
 	 //overlayColor: 'rgba(0, 0, 0, 0.6)',
 	 transitionOutOverlay:'fadeOut',   
 });
-
 function hideAll()
 {
 	$("#0").hide();
@@ -114,8 +127,8 @@ function hideAll()
 	$("#3").hide();
 	$("#4").hide();
 	$("#5").hide();
+	$("#6").hide();
 }
-
 function beReady() { 	
 	hideAll() 
 	$("#offscreen").hide();	
@@ -135,7 +148,6 @@ function beReady() {
 		}, 2000);
 	}, 2000);
 }
-
 function startFruitGame() { 
 	hideAll()
     
@@ -176,13 +188,12 @@ function startFruitGame() {
         
 	}
 };
-
 $( "#4" ).click(function() {
   $("#4").html("<h1> Total: "+nameFound+"</h1>");
     nameFound=0;
 });
-
 $( "#6" ).click(function() {
+	
 	var msg = "<img src='assets/images/nao.png'>" +
 	"<p>Lets play game</p>"; +
 	"</div>";
@@ -192,13 +203,15 @@ $( "#6" ).click(function() {
 });
     
 RobotUtils.subscribeToALMemoryEvent("PlayGame", function(value) {
+	$("#6").show();	
+	setTimeout(function(){
+	  $("#6").hide();
+	}, 2000);
     iziToast.destroy();
     nameFound = 0
     counter = 0
 	ready = setTimeout(function(){ beReady() }, 0);
 });
-
-
 RobotUtils.subscribeToALMemoryEvent("RobotSay", function(value) {
 	var msg = "<img src='assets/images/nao.png'>" +
 	"<p>" + value + "</p>" +
@@ -226,16 +239,13 @@ RobotUtils.subscribeToALMemoryEvent("RobotSay", function(value) {
 			iconColor: 'rgb(0, 255, 184)'
 		});
 });
-
  $(document).on("click", "#startgame", function(event){
 	 $('#modal').iziModal('close');
 	  start = setTimeout(function(){ beReady() }, 0);  
 });
-
 $( "#7" ).click(function() {
 	var audio = new Audio('assets/sounds/you-wouldnt-believe.mp3');
 	audio.play();
-
 	iziToast.show({
 			id: 'haduken',
 			timeout: 10000,
@@ -257,13 +267,11 @@ $( "#7" ).click(function() {
 			iconColor: 'rgb(0, 255, 184)'
 	});  
 });
-
 $( "#8" ).click(function() {
 	var audio = new Audio('assets/sounds/arpeggio.mp3');
 	audio.play(); 
 	$('#modal').iziModal('open'); 
 });
-
 $("#modal-alert2").iziModal({
     title: "Your message has been sent successfully",
     icon: 'icon-check',
@@ -280,9 +288,20 @@ $("#modal-alert2").iziModal({
     
     
 $(document).on('click', '.trigger-alert4', function (event) {
-   beReady();
-});
 
+
+	$("#6").show();	
+	setTimeout(function(){
+	 beReady();
+	}, 15000);
+	
+	 var ele = document.getElementById(imgId);
+		if (ele && ele.style) {
+		  setTimeout('blinkImg()', imgOffTime);
+		}
+   
+   
+});
 $(document).on('click', '.trigger-alert2', function (event) {
     event.preventDefault();
     $('#modal-alert2').iziModal('open');
@@ -296,4 +315,21 @@ $(document).on('click', '.trigger-alert3', function (event) {
     
 });
 
+
+function blinkImg()
+{
+  var v, t, ele = document.getElementById(imgId);
+  if (ele.style.visibility == 'visible') {
+    // hide it, then wait for imgOffTime
+    v = 'hidden';
+    t = imgOffTime;
+  }
+  else {
+    // show it, then wait for imgOnTime
+    v = 'visible';
+    t = imgOnTime;
+  }
+  ele.style.visibility = v;
+  setTimeout('blinkImg()', t);
+}
 </script>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<style type='text/css'>
+#fire {
+  position:absolute;
+  top:140px; left:100px;
+  visibility:hidden;
+}
+</style>
+<script type='text/javascript'>
+var imgId = 'fire';
+var imgOnTime = 250;
+var imgOffTime = 750;
+window.onload = function()
+{
+  // check for existence of objects we will use
+  if (document.getElementById) {
+    var ele = document.getElementById(imgId);
+    if (ele && ele.style) {
+      setTimeout('blinkImg()', imgOffTime);
+    }
+  }
+}
+function blinkImg()
+{
+  var v, t, ele = document.getElementById(imgId);
+  if (ele.style.visibility == 'visible') {
+    // hide it, then wait for imgOffTime
+    v = 'hidden';
+    t = imgOffTime;
+  }
+  else {
+    // show it, then wait for imgOnTime
+    v = 'visible';
+    t = imgOnTime;
+  }
+  ele.style.visibility = v;
+  setTimeout('blinkImg()', t);
+}
+</script>
+</head>
+<body>
+<p>The image is visible for imgOnTime, and hidden for imgOffTime.</p>
+<img src="https://s.adroll.com/a/CXV/7HW/CXV7HW3ISBBWBNH36UYLEV.jpg" id="fire">
+</body>
+</html>
