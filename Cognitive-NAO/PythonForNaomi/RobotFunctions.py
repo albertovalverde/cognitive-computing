@@ -21,7 +21,7 @@ class Robot:
         self.robotFunctionsDict["DoCarRecognition"] = Robot.__dict__["takeAPicture"] # Set the custom visual recognition command to take a picture
 
         #function for conversation
-        self.robotFunctionsDict["play-game-vision-1"] = Robot.__dict__["playGame"]  # Set the custom visual recognition command to take a picture
+        self.robotFunctionsDict["play-game-vision-1"] = Robot.__dict__["PlayGameVision"]  # Set the custom visual recognition command to take a picture
 
         if self.robotCheck:
             # # Initialise communication proxies for Naomi
@@ -133,7 +133,7 @@ class Robot:
         if self.robotCheck:
             self.leds.post.fadeRGB("FaceLeds", self.config["responseColour"], self.config["ledTiming"]*1.5)
             self.audibleListen()
-    def playGame(self):
+    def PlayGameVision(self):
         print "INTO THE PLAY GAME OF ROBOTFUNCTIONS"
         #self.printAndSay("Now, Pay Attention! The player has to count the RED Robots that displaying on the screen, please keep your attention on the screen!")
         # create proxy on ALMemory for comunicate with webview
@@ -198,7 +198,7 @@ class Robot:
             # create proxy on ALMemory for comunicate with webview
             memProxy = ALProxy("ALMemory", self.IP, self.PORT)
             # raise event. Data can be int, float, list, string
-            memProxy.raiseEvent("RobotSay", phrase)
+            memProxy.raiseEvent("RobotSay", str(phrase))
 
             self.ttsa.say(str(phrase))
             self.leds.post.fadeRGB("FaceLeds", self.config["listeningColour"], self.config["ledTiming"])

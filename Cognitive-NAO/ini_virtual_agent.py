@@ -16,8 +16,8 @@ from ftplib import FTP
 from PythonForNaomi import RobotFunctions, StartNaomi
 import json
 from watson_developer_cloud import ConversationV1
-
 import speech_recognition as sr
+
 config = pickle.load(
     open('Config/configurationDictionary.pkl', 'rb'))  # Loads configuration .pkl file into a Python dictionary
 credentials = json.load(open('Config/credentials.json'))  # Loads all Bluemix credentials
@@ -28,6 +28,7 @@ print "Region is", config["regionVr"]
 print "User is", User_conversation
 print "Password is", Pass_conversation
 print "ID is", ID_conversation, "\n"
+
 conversation = ConversationV1(
             username=User_conversation,
             password=Pass_conversation,
@@ -35,10 +36,13 @@ conversation = ConversationV1(
         # # replace with your own workspace_id
 workspace_id = ID_conversation
 #print ID_conversation + " / " + User_conversation + " / " + Pass_conversation
+
 # ~--- Initial startup stuff ---~#
 robotCheck = StartNaomi.checkIfRobotIsConnected()  # Check if robot is connected
 PORT = 9559  # Get Naomi's port
 IP_global = StartNaomi.getIP(robotCheck)  # Get Naomi's IP address
+
+
 class SpeechRecoModule(ALModule):
     """ A module to use speech recognition """
     def __init__(self, name):
@@ -56,6 +60,8 @@ class SpeechRecoModule(ALModule):
             self.response = conversation.message(workspace_id=workspace_id,
                                                  message_input={'text': ''})
             print(json.dumps(self.response, indent=2))
+
+            self.WebviewResponse = None # Initialise values for WebView games
 
             self.Naomi.StartUp()  # Get Naomi out of rest mode, stand it up, set eye colour, etc.
             self.Naomi.printAndSay(self.response["output"]["text"][0])  # Print and say (if the robot is connected) the verbal response
@@ -137,6 +143,7 @@ class SpeechRecoModule(ALModule):
             audio = self.google.record(source)
             # Speech recognition using Google Speech Recognition
             try:
+                SpeechPause = False
                 # for testing purposes, we're just using the default API key
                 # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
                 # instead of `r.recognize_google(audio)`
@@ -150,48 +157,65 @@ class SpeechRecoModule(ALModule):
 
                 if Deserialize.playgame == "on":
                     print "DESERIALIZE: on"
+                    self.Naomi.RobotFunctionDec(Deserialize.classified)  # If user requested a robot function, execute that function
+                    #STOP the speechrecognition
+                    SpeechPause = True
                 else:
                     print "DESERIALIZE: off"
-
-
-                #swich for continues with conversation
-                #FALSE to stop and wait Webview or IoT response
-                doWhile = True
-                try:
-                    classified = self.response["output"]["nodes_visited"][2]  # scope
-                    print "classified: " + classified
-                    self.Naomi.RobotFunctionDec(
-                        classified)  # If user requested a robot function, execute that function
-                    doWhile= False
-                except:
-                    classified = "doNothing"
+                    SpeechPause = False
 
                 self.Naomi.StartUp()
-                self.Naomi.printAndSay(self.response["output"]["text"][0])  # Print and say (if the robot is connected) the verbal response
-                print self.response["intents"][0]["intent"]
+                self.Naomi.printAndSay(Deserialize.text)  # Print and say (if the robot is connected) the verbal response
+
+                #TODO THIS IS FOR CATCH WEBVIEW RESPONSE NOT GOOD CODE AT ALL
+
+                if self.WebviewResponse is None:
+                    print "es none"
+                    print self.WebviewResponse
+                if self.WebviewResponse is not None:
+                    print "pregunto por no none"
+                    print self.WebviewResponse
+                    if str(Deserialize.inputText) == str(self.WebviewResponse):
+                        self.Naomi.StartUp()
+                        self.Naomi.printAndSay(
+                        "WOU, Congratulations! You are a champion!." + str(
+                        Deserialize.inputText) + " red Robots were displayed in the Screen")  # Print and say (if the robot is connected) the verbal response
+                    else:
+                        self.Naomi.StartUp()
+                        self.Naomi.printAndSay("Ohhh, Sorry! You need to keep mor attention." + str(
+                        self.WebviewResponse) + " red robots were displayed on the screen")  # Print and say (if the robot is connected) the verbal response
+                    self.WebviewResponse = None
+
+
             except sr.UnknownValueError:
                 print("Google Speech Recognition could not understand audio")
-                # Start()
+
             except sr.RequestError as e:
                 print("Could not request results from Google Speech Recognition service; {0}".format(e))
+
+            if not SpeechPause:
+               StartIteration()
+
         # Restart the iteration bucle
 
-        if doWhile:
-            StartIteration()
+
+
 
     def playGameEnd(self, strVarName, value, message):
         """callback when WebView trigger"""
-        print value
+        self.WebviewResponse = value
+        print "Count of webview= " + str(value)
+        self.Naomi.StartUp()
+        self.Naomi.printAndSay("Well, Can you say me how many red robots was displaying on the screen?")  # Print and say (if the robot is connected) the verbal response
+
         StartIteration()
-        message= "Well, Can you say me how many red robots was displaying on the screen?"
-        #self.CognitiveConnection.on_SayAndPrint(message)
-       # StartIteration()
 
 class Filteresponse:
     text = ""
     classified = ""
     playgame = ""
     intents = ""
+    inputText = ""
 
 def DeserializeResponse(response):
 
@@ -219,13 +243,21 @@ def DeserializeResponse(response):
     except:
         deserialize.playgame = None
 
+    try:
+        deserialize.inputText = response["input"]["text"]
+        print "input text : " + deserialize.inputText
+    except:
+        deserialize.inputText = None
+
     return deserialize
+
+
 
 def StartIteration():
     if robotCheck:
         pythonSpeechModule.onLoad()
         pythonSpeechModule.onInput_onStart()
-        time.sleep(200)
+        time.sleep(400)
         pythonSpeechModule.onUnload()
     else:
 

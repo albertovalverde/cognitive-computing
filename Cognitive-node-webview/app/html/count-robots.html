@@ -33,7 +33,7 @@
   <div class="right-down" id="2">ROBOT3</div>
   <!--<div class="left-down" id="3">ORANGE</div> -->   
   <!--ready/go --> 
-  <div class="screen-middle" id="4"><h1>Show result!</h1></div>  
+  <div class="screen-middle" id="4"><img src="assets/images/questions.png"></div>  
   <div class="screen-middle" id="5"><h1>Ready!</h1></div>  
   
   <div class="centerDiv" id="6">
@@ -86,12 +86,14 @@ var audio=null
 hideAll();
 var start
 var ready
+var blinkImages
+var blinkImagesOff
+
 
 
 var imgId = 'fire';
-var imgOnTime = 1500;
-var imgOffTime = 750;
-var imgOffTime = 1500;
+var imgOnTime = 500;
+var imgOffTime = 200;
     
     
     
@@ -151,7 +153,6 @@ function beReady() {
 function startFruitGame() { 
 	hideAll()
     
-    
 	var NameRobot= robotNames[Math.floor(Math.random() *  robotNames.length)];
 	var scr="assets/images/robots/"
 	$("#" + interval).html("<img width='100' height='100' src="+ scr + NameRobot +".png></img>");
@@ -162,7 +163,8 @@ function startFruitGame() {
 	++ nameFound; 
 	if (interval==3)
 		interval =0; 
-	if (counter==26)
+	//if (counter==26)
+    if (counter==4)
 	{
         
        
@@ -182,7 +184,8 @@ function startFruitGame() {
 		hideAll()
 		clearInterval(ini);
         clearTimeout(ready);
-        
+        clearTimeout(blinkImages);
+        clearTimeout(blinkImagesOff);
 		var div = $("#4").show(); 
         
         
@@ -203,14 +206,19 @@ $( "#6" ).click(function() {
 });
     
 RobotUtils.subscribeToALMemoryEvent("PlayGame", function(value) {
-	$("#6").show();	
-	setTimeout(function(){
-	  $("#6").hide();
-	}, 2000);
-    iziToast.destroy();
+    
+    counter= 0
     nameFound = 0
-    counter = 0
-	ready = setTimeout(function(){ beReady() }, 0);
+	$("#6").show();	
+	ready = setTimeout(function(){
+	 beReady();
+	}, 10000);
+	
+	 var ele = document.getElementById(imgId);
+		if (ele && ele.style) {
+		  blinkImages = setTimeout('blinkImg()', imgOffTime);
+		}
+   
 });
 RobotUtils.subscribeToALMemoryEvent("RobotSay", function(value) {
 	var msg = "<img src='assets/images/nao.png'>" +
@@ -288,16 +296,16 @@ $("#modal-alert2").iziModal({
     
     
 $(document).on('click', '.trigger-alert4', function (event) {
-
-
+    counter= 0
+    nameFound = 0
 	$("#6").show();	
-	setTimeout(function(){
+	ready = setTimeout(function(){
 	 beReady();
-	}, 15000);
+	}, 10000);
 	
 	 var ele = document.getElementById(imgId);
 		if (ele && ele.style) {
-		  setTimeout('blinkImg()', imgOffTime);
+		  blinkImages = setTimeout('blinkImg()', imgOffTime);
 		}
    
    
@@ -330,6 +338,6 @@ function blinkImg()
     t = imgOnTime;
   }
   ele.style.visibility = v;
-  setTimeout('blinkImg()', t);
+  blinkImagesOff = setTimeout('blinkImg()', t);
 }
 </script>

@@ -150,7 +150,7 @@ $( "#6" ).click(function() {
 	var ready = setTimeout(function(){ beReady() }, 0); 
 });
 
-RobotUtils.subscribeToALMemoryEvent("StartGame", function(value) {
+RobotUtils.subscribeToALMemoryEvent("RobotSay", function(value) {
 	var msg = "<img src='assets/images/nao.png'>" +
 	"<p>" + value + "</p>" +
 	"</div>";
