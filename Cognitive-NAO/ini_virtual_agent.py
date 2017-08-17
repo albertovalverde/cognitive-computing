@@ -178,6 +178,41 @@ class SpeechRecoModule(ALModule):
         message= "Well, Can you say me how many red robots was displaying on the screen?"
         #self.CognitiveConnection.on_SayAndPrint(message)
        # StartIteration()
+
+class Filteresponse:
+    text = ""
+    classified = ""
+    playgame = ""
+    intents = ""
+
+def DeserializeResponse(response):
+
+    print(json.dumps(response, indent=2))
+
+    deserialize= Filteresponse
+    try:
+        deserialize.text = response["output"]["text"][0]
+        print "text : " + deserialize.text
+    except:
+        deserialize.text = None
+    try:
+        deserialize.intents = response["intents"][0]["intent"]
+        print "intents : " + deserialize.intents
+    except:
+        deserialize.intents = None
+    try:
+        deserialize.classified = response["output"]["nodes_visited"][2]
+        print "classified : " + deserialize.classified
+    except:
+        deserialize.classified = None
+    try:
+        deserialize.playgame = response["context"]["play_game"]
+        print "play_game : " + deserialize.playgame
+    except:
+        deserialize.playgame = None
+
+    return deserialize
+
 def StartIteration():
     if robotCheck:
         pythonSpeechModule.onLoad()
@@ -185,45 +220,26 @@ def StartIteration():
         time.sleep(200)
         pythonSpeechModule.onUnload()
     else:
-        # response = conversation.message(workspace_id=workspace_id,
-        #                                           message_input={'text':  stringToSay})
-        # print(json.dumps(response, indent=2))
-        # print json.dumps(response["output"]["text"])
-        # print response["intents"][0]["intent"]
-        # print response['context']
+
         try:
             with open('response.json') as data_file:
                     data = json.load(data_file)
             response = data
         except:
             response = None
+
         stringToSay = StartNaomi.getTextFake()
+
         response = conversation.message(workspace_id=workspace_id,
                                                   message_input={'text': stringToSay}, context=response['context'])
 
-        print response["intents"][0]["intent"] #scope
+        Deserialize = DeserializeResponse(response)
 
-
-
-        print(json.dumps(response, indent=2))
-        print json.dumps(response["output"]["text"])
-
-        # play - game - vision - 1
-        try:
-            classified = response["output"]["nodes_visited"][2]  # scope
-            print "classified: " + str(classified)
-        except:
-            classified= None
-
-
-        # try:
-        #     print response["entities"][0]["entity"]
-        #     print response["entities"][0]["value"]
-        # except:
-        #     print "error loading entities"
         with open('response.json', 'w') as outfile:
             json.dump(response, outfile)
+
         StartIteration()
+
 def confirmReadyForStartUp():
     print "\nReady to get started!"
 # This function is for testing in a NO robot mode "without robot"
@@ -239,12 +255,10 @@ def TestConversation():
         print "no response.json to delete"
     response = conversation.message(workspace_id=workspace_id,
                                     message_input={'text': ''})
-    #print(json.dumps(response, indent=2))
-    # try:
-    #     print response["intents"][0]["intent"]
-    #     print json.dumps(response["output"]["text"])
-    # except:
-    #     print "error to catch intents"
+
+
+    Deserialize = DeserializeResponse(response)
+
 
     with open('response.json', 'w') as outfile:
         json.dump(response, outfile)
