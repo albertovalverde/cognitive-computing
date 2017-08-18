@@ -22,10 +22,9 @@
 	  <div id="7">TEST TOAST MESSAGE</div>
 	  <div id="8">TEST LOAD GAME</div> 
 	  <div class="trigger-alert2">TEST ALERT MESSAGE</div>   
-      <div class="trigger-alert3">TEST TRIGGER</div>   
-	  <div class="trigger-alert4">TEST START GAME</div>
-	  <div class="trigger-alert5">TEST SELECT ROBOT</div>
-	   <div class="trigger-alert6">TEST PLAY GAME</div>
+      <div class="trigger-alert3">TEST TRIGGER</div>  
+      <div class="trigger-alert4">TEST GAME</div>  
+      
   </div>
   
   <!--robots images --> 
@@ -37,17 +36,16 @@
   <div class="screen-middle" id="4"><img src="assets/images/questions.png"></div>  
   <div class="screen-middle" id="5"><h1>Ready!</h1></div>  
   
-  <div class="centerDiv" id="6" >
+  <div class="centerDiv" id="6">
 		<div class="div1">		
-			<img height="99%" width="99%" id="fire3" src="assets/images/robots/robot-1.png">
+			<img height="99%" width="99%" src="assets/images/robots/robot-1.png">
 		</div>
 		<div class="div2">
-			<img height="99%" width="99%" id="fire2" src="assets/images/robots/robot-7.png">			
+			<img height="99%" width="99%" src="assets/images/robots/robot-7.png">			
 		</div>
 		<div class="div3">
-			<img height="99%" width="99%" id="fire1" src="assets/images/robots/robot-3.png">
+			<img height="99%" width="99%" id="fire" style ="border: 3px solid rgba(238,238,238,0.9);" src="assets/images/robots/robot-3.png">
 		</div>
-		<!--style ="border: 3px solid rgba(238,238,238,0.9)"-->
 	</div>
   
   <!--modal--> 
@@ -91,11 +89,11 @@ var ready
 var blinkImages
 var blinkImagesOff
 
+
+
+var imgId = 'fire';
 var imgOnTime = 500;
 var imgOffTime = 200;
-
-
-var imgId = 'fire1';
     
     
     
@@ -180,7 +178,8 @@ function startFruitGame() {
             RobotUtils.onServices(function(ALMemory) {
 					ALMemory.raiseEvent("myMicroEvent", nameFound);
             }); 
-                   
+            
+       
         
 		hideAll()
 		clearInterval(ini);
@@ -207,7 +206,7 @@ $( "#6" ).click(function() {
 });
     
 RobotUtils.subscribeToALMemoryEvent("PlayGame", function(value) {
-    hideAll()
+    
     counter= 0
     nameFound = 0
 	$("#6").show();	
@@ -294,40 +293,23 @@ $("#modal-alert2").iziModal({
     loop: true,
     pauseOnHover: true
 });
- 
-//TEST SELECT ROBOT 
-$(document).on('click', '.trigger-alert5', function (event) {  
-	clearTimeout(blinkImages);
-    clearTimeout(blinkImagesOff); 
-	$("#6").show();
-	 var ele = document.getElementById(imgId);
-		if (ele && ele.style) {
-		  blinkImages = setTimeout('blinkImg()', imgOffTime);
-		} 
-});   
-   
-//TEST PLAY GAME   
-$(document).on('click', '.trigger-alert6', function (event) {
+    
+    
+$(document).on('click', '.trigger-alert4', function (event) {
     counter= 0
     nameFound = 0
-	clearTimeout(blinkImages);
-    clearTimeout(blinkImagesOff);	
-	hideAll()
 	$("#6").show();	
 	ready = setTimeout(function(){
 	 beReady();
-	}, 10000);	
+	}, 10000);
+	
 	 var ele = document.getElementById(imgId);
 		if (ele && ele.style) {
 		  blinkImages = setTimeout('blinkImg()', imgOffTime);
-		} 
+		}
+   
+   
 });
-
-//TEST START GAME
-$(document).on('click', '.trigger-alert4', function (event) {    
-	$("#6").show();		
-});
-
 $(document).on('click', '.trigger-alert2', function (event) {
     event.preventDefault();
     $('#modal-alert2').iziModal('open');
@@ -340,6 +322,8 @@ $(document).on('click', '.trigger-alert3', function (event) {
     }); 
     
 });
+
+
 function blinkImg()
 {
   var v, t, ele = document.getElementById(imgId);
@@ -347,17 +331,13 @@ function blinkImg()
     // hide it, then wait for imgOffTime
     v = 'hidden';
     t = imgOffTime;
-	
-	ele.style.border = null
   }
   else {
     // show it, then wait for imgOnTime
     v = 'visible';
-	ele.style.border="3px solid rgba(238,238,238,0.9)";
     t = imgOnTime;
   }
   ele.style.visibility = v;
-  
   blinkImagesOff = setTimeout('blinkImg()', t);
 }
 </script>
