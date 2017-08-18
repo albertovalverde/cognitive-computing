@@ -170,10 +170,8 @@ class SpeechRecoModule(ALModule):
                 #TODO THIS IS FOR CATCH WEBVIEW RESPONSE NOT GOOD CODE AT ALL
 
                 if self.WebviewResponse is None:
-                    print "es none"
                     print self.WebviewResponse
                 if self.WebviewResponse is not None:
-                    print "pregunto por no none"
                     print self.WebviewResponse
                     if str(Deserialize.inputText) == str(self.WebviewResponse):
                         self.Naomi.StartUp()
@@ -198,22 +196,20 @@ class SpeechRecoModule(ALModule):
 
         # Restart the iteration bucle
 
-
-
-
+    # Call when finish the gwebview-game iteration
     def playGameEnd(self, strVarName, value, message):
         """callback when WebView trigger"""
         self.WebviewResponse = value
         print "Count of webview= " + str(value)
         self.Naomi.StartUp()
         self.Naomi.printAndSay("Well, Can you say me how many red robots was displaying on the screen?")  # Print and say (if the robot is connected) the verbal response
-
         StartIteration()
 
 class Filteresponse:
     text = ""
     classified = ""
     playgame = ""
+    playresponse=""
     intents = ""
     inputText = ""
 
@@ -242,7 +238,11 @@ def DeserializeResponse(response):
         print "play_game : " + deserialize.playgame
     except:
         deserialize.playgame = None
-
+    try:
+        deserialize.playresponse = response["context"]["play_response"]
+        print "playresponse : " + deserialize.playresponse
+    except:
+        deserialize.playresponse = None
     try:
         deserialize.inputText = response["input"]["text"]
         print "input text : " + deserialize.inputText
@@ -274,6 +274,35 @@ def StartIteration():
                                                   message_input={'text': stringToSay}, context=response['context'])
 
         Deserialize = DeserializeResponse(response)
+
+
+
+        #to review
+
+        if Deserialize.playgame == "on":
+            print "Send event to robotfunctions"
+
+        else:
+            print "nothing to do in robotfunctions"
+
+        # TODO THIS IS FOR CATCH WEBVIEW RESPONSE NOT GOOD CODE AT ALL
+
+
+
+
+        # end to review
+
+
+
+
+
+
+
+
+
+
+
+
 
         with open('response.json', 'w') as outfile:
             json.dump(response, outfile)
