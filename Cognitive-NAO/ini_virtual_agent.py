@@ -155,34 +155,59 @@ class SpeechRecoModule(ALModule):
 
                 Deserialize = DeserializeResponse(self.response)
 
-                if Deserialize.playgame == "on":
-                    print "DESERIALIZE: on"
-                    self.Naomi.RobotFunctionDec(Deserialize.classified)  # If user requested a robot function, execute that function
-                    #STOP the speechrecognition
-                    SpeechPause = True
-                else:
-                    print "DESERIALIZE: off"
-                    SpeechPause = False
+                # if Deserialize.playgame == "on":
+                #     print "DESERIALIZE: on"
+                #     self.Naomi.RobotFunctionDec(Deserialize.classified)  # If user requested a robot function, execute that function
+                #     #STOP the speechrecognition
+                #     SpeechPause = True
+                # else:
+                #     print "DESERIALIZE: off"
+                #     SpeechPause = False
 
                 self.Naomi.StartUp()
                 self.Naomi.printAndSay(Deserialize.text)  # Print and say (if the robot is connected) the verbal response
 
                 #TODO THIS IS FOR CATCH WEBVIEW RESPONSE NOT GOOD CODE AT ALL
 
-                if self.WebviewResponse is None:
-                    print self.WebviewResponse
-                if self.WebviewResponse is not None:
-                    print self.WebviewResponse
-                    if str(Deserialize.inputText) == str(self.WebviewResponse):
-                        self.Naomi.StartUp()
-                        self.Naomi.printAndSay(
-                        "WOU, Congratulations! You are a champion!." + str(
-                        Deserialize.inputText) + " red Robots were displayed in the Screen")  # Print and say (if the robot is connected) the verbal response
-                    else:
-                        self.Naomi.StartUp()
-                        self.Naomi.printAndSay("Ohhh, Sorry! You need to keep mor attention." + str(
-                        self.WebviewResponse) + " red robots were displayed on the screen")  # Print and say (if the robot is connected) the verbal response
-                    self.WebviewResponse = None
+                if Deserialize.playgame == "on":
+                    print "Adding event in robotfunction"
+                    self.Naomi.RobotFunctionDec(
+                        Deserialize.classified)  # If user requested a robot function, execute that function
+                    # STOP the speechrecognition
+                    SpeechPause = True
+
+                if Deserialize.playresponse == "on":
+                    print "Check results from webview"
+                    #check the response from the webview (is not always active)
+                    if self.WebviewResponse is not None:
+                        print self.WebviewResponse
+                        if str(Deserialize.inputText) == str(self.WebviewResponse):
+                            self.Naomi.StartUp()
+                            self.Naomi.printAndSay(
+                            "Wou, Congratulations! You are a champion!." + str(
+                            Deserialize.inputText) + " red Robots were displayed on the Screen")  # Print and say (if the robot is connected) the verbal response
+                        else:
+                            self.Naomi.StartUp()
+                            self.Naomi.printAndSay("Sorry! You need to keep more attention. " + str(
+                            self.WebviewResponse) + " red robots were displayed on the screen")  # Print and say (if the robot is connected) the verbal response
+                        self.WebviewResponse = None
+
+
+                    #to rollback
+                    # if self.WebviewResponse is None:
+                    #     print self.WebviewResponse
+                    # if self.WebviewResponse is not None:
+                    #     print self.WebviewResponse
+                    #     if str(Deserialize.inputText) == str(self.WebviewResponse):
+                    #         self.Naomi.StartUp()
+                    #         self.Naomi.printAndSay(
+                    #         "WOU, Congratulations! You are a champion!." + str(
+                    #         Deserialize.inputText) + " red Robots were displayed in the Screen")  # Print and say (if the robot is connected) the verbal response
+                    #     else:
+                    #         self.Naomi.StartUp()
+                    #         self.Naomi.printAndSay("Ohhh, Sorry! You need to keep mor attention." + str(
+                    #         self.WebviewResponse) + " red robots were displayed on the screen")  # Print and say (if the robot is connected) the verbal response
+                    #     self.WebviewResponse = None
 
 
             except sr.UnknownValueError:
@@ -192,11 +217,12 @@ class SpeechRecoModule(ALModule):
                 print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
             if not SpeechPause:
+               #Restart the iteration bucle
                StartIteration()
 
-        # Restart the iteration bucle
 
-    # Call when finish the gwebview-game iteration
+
+    # Call when finish the webview-game iteration
     def playGameEnd(self, strVarName, value, message):
         """callback when WebView trigger"""
         self.WebviewResponse = value
@@ -274,35 +300,12 @@ def StartIteration():
                                                   message_input={'text': stringToSay}, context=response['context'])
 
         Deserialize = DeserializeResponse(response)
-
-
-
         #to review
-
         if Deserialize.playgame == "on":
-            print "Send event to robotfunctions"
-
-        else:
-            print "nothing to do in robotfunctions"
-
-        # TODO THIS IS FOR CATCH WEBVIEW RESPONSE NOT GOOD CODE AT ALL
-
-
-
-
+            print "Adding event in robotfunction"
+        if Deserialize.playresponse == "on":
+            print "Check results from webview"
         # end to review
-
-
-
-
-
-
-
-
-
-
-
-
 
         with open('response.json', 'w') as outfile:
             json.dump(response, outfile)
