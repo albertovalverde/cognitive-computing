@@ -188,7 +188,7 @@ class SpeechRecoModule(ALModule):
                             Deserialize.inputText) + " red Robots were displayed on the Screen")  # Print and say (if the robot is connected) the verbal response
                         else:
                             self.Naomi.StartUp()
-                            self.Naomi.printAndSay("Sorry! You need to keep more attention. " + str(
+                            self.Naomi.printAndSay("Sorry! You need to keep more attention to the vision game. " + str(
                             self.WebviewResponse) + " red robots were displayed on the screen")  # Print and say (if the robot is connected) the verbal response
                         self.WebviewResponse = None
 
