@@ -34,7 +34,7 @@
   <div class="right-down" id="2">ROBOT3</div>
   <!--<div class="left-down" id="3">ORANGE</div> -->   
   <!--ready/go --> 
-  <div class="screen-middle" id="4"><img src="assets/images/questions.png"></div>  
+  <div class="centerDiv" id="4"><img src="assets/images/questions.png"></div>  
   <div class="screen-middle" id="5"><h1>Ready!</h1></div>  
   
   <div class="centerDiv" id="6" >
@@ -166,7 +166,7 @@ function startFruitGame() {
 	if (interval==3)
 		interval =0; 
 	//if (counter==26)
-    if (counter==4)
+    if (counter==26)
 	{
         
        
@@ -207,18 +207,19 @@ $( "#6" ).click(function() {
 });
     
 RobotUtils.subscribeToALMemoryEvent("PlayGame", function(value) {
-    hideAll()
     counter= 0
     nameFound = 0
+	clearTimeout(blinkImages);
+    clearTimeout(blinkImagesOff);	
+	hideAll()
 	$("#6").show();	
 	ready = setTimeout(function(){
 	 beReady();
-	}, 10000);
-	
+	}, 10000);	
 	 var ele = document.getElementById(imgId);
 		if (ele && ele.style) {
 		  blinkImages = setTimeout('blinkImg()', imgOffTime);
-		}
+		} 
    
 });
 RobotUtils.subscribeToALMemoryEvent("RobotSay", function(value) {
