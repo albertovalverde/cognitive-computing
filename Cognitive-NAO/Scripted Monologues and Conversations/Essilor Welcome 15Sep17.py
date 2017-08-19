@@ -37,13 +37,14 @@ class Spot(object):
 
 # make a list of class Person(s)
 personList = []
-personList.append(Spot("Payne N. Diaz", "1.png"))
-personList.append(Spot("Mia Serts", "2.png"))
-personList.append(Spot("Don B. Sanosi", "3.png",))
-personList.append(Spot("Hugh Jorgan", "4.png"))
+personList.append(Spot("Welcome to the ESSILOR exploring technologies showcase! I am Essi!, come and have have a meeting with with Artificial Inteligence Services!", "A1.jpg"))
+personList.append(Spot("Hi everyone, welcome to the Essilor innovation labs show case!", "A2.png"))
+personList.append(Spot("Hi and welcome to Essilor cognitive computing workshop!", "A3.png",))
 
 
-print personList[2].title
+
+#print personList[2].title
+
 
 
 
@@ -58,9 +59,11 @@ i = 0
 while i <= 900:
     #ttsa.say(random.choice(welcomePhrases))
     rdm = random.choice(personList)
+
     print rdm.title
+
     print rdm.media
     #ttsa.say(random.choice(personList.title))
     #print random.choice(welcomePhrases)
 
-    time.sleep(4)
+    time.sleep(15)
