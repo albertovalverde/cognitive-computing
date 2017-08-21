@@ -424,7 +424,7 @@ function checkForLookupRequests(data, callback) {
               accounts[i].last_statement_balance = accounts[i].last_statement_balance ? numeral(accounts[i].last_statement_balance).format('INR 0,0.00') : '';
 
             if (appendAccountResponse === true) {
-              accountsResultText += accounts[i].number + ' ' + accounts[i].type + ' Balance: ' + accounts[i].balance + '<br/>';
+              accountsResultText += accounts[i].number + ' ' + accounts[i].type + '<br/>';
             }
           }
 

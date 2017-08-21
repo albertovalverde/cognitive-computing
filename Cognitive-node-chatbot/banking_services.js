@@ -36,21 +36,21 @@ const bankingServices = {
     callback(null, this._person);
   },
 
-  _accounts: [
+    _accounts: [
     {
       balance: 12800,
       number: 'xxx8990',
-      type: 'savings'
+      type: 'Billing'
     },
     {
       balance: 7600,
       number: 'xxx0744',
-      type: 'current'
+      type: 'Shipping'
     },
     {
       balance: 550,
       number: 'xxx7685',
-      type: 'CC',
+      type: 'Billing/Shipping',
       available_credit: 4450,
       payment_due_date: '25 March, 2016',
       last_statement_balance: 550
@@ -58,7 +58,7 @@ const bankingServices = {
     {
       balance: 50000,
       number: 'xxx7685',
-      type: 'FD',
+      type: 'Billing',
       maturity_date: '25 Nov, 2017'
     }
   ],
@@ -198,7 +198,7 @@ const bankingServices = {
       description: 'Anti Fatigue Stylis',
       status: 'Order Sent by ECP',
       date: '08-24-2016',
-	  client: "Luise Solt"
+	  client: "Thomas Willson"
     },
     {
 	  
