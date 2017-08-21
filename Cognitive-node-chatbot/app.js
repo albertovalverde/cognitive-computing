@@ -481,7 +481,7 @@ function checkForLookupRequests(data, callback) {
                 if (tDt > sDt && tDt < eDt) {
                   if (data.context.action.append_response && data.context.action.append_response === true) {
                     responseTxtAppend +=
-                      '<br/>' + transaction.date + ' &nbsp;' + numeral(transaction.amount).format('INR 0,0.00') + ' &nbsp;' + transaction.description;
+                      '<br/>' + transaction.date + ' &nbsp;' + transaction.client + ' &nbsp;' + transaction.description;
                   }
                 }
               }
@@ -490,7 +490,7 @@ function checkForLookupRequests(data, callback) {
                 const transaction1 = transactionResponse.transactions[i];
                 if (data.context.action.append_response && data.context.action.append_response === true) {
                   responseTxtAppend +=
-                    '<br/>' + transaction1.date + ' &nbsp;' + numeral(transaction1.amount).format('INR 0,0.00') + ' &nbsp;' + transaction1.description;
+                    '<br/>' + transaction1.date + ' &nbsp;' + + transaction.client + ' &nbsp;' + transaction1.description;
                 }
               }
             }
@@ -536,7 +536,7 @@ function checkForLookupRequests(data, callback) {
               const transaction = transactionResponse.transactions[i];
               if (data.context.action.append_response && data.context.action.append_response === true) {
                 responseTxtAppend +=
-                  '<br/>' + transaction.date + ' &nbsp;' + numeral(transaction.amount).format('INR 0,0.00') + ' &nbsp;' + transaction.description;
+                  '<br/>' + transaction.date + ' &nbsp;' + numeral(transaction.client) + ' &nbsp;' + transaction.description;
               }
             }
           }

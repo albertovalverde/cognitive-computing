@@ -151,100 +151,124 @@ const bankingServices = {
 
   _transactions: [
     {
+	  
       amount: 700.00,
       account_number: 'xxx7685',
       category: 'dining',
-      description: 'Sweekar Restaurant',
-      type: 'debit',
-      date: '08-29-2016'
+      description: 'Varilux Comfort',
+      status: 'Order Sent by ECP',
+      date: '08-29-2016',
+	  client: "Luise Solt"
     },
     {
+	 
       amount: 500.00,
       account_number: 'xxx7685',
       category: 'dining',
-      description: 'McDonalds',
-      type: 'debit',
-      date: '08-27-2016'
+      description: 'Anti Fatigue Stylis',
+      status: 'Order Sent by ECP',
+      date: '08-27-2016',
+	  client: "Dara Stours"
     },
     {
+	  
       amount: 2000.90,
       account_number: 'xxx7685',
       category: 'grocery',
-      description: 'DMart',
-      type: 'debit',
-      date: '08-26-2016'
+      description: 'Anti Fatigue Stylis',
+      status: 'Order Sent by ECP',
+      date: '08-26-2016',
+	  client: "Vanessa Petrin"
     },
     {
+	  
       amount: 1500,
       account_number: 'xxx7685',
       category: 'grocery',
-      description: 'Hyper City',
-      type: 'debit',
-      date: '08-24-2016'
+      description: 'Varilux Comfort',
+      status: 'Order Sent by ECP',
+      date: '08-24-2016',
+	  client: "Betty Parkes"
     },
     {
+	  
       amount: 5000.00,
       account_number: 'xxx7685',
       category: 'travel',
-      description: 'Air India',
-      type: 'debit',
-      date: '08-24-2016'
+      description: 'Anti Fatigue Stylis',
+      status: 'Order Sent by ECP',
+      date: '08-24-2016',
+	  client: "Luise Solt"
     },
     {
+	  
       amount: 1000.00,
       account_number: 'xxx7685',
       category: 'fuel',
-      description: 'Indian Oil',
-      type: 'debit',
-      date: '08-20-2016'
+      description: 'Anti Fatigue Stylis',
+      status: 'Order Sent by ECP',
+      date: '08-20-2016',
+	  client: "Luise Solt"
     },
     {
+	 
       amount: 800.00,
       account_number: 'xxx7685',
       category: 'utility',
-      description: 'Reliance Energy',
-      type: 'debit',
-      date: '09-16-2016'
+      description: 'Stigmal 15',
+      status: 'Order Sent by ECP',
+      date: '09-16-2016',
+	  client: "Luise Solt"
     },
     {
+	 
       amount: 700.00,
       account_number: 'xxx7685',
       category: 'utility',
-      description: 'BSNL',
-      type: 'debit',
-      date: '08-16-2016'
+      description: 'Anti Fatigue Stylis',
+      status: 'Order Sent by ECP',
+      date: '08-16-2016',
+	  client: "Asa Eastwood"
     },
     {
+	 
       amount: 500.00,
       account_number: 'xxx7685',
       category: 'utility',
-      description: 'Mahanagar Gas Ltd',
-      type: 'debit',
-      date: '08-16-2016'
+      description: 'Stigmal 15',
+      status: 'Order Sent by ECP',
+      date: '08-16-2016',
+	  client: "Carson Hugh"
     },
     {
+	 
       amount: 1000.00,
       account_number: 'xxx7685',
       category: 'utility',
-      description: 'Mahanagar Gas Ltd',
-      type: 'debit',
-      date: '09-16-2016'
+      description: 'Anti Fatigue Stylis',
+      status: 'Order Sent by ECP',
+      date: '09-16-2016',
+	  client: "Rosemary Whitting"
     },
     {
+	 
       amount: 6000.00,
       account_number: 'xxx7685',
       category: 'investment',
-      description: 'Open Finance Mutual Fund',
-      type: 'debit',
-      date: '09-25-2016'
+      description: 'Anti Fatigue Stylis',
+      status: 'Order Sent by ECP',
+      date: '09-25-2016',
+	  client: "Raleigh Bang"
     },
     {
+	  
       amount: 10000.00,
       account_number: 'xxx7685',
       category: 'education',
-      description: 'Annual Fee',
-      type: 'debit',
-      date: '08-15-2016'
+      description: 'Stigmal 15',
+      status: 'Order Sent by ECP',
+      date: '08-15-2016',
+	  client: "Ginger Lustig"
     }
   ],
 
