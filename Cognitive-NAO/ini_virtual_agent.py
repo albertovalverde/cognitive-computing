@@ -164,8 +164,6 @@ class SpeechRecoModule(ALModule):
                 #     print "DESERIALIZE: off"
                 #     SpeechPause = False
 
-                self.Naomi.StartUp()
-                self.Naomi.printAndSay(Deserialize.text)  # Print and say (if the robot is connected) the verbal response
 
                 #TODO THIS IS FOR CATCH WEBVIEW RESPONSE NOT GOOD CODE AT ALL
 
@@ -176,6 +174,11 @@ class SpeechRecoModule(ALModule):
                     # STOP the speechrecognition
                     SpeechPause = True
 
+                self.Naomi.StartUp()
+                self.Naomi.printAndSay(
+                    Deserialize.text)  # Print and say (if the robot is connected) the verbal response
+
+
                 if Deserialize.playresponse == "on":
                     print "Check results from webview"
                     #check the response from the webview (is not always active)
@@ -184,7 +187,7 @@ class SpeechRecoModule(ALModule):
                         if str(Deserialize.inputText) == str(self.WebviewResponse):
                             self.Naomi.StartUp()
                             self.Naomi.printAndSay(
-                            "Wou, Congratulations! You are a champion!." + str(
+                            "Wou, Congratulations! You are a champion!. " + str(
                             Deserialize.inputText) + " red Robots were displayed on the Screen")  # Print and say (if the robot is connected) the verbal response
                         else:
                             self.Naomi.StartUp()
