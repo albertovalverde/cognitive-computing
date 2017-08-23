@@ -49,7 +49,7 @@ class Robot:
     def StartUp(self):
         if self.robotCheck:
             # Set starting parameters for Naomi
-            self.WakeUp() # wake it up
+            #self.WakeUp() # wake it up
             #self.StandUp() # make Naomi stand up if not already standing
             self.leds.fadeRGB("FaceLeds", self.config["listeningColour"], 0) # set eye colour to listeningColour (set in config file)
             self.autonomousMovement.setBackgroundStrategy("backToNeutral") # turn on humanoid 'swaying'
@@ -139,14 +139,14 @@ class Robot:
         print "INTO THE CHOOSE ROBOT COLOR OF ROBOTFUNCTIONS"
         memProxy = ALProxy("ALMemory", self.IP, self.PORT)
         # raise event. Data can be int, float, list, string
-        memProxy.raiseEvent("ChooseColorGame", "")
+        memProxy.raiseEvent("ChooseColorGame", "nothing")
     def PlayGameVision(self, color):
         print "INTO THE PLAY GAME OF ROBOTFUNCTIONS"
         #self.printAndSay("Now, Pay Attention! The player has to count the RED Robots that displaying on the screen, please keep your attention on the screen!")
         # create proxy on ALMemory for comunicate with webview
         memProxy = ALProxy("ALMemory", self.IP, self.PORT)
         # raise event. Data can be int, float, list, string
-        memProxy.raiseEvent("PlayGame", color)
+        memProxy.raiseEvent("PlayGame", str(color))
     def takeAPicture(self):
         print "take a picture"
         #First get an image from Nao, then show it on the screen with PIL.

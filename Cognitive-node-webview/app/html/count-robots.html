@@ -95,7 +95,7 @@ var imgOnTime = 500;
 var imgOffTime = 200;
 
 
-var imgId = 'fire-green';
+var imgId = 'fire-blue';
     
     
     
@@ -214,8 +214,8 @@ RobotUtils.subscribeToALMemoryEvent("ChooseColorGame", function(value) {
     
 RobotUtils.subscribeToALMemoryEvent("PlayGame", function(value) {
 	//selected color by user
-	imgId= "Fire-" + value
-    counter= 0
+	imgId= "fire-" + value
+     counter= 0
     nameFound = 0
 	clearTimeout(blinkImages);
     clearTimeout(blinkImagesOff);	
