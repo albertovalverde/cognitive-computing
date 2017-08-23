@@ -39,13 +39,13 @@
   
   <div class="centerDiv" id="6" >
 		<div class="div1">		
-			<img height="99%" width="99%" id="fire-green" src="assets/images/robots/robot-1.png">
+			<img height="99%" width="99%" id="fire3" src="assets/images/robots/robot-1.png">
 		</div>
 		<div class="div2">
-			<img height="99%" width="99%" id="fire-blue" src="assets/images/robots/robot-7.png">			
+			<img height="99%" width="99%" id="fire2" src="assets/images/robots/robot-7.png">			
 		</div>
 		<div class="div3">
-			<img height="99%" width="99%" id="fire-red" src="assets/images/robots/robot-3.png">
+			<img height="99%" width="99%" id="fire1" src="assets/images/robots/robot-3.png">
 		</div>
 		<!--style ="border: 3px solid rgba(238,238,238,0.9)"-->
 	</div>
@@ -90,12 +90,9 @@ var start
 var ready
 var blinkImages
 var blinkImagesOff
-
 var imgOnTime = 500;
 var imgOffTime = 200;
-
-
-var imgId = 'fire-green';
+var imgId = 'fire1';
     
     
     
@@ -205,16 +202,8 @@ $( "#6" ).click(function() {
 	alertify.log("Lets play"); 
 	var ready = setTimeout(function(){ beReady() }, 0); 
 });
-
-
-
-RobotUtils.subscribeToALMemoryEvent("ChooseColorGame", function(value) {   
-   $("#6").show();	   
-});
     
 RobotUtils.subscribeToALMemoryEvent("PlayGame", function(value) {
-	//selected color by user
-	imgId= "Fire-" + value
     counter= 0
     nameFound = 0
 	clearTimeout(blinkImages);
@@ -331,12 +320,10 @@ $(document).on('click', '.trigger-alert6', function (event) {
 		  blinkImages = setTimeout('blinkImg()', imgOffTime);
 		} 
 });
-
 //TEST START GAME
 $(document).on('click', '.trigger-alert4', function (event) {    
 	$("#6").show();		
 });
-
 $(document).on('click', '.trigger-alert2', function (event) {
     event.preventDefault();
     $('#modal-alert2').iziModal('open');
