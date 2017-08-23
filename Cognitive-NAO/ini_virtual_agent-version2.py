@@ -166,11 +166,15 @@ class SpeechRecoModule(ALModule):
 
 
                 #TODO THIS IS FOR CATCH WEBVIEW RESPONSE NOT GOOD CODE AT ALL
-
-                if Deserialize.playgame == "on":
-                    print "Adding event in robotfunction"
+                               
+                if Deserialize.playcolor == "on": #call start the game in robotfunction
+                    print "Adding event " + Deserialize.classified + " in robotfunction"
                     self.Naomi.RobotFunctionDec(
                         Deserialize.classified)  # If user requested a robot function, execute that function
+
+                if Deserialize.playgame == "on":  #passing the color to the robotfunction
+                    print "Adding event " + Deserialize.classified + " in robotfunction"
+                    self.Naomi.PlayGameVision(Deserialize.inputText) # If user requested a robot function, execute that function
                     # STOP the speechrecognition
                     SpeechPause = True
 
@@ -239,6 +243,7 @@ class Filteresponse:
     classified = ""
     playgame = ""
     playresponse=""
+    playcolor=""
     intents = ""
     inputText = ""
 
@@ -269,9 +274,14 @@ def DeserializeResponse(response):
         deserialize.playgame = None
     try:
         deserialize.playresponse = response["context"]["play_response"]
-        print "playresponse : " + deserialize.playresponse
+        print "play_response : " + deserialize.playresponse
     except:
         deserialize.playresponse = None
+    try:
+        deserialize.playcolor = response["context"]["play_color"]
+        print "play_color : " + deserialize.playcolor
+    except:
+        deserialize.playcolor = None
     try:
         deserialize.inputText = response["input"]["text"]
         print "input text : " + deserialize.inputText
@@ -304,11 +314,15 @@ def StartIteration():
 
         Deserialize = DeserializeResponse(response)
         #to review
+        if Deserialize.playcolor == "on":
+            print "Adding event " + str(Deserialize.classified) + " in robotfunction"
         if Deserialize.playgame == "on":
-            print "Adding event in robotfunction"
+            print "Adding event " + str(Deserialize.classified) + " in robotfunction. Passing " + Deserialize.inputText + " to the function"
         if Deserialize.playresponse == "on":
             print "Check results from webview"
         # end to review
+
+
 
         with open('response.json', 'w') as outfile:
             json.dump(response, outfile)
