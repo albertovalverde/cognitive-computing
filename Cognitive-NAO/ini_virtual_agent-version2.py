@@ -174,6 +174,7 @@ class SpeechRecoModule(ALModule):
 
                 if Deserialize.playgame == "on":  #passing the color to the robotfunction
                     print "Adding event " + Deserialize.classified + " in robotfunction"
+                    self.LastSelectColor = Deserialize.inputText
                     self.Naomi.PlayGameVision(Deserialize.inputText) # If user requested a robot function, execute that function
                     # STOP the speechrecognition
                     SpeechPause = True
@@ -192,11 +193,11 @@ class SpeechRecoModule(ALModule):
                             self.Naomi.StartUp()
                             self.Naomi.printAndSay(
                             "Wou, Congratulations! You are a champion!. " + str(
-                            Deserialize.inputText) + " red Robots were displayed on the Screen")  # Print and say (if the robot is connected) the verbal response
+                            Deserialize.inputText) + " " + self.LastSelectColor +" Robots were displayed on the Screen")  # Print and say (if the robot is connected) the verbal response
                         else:
                             self.Naomi.StartUp()
                             self.Naomi.printAndSay("Sorry! You need to keep more attention to the vision game. " + str(
-                            self.WebviewResponse) + " red robots were displayed on the screen")  # Print and say (if the robot is connected) the verbal response
+                            self.WebviewResponse) + " " + self.LastSelectColor + "robots were displayed on the screen")  # Print and say (if the robot is connected) the verbal response
                         self.WebviewResponse = None
 
 
@@ -235,7 +236,7 @@ class SpeechRecoModule(ALModule):
         self.WebviewResponse = value
         print "Count of webview= " + str(value)
         self.Naomi.StartUp()
-        self.Naomi.printAndSay("Well, Can you say me how many red robots was displaying on the screen?")  # Print and say (if the robot is connected) the verbal response
+        self.Naomi.printAndSay("Well, Can you say me how many " + self.LastSelectColor + " robots was displaying on the screen?")  # Print and say (if the robot is connected) the verbal response
         StartIteration()
 
 class Filteresponse:

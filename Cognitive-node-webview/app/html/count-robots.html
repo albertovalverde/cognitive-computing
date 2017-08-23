@@ -83,7 +83,7 @@ var interval = 0;
 var counter = 0;
 var nameFound = 0;
 var ini = null;
-var Fruitfavourite= "robot-3";
+var Robotfavourite= "robot-3";
 var audio=null
 hideAll();
 var start
@@ -161,7 +161,7 @@ function startFruitGame() {
 	var div = $("#" + interval).show();
 		 ++interval;
 	++counter; 
-	if (NameRobot==Fruitfavourite)
+	if (NameRobot==Robotfavourite)
 	++ nameFound; 
 	if (interval==3)
 		interval =0; 
@@ -208,13 +208,33 @@ $( "#6" ).click(function() {
 
 
 
-RobotUtils.subscribeToALMemoryEvent("ChooseColorGame", function(value) {   
+RobotUtils.subscribeToALMemoryEvent("ChooseColorGame", function(value) {  
+    counter= 0
+    nameFound = 0
+    hideAll()
    $("#6").show();	   
 });
     
 RobotUtils.subscribeToALMemoryEvent("PlayGame", function(value) {
 	//selected color by user
 	imgId= "fire-" + value
+    
+    switch(value) {
+    case "green":
+        Robotfavourite = "robot-1"
+        break;
+    case "blue":
+        Robotfavourite = "robot-7"
+        break;
+    case "red":
+        Robotfavourite = "robot-3"
+        break;
+    default:
+        Robotfavourite = "robot-3"
+        break;
+}
+    
+    
      counter= 0
     nameFound = 0
 	clearTimeout(blinkImages);
