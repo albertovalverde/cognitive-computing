@@ -259,7 +259,7 @@ def DeserializeResponse(response):
 
     deserialize= Filteresponse
     try:
-        deserialize.text = response["output"]["text"][0]
+        deserialize.text = response["output"]["text"][len(response["output"]["text"])-1]
         print "text : " + deserialize.text
     except:
         deserialize.text = None

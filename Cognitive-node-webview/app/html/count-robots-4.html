@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Vison teraphy</title>
+<link href="assets/css/count-robots-4.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+ <!--  NOTIFYCATIONS --> 
+<link rel="stylesheet" href="assets/css/notify/alertify.core.css" />
+<link rel="stylesheet" href="assets/css/notify/alertify.default.css" id="toggleCSS" />
+<!--  IZIMODAL --> 
+<link rel="stylesheet" href="assets/css/izimodal/iziModal.min.css"/>
+<!--  IZITOAST --> 
+<link rel="stylesheet" href="assets/css/izitoast/iziToast.css"/>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+</head>
+
+<body> 
+
+  <div class="offscreen" id="offscreen">
+	  <!--text modal --> 
+	  <div id="7">TEST TOAST MESSAGE</div>
+	  <div id="8">TEST LOAD GAME</div> 
+	  <div class="trigger-alert2">TEST ALERT MESSAGE</div>   
+      <div class="trigger-alert3">TEST TRIGGER</div>   
+	  <div class="trigger-alert4">TEST START GAME</div>
+	  <div class="trigger-alert5">TEST SELECT ROBOT</div>
+	   <div class="trigger-alert6">TEST PLAY GAME</div>
+  </div>
+  
+  <!--robots images --> 
+  <div class="left-up" id="0">ROBOT1</div>
+  <div class="right-up" id="1">ROBOT2</div>
+  <div class="right-down" id="2">ROBOT3</div>
+  <!--<div class="left-down" id="3">ORANGE</div> -->   
+  <!--ready/go --> 
+  <div class="centerDiv" style="top: 35%;" id="4"><img src="assets/images/questions.png"></div>  
+  <div class="screen-middle" id="5"><h1>Ready!</h1></div>  
+  
+  <div class="centerDiv" id="6" >
+		<div class="div4">
+			<img height="99%" width="99%" id="fire-orange" src="assets/images/robots/robot-11.png">
+		</div>
+		<div class="div1">		
+			<img height="99%" width="99%" id="fire-green" src="assets/images/robots/robot-1.png">
+		</div>		
+		<div class="div2">
+			<img height="99%" width="99%" id="fire-blue" src="assets/images/robots/robot-7.png">			
+		</div>
+		<div class="div3">
+			<img height="99%" width="99%" id="fire-red" src="assets/images/robots/robot-3.png">
+		</div>
+		
+		<!--style ="border: 3px solid rgba(238,238,238,0.9)"-->
+	</div>
+  
+  <!--modal--> 
+  <div id="modal-alert2" data-iziModal-group="alert"></div> 
+  <div id="modal" style='box-shadow: 0 0 8px rgba(0,0,0,0);'>
+    <!-- Page content -->
+    <div style="text-align:center" id="startgame"><img width="500" class="imgContain" style="cursor: pointer;" src="assets/images/start.gif"></img>
+    </div>
+  </div>  
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!--  naoqi MESSAGES --> 
+<script src="js/robotutils.qim1.js"></script> 
+<!--  NOTIFYCATIONS --> 
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="assets/js/notify/alertify.js"></script>
+<!--  IZItoast --> 
+<script src="assets/js/izitoast/iziToast.min.js?v=112"></script>
+<!--  IZIMODAL -->
+<script src="assets/js/izimodal/iziModal.min.js"></script>
+
+
+
+
+</html>
+
+
+<script>
+var robotNames = ['robot-1', 'robot-7', 'robot-3', 'robot-11'];    
+var interval = 0;
+var counter = 0;
+var nameFound = 0;
+var ini = null;
+var Robotfavourite= "robot-3";
+var audio=null
+hideAll();
+var start
+var ready
+var blinkImages
+var blinkImagesOff
+
+var imgOnTime = 500;
+var imgOffTime = 200;
+
+
+var imgId = 'fire-orange';
+    
+    
+    
+    var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
+var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
+function inWords (num) {
+    if ((num = num.toString()).length > 9) return 'overflow';
+    n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+    if (!n) return; var str = '';
+    str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
+    str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
+    str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
+    str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
+    str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) : '';
+    return str;
+}
+//modal windows
+$("#modal").iziModal({
+	 transitionIn: 'fadeInUp',
+	 //fullscreen: true,
+	 openFullscreen: true,
+	 iframeHeight: 500,
+	 overlayClose: false,
+	 overlayColor: 'rgba(0, 0, 0, 0)',
+	 //overlayColor: 'rgba(0, 0, 0, 0.6)',
+	 transitionOutOverlay:'fadeOut',   
+});
+function hideAll()
+{
+	$("#0").hide();
+	$("#1").hide();
+	$("#2").hide();
+	$("#3").hide();
+	$("#4").hide();
+	$("#5").hide();
+	$("#6").hide();
+}
+function beReady() { 	
+	hideAll() 
+	$("#offscreen").hide();	
+	//var div = $("#6").hide();   
+	var div = $("#5").show();   
+	setTimeout(function(){
+	var div = $("#5").show(); 
+	$("#5").html("<h1>Go!</h1>");
+	setTimeout(function(){
+		var div = $("#5").hide();
+        
+        audio = new Audio('assets/sounds/bensound-ukulele.mp3');
+        audio.play();
+     
+		ini = setInterval(function(){ startFruitGame() }, 500);  
+        
+		}, 2000);
+	}, 2000);
+}
+function startFruitGame() { 
+	hideAll()
+    
+	var NameRobot= robotNames[Math.floor(Math.random() *  robotNames.length)];
+	var scr="assets/images/robots/"
+	$("#" + interval).html("<img width='100' height='100' src="+ scr + NameRobot +".png></img>");
+	var div = $("#" + interval).show();
+		 ++interval;
+	++counter; 
+	if (NameRobot==Robotfavourite)
+	++ nameFound; 
+	if (interval==3)
+		interval =0; 
+	//if (counter==26)
+    if (counter==26)
+	{
+        
+       
+            audio.pause();
+            audio.currentTime = 0;
+            
+       
+            //countForNao = inWords(nameFound);
+            //alert(countForNao)
+            /*end the game for trigger NAO*/
+            RobotUtils.onServices(function(ALMemory) {
+					ALMemory.raiseEvent("myMicroEvent", nameFound);
+            }); 
+                   
+        
+		hideAll()
+		clearInterval(ini);
+        clearTimeout(ready);
+        clearTimeout(blinkImages);
+        clearTimeout(blinkImagesOff);
+		var ele = document.getElementById(imgId);
+		ele.style.border = null;
+		ele.style.visibility = "visible";
+		var div = $("#4").show(); 
+        
+        
+	}
+};
+$( "#4" ).click(function() {
+  $("#4").html("<h1> Total: "+nameFound+"</h1>");
+    nameFound=0;
+});
+$( "#6" ).click(function() {
+	
+	var msg = "<img src='assets/images/nao.png'>" +
+	"<p>Lets play game</p>"; +
+	"</div>";
+	alertify.logPosition("bottom right");
+	alertify.log("Lets play"); 
+	var ready = setTimeout(function(){ beReady() }, 0); 
+});
+
+
+
+RobotUtils.subscribeToALMemoryEvent("ChooseColorGame", function(value) {  
+    counter= 0
+    nameFound = 0
+    hideAll()
+   $("#6").show();	   
+});
+    
+RobotUtils.subscribeToALMemoryEvent("PlayGame", function(value) {
+	//selected color by user
+	imgId= "fire-" + value
+    
+    switch(value) {
+    case "green":
+        Robotfavourite = "robot-1"
+        break;
+    case "blue":
+        Robotfavourite = "robot-7"
+        break;
+    case "red":
+        Robotfavourite = "robot-3"
+        break;
+	case "orange":
+        Robotfavourite = "robot-11"
+        break;
+    default:
+        Robotfavourite = "robot-3"
+        break;
+}
+    
+    
+     counter= 0
+    nameFound = 0
+	clearTimeout(blinkImages);
+    clearTimeout(blinkImagesOff);	
+	hideAll()
+	$("#6").show();	
+	ready = setTimeout(function(){
+	 beReady();
+	}, 10000);	
+	 var ele = document.getElementById(imgId);
+		if (ele && ele.style) {
+		  blinkImages = setTimeout('blinkImg()', imgOffTime);
+		} 
+   
+});
+RobotUtils.subscribeToALMemoryEvent("RobotSay", function(value) {
+	var msg = "<img src='assets/images/nao.png'>" +
+	"<p>" + value + "</p>" +
+	"</div>";
+	//alertify.logPosition("bottom right");
+	//alertify.delay(0).log(msg);
+	iziToast.show({
+			id: 'haduken',
+			timeout: 10000,
+			//messageLineHeight: '100',
+			color: 'dark',
+			icon: 'icon-contacts',
+			title: value,
+			message: 'From Nao',
+			position: 'bottomRight',
+			transitionIn: 'flipInX',
+			transitionOut: 'flipOutX',
+			progressBarColor: 'rgb(0, 255, 184)',
+			image: 'assets/images/nao.png',
+			imageWidth: 60, 
+			layout:2,
+			onClose: function(){
+				// console.info('onClose');
+			},
+			iconColor: 'rgb(0, 255, 184)'
+		});
+});
+ $(document).on("click", "#startgame", function(event){
+	 $('#modal').iziModal('close');
+	  start = setTimeout(function(){ beReady() }, 0);  
+});
+$( "#7" ).click(function() {
+	var audio = new Audio('assets/sounds/you-wouldnt-believe.mp3');
+	audio.play();
+	iziToast.show({
+			id: 'haduken',
+			timeout: 10000,
+			//messageLineHeight: '100',
+			color: 'dark',
+			icon: 'icon-contacts',
+			title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet purus ornare, ullamcorper arcu sed, sagittis magna. Vestibulum varius dapibus erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam eu nunc ac dolor sodales venenatis tincidunt et sem. Sed consectetur sit amet ligula eu fermentum.',
+			message: 'From Nao',
+			position: 'topCenter',
+			transitionIn: 'flipInX',
+			transitionOut: 'flipOutX',
+			progressBarColor: 'rgb(0, 255, 184)',
+			image: 'assets/images/nao.png',
+			imageWidth: 100, 
+			layout:2,
+			onClose: function(){
+				// console.info('onClose');
+			},
+			iconColor: 'rgb(0, 255, 184)'
+	});  
+});
+$( "#8" ).click(function() {
+	var audio = new Audio('assets/sounds/arpeggio.mp3');
+	audio.play(); 
+	$('#modal').iziModal('open'); 
+});
+$("#modal-alert2").iziModal({
+    title: "Your message has been sent successfully",
+    icon: 'icon-check',
+    headerColor: '#00af66',
+    width: 600,
+    timeout: 10000,
+    timeoutProgressbar: true,
+    transitionIn: 'fadeInUp',
+    transitionOut: 'fadeOutDown',
+    bottom: 0,
+    loop: true,
+    pauseOnHover: true
+});
+ 
+//TEST SELECT ROBOT 
+$(document).on('click', '.trigger-alert5', function (event) {  
+	clearTimeout(blinkImages);
+    clearTimeout(blinkImagesOff); 
+	$("#6").show();
+	 var ele = document.getElementById(imgId);
+		if (ele && ele.style) {
+		  blinkImages = setTimeout('blinkImg()', imgOffTime);
+		} 
+});   
+   
+//TEST PLAY GAME   
+$(document).on('click', '.trigger-alert6', function (event) {
+    counter= 0
+    nameFound = 0
+	clearTimeout(blinkImages);
+    clearTimeout(blinkImagesOff);	
+	hideAll()
+	$("#6").show();	
+	ready = setTimeout(function(){
+	 beReady();
+	}, 10000);	
+	 var ele = document.getElementById(imgId);
+		if (ele && ele.style) {
+		  blinkImages = setTimeout('blinkImg()', imgOffTime);
+		} 
+});
+
+//TEST START GAME
+$(document).on('click', '.trigger-alert4', function (event) {    
+	$("#6").show();		
+});
+
+$(document).on('click', '.trigger-alert2', function (event) {
+    event.preventDefault();
+    $('#modal-alert2').iziModal('open');
+});
+    
+$(document).on('click', '.trigger-alert3', function (event) {
+    
+    RobotUtils.onServices(function(ALMemory) {
+					ALMemory.raiseEvent("myMicroEvent", "100");
+    }); 
+    
+});
+function blinkImg()
+{
+  var v, t, ele = document.getElementById(imgId);
+  if (ele.style.visibility == 'visible') {
+    // hide it, then wait for imgOffTime
+    v = 'hidden';
+    t = imgOffTime;
+	
+	ele.style.border = null
+  }
+  else {
+    // show it, then wait for imgOnTime
+    v = 'visible';
+	ele.style.border="3px solid rgba(238,238,238,0.9)";
+    t = imgOnTime;
+  }
+  ele.style.visibility = v;
+  
+  blinkImagesOff = setTimeout('blinkImg()', t);
+}
+</script>
