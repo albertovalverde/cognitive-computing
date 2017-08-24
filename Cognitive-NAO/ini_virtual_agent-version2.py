@@ -194,10 +194,16 @@ class SpeechRecoModule(ALModule):
                             self.Naomi.printAndSay(
                             "Wou, Congratulations! You are a champion!. " + str(
                             Deserialize.inputText) + " " + self.LastSelectColor +" Robots were displayed on the Screen, Yay!")  # Print and say (if the robot is connected) the verbal response
+
                         else:
                             self.Naomi.StartUp()
                             self.Naomi.printAndSay("Sorry! You need to keep more attention to the vision game. " + str(
                             self.WebviewResponse) + " " + self.LastSelectColor + "robots were displayed on the screen")  # Print and say (if the robot is connected) the verbal response
+
+                        #ask for play again in any case!
+                        self.Naomi.printAndSay(
+                            "Do you want to play again?")
+
                         self.WebviewResponse = None
 
 
