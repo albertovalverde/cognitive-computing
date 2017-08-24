@@ -34,7 +34,7 @@
   <div class="right-down" id="2">ROBOT3</div>
   <!--<div class="left-down" id="3">ORANGE</div> -->   
   <!--ready/go --> 
-  <div class="centerDiv" style="top: 35%;" id="4"><img src="assets/images/questions.png"></div>  
+  <div class="centerDiv" style="top: 35%;margin-left:-305px" id="4"><img src="assets/images/questions.png"></div>  
   <div class="screen-middle" id="5"><h1>Ready!</h1></div>  
   
   <div class="centerDiv" id="6" >
@@ -165,7 +165,7 @@ function startFruitGame() {
 	var div = $("#" + interval).show();
 		 ++interval;
 	++counter; 
-	if (NameRobot==Robotfavourite)
+	if ((NameRobot==Robotfavourite) && (counter<26))
 	++ nameFound; 
 	if (interval==3)
 		interval =0; 
@@ -240,7 +240,7 @@ RobotUtils.subscribeToALMemoryEvent("PlayGame", function(value) {
         Robotfavourite = "robot-11"
         break;
     default:
-        Robotfavourite = "robot-3"
+        Robotfavourite = "robot-11"
         break;
 }
     
