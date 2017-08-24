@@ -132,10 +132,10 @@ class SpeechRecoModule(ALModule):
         self.mutex.release()
 
     def onWordRecognized(self, key, value, message):
-
-        self.onUnload()
         self.record.stopMicrophonesRecording()
         print 'record over'
+        self.onUnload()
+
         filename = 'out.wav'
         file = open(filename, 'wb')
         self.ftp.retrbinary('RETR %s' % filename, file.write)
