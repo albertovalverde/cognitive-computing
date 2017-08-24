@@ -174,8 +174,8 @@ class SpeechRecoModule(ALModule):
 
                 if Deserialize.playgame == "on":  #passing the color to the robotfunction
                     print "Adding event " + Deserialize.classified + " in robotfunction"
-                    self.LastSelectColor = Deserialize.inputText
-                    self.Naomi.PlayGameVision(Deserialize.inputText) # If user requested a robot function, execute that function
+                    self.LastSelectColor = Deserialize.entities
+                    self.Naomi.PlayGameVision(self.LastSelectColor) # If user requested a robot function, execute that function
                     # STOP the speechrecognition
                     SpeechPause = True
 
@@ -247,6 +247,7 @@ class Filteresponse:
     playcolor=""
     intents = ""
     inputText = ""
+    entities = ""
 
 def DeserializeResponse(response):
 
@@ -261,6 +262,11 @@ def DeserializeResponse(response):
     try:
         deserialize.intents = response["intents"][0]["intent"]
         print "intents : " + deserialize.intents
+    except:
+        deserialize.intents = None
+    try:
+        deserialize.entities = response["entities"][0]["value"]
+        print "entitie : " + deserialize.entities
     except:
         deserialize.intents = None
     try:
@@ -318,7 +324,7 @@ def StartIteration():
         if Deserialize.playcolor == "on":
             print "Adding event " + str(Deserialize.classified) + " in robotfunction"
         if Deserialize.playgame == "on":
-            print "Adding event " + str(Deserialize.classified) + " in robotfunction. Passing " + Deserialize.inputText + " to the function"
+            print "Adding event " + str(Deserialize.classified) + " in robotfunction. Passing '" + Deserialize.entities + "' to the function"
         if Deserialize.playresponse == "on":
             print "Check results from webview"
         # end to review
