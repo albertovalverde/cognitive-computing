@@ -53,6 +53,7 @@ class SpeechRecoModule(ALModule):
             self.ftp.login("nao", "nao")
             self.memory = ALProxy("ALMemory")
             self.memory.subscribeToMicroEvent("myMicroEvent", "pythonSpeechModule", "message", "playGameEnd") # catch event from webview
+
             self.google = sr.Recognizer()  # google specch recognition
             self.Naomi = RobotFunctions.Robot(IP_global, PORT, config,
                                               robotCheck)  # Initialise all robot functions in variable "Naomi"
@@ -92,6 +93,8 @@ class SpeechRecoModule(ALModule):
             if (self.bIsRunning):
                 if (self.hasSubscribed):
                     self.memory.unsubscribeToEvent("WordRecognized", self.getName())
+                    # self.memory.unsubscribeToEvent("SpeechDetected", self.getName())
+
                 if (self.hasPushed and self.asr):
                     self.asr.popContexts()
         except RuntimeError, e:
@@ -116,6 +119,7 @@ class SpeechRecoModule(ALModule):
                 self.asr.pause(True)
                 self.asr.setVocabulary(['a'],False)
                 self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
+                # self.memory.subscribeToEvent("SpeechDetected", self.getName(), "speechDetected")
                 self.hasSubscribed = True
                 self.asr.pause(False)
                 # # # ----------> recording <----------
@@ -130,6 +134,15 @@ class SpeechRecoModule(ALModule):
             self.onUnload()
             raise e
         self.mutex.release()
+
+    # def speechDetected(self, event, detected, id):
+
+        # if str(detected) == "1":
+        #     print "speech detected in 1"
+        #     self.record.stopMicrophonesRecording()
+        #     self.record.startMicrophonesRecording(self.record_path, 'wav', 16000, (0, 0, 1, 0))
+
+
 
     def onWordRecognized(self, key, value, message):
         self.record.stopMicrophonesRecording()
