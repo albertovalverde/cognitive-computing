@@ -187,6 +187,9 @@ function startFruitGame() {
         clearTimeout(ready);
         clearTimeout(blinkImages);
         clearTimeout(blinkImagesOff);
+		var ele = document.getElementById(imgId);
+		ele.style.border = null;
+		ele.style.visibility = "visible";
 		var div = $("#4").show(); 
         
         
