@@ -22,9 +22,9 @@ def getIP():
 PORT = 9559
 IP = getIP() # Get Naomi's IP address
 
-# ttsa = ALProxy("ALAnimatedSpeech", IP, PORT) # Animated speech proxy
+ttsa = ALProxy("ALAnimatedSpeech", IP, PORT) # Animated speech proxy
 # #
-# autonomousMovement = ALProxy("ALAutonomousMoves", IP, PORT)
+autonomousMovement = ALProxy("ALAutonomousMoves", IP, PORT)
 
 # a list of class objects to mimic a C type array of structures
 # tested with Python24       vegaseat       30sep2005
@@ -38,9 +38,15 @@ class Spot(object):
 # make a list of class Person(s)
 personList = []
 personList.append(Spot("Welcome to the ESSILOR exploring technologies showcase! I am Essi!, come and have have a meeting with with Artificial Inteligence Services!", "A1.jpg"))
-personList.append(Spot("Hi everyone, welcome to the Essilor innovation labs show case!", "A2.png"))
-personList.append(Spot("Hi and welcome to Essilor cognitive computing workshop!", "A3.png",))
+personList.append(Spot("Hi everyone, welcome to the ESSILOR innovation labs show case!", "A2.jpg"))
+personList.append(Spot("Hi and welcome to the cognitive computing workshop!. Came and have a meeting with Essilor Virtual Agent ", "A3.jpg",))
+personList.append(Spot("Hi everyone!, I am Essi! Welcome to the Cognitive era! Transform your Business with Artificial Inteligence!", "A4.jpg",))
+personList.append(Spot("Welcome to the Cognitive Computing show case, and the Future of Health Care!", "A5.jpg",))
+personList.append(Spot("Hi, my name is Essi!!, welcome to the ESSILOR innovation show case!", "A6.jpg",))
 
+# create proxy on ALMemory for comunicate with webview
+memProxy = ALProxy("ALMemory", IP, PORT)
+# raise event. Data can be int, float, list, string
 
 
 #print personList[2].title
@@ -60,10 +66,16 @@ while i <= 900:
     #ttsa.say(random.choice(welcomePhrases))
     rdm = random.choice(personList)
 
+
+
+
     print rdm.title
+    memProxy.raiseEvent("RobotSay", str(rdm.title))
 
     print rdm.media
-    #ttsa.say(random.choice(personList.title))
+
+    memProxy.raiseEvent("RobotSpot", str(rdm.media))
+    ttsa.say(rdm.title)
     #print random.choice(welcomePhrases)
 
     time.sleep(15)

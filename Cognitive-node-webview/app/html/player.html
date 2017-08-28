@@ -97,8 +97,8 @@ $( "#6" ).click(function() {
 	var ready = setTimeout(function(){ beReady() }, 0); 
 });
     
-RobotUtils.subscribeToALMemoryEvent("PlayImg", function(value) {
-    path= "assets/images/cognitive/" + value + ".pgn"
+RobotUtils.subscribeToALMemoryEvent("RobotSpot", function(value) {
+    path= "assets/images/cognitive/" + value 
     $("#player").attr("src",path);
 });
     
