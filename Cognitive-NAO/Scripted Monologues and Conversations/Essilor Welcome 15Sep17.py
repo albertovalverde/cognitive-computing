@@ -37,12 +37,15 @@ class Spot(object):
 
 # make a list of class Person(s)
 personList = []
-personList.append(Spot("Welcome to the ESSILOR exploring technologies showcase! I am Essi!, come and have have a meeting with with Artificial Inteligence Services!", "A1.jpg"))
+personList.append(Spot("Welcome to the world of tomorrow. Cognitive computing refers to systems that learn at scale, reason with purpose, and interact with humans naturally.", "A1.jpg",))
 personList.append(Spot("Hi everyone, welcome to the ESSILOR innovation labs show case!", "A2.jpg"))
 personList.append(Spot("Hi and welcome to the cognitive computing workshop!. Came and have a meeting with Essilor Virtual Agent ", "A3.jpg",))
-personList.append(Spot("Hi everyone!, I am Essi! Welcome to the Cognitive era! Transform your Business with Artificial Inteligence!", "A4.jpg",))
-personList.append(Spot("Welcome to the Cognitive Computing show case, and the Future of Health Care!", "A5.jpg",))
-personList.append(Spot("Hi, my name is Essi!!, welcome to the ESSILOR innovation show case!", "A6.jpg",))
+personList.append(Spot("Hello!, I am Essi! Welcome to the Cognitive era! Transform your Business with Artificial Inteligence!", "A4.jpg",))
+personList.append(Spot("Welcome to the Cognitive Computing show case, and the Future of Health Care!", "A7.jpg",))
+personList.append(Spot("Welcome to the Cognitive Era: A New Era in Technology, A New Era in Business & Health Care!. Come and have have a meeting with with Artificial Inteligence Services!", "A6.jpg",))
+personList.append(Spot("Welcome to the world of tomorrow. Cognitive computing refers to systems that learn at scale, reason with purpose, and interact with humans naturally.", "A5.jpg",))
+
+
 
 # create proxy on ALMemory for comunicate with webview
 memProxy = ALProxy("ALMemory", IP, PORT)
@@ -78,4 +81,4 @@ while i <= 900:
     ttsa.say(rdm.title)
     #print random.choice(welcomePhrases)
 
-    time.sleep(15)
+    time.sleep(10)
