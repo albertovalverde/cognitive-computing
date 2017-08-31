@@ -185,7 +185,7 @@ class Robot:
             print "Naomi is asking to the System what the picture is..."
             self.leds.fadeRGB("FaceLeds", "green", 0)
             #self.tts.say("Ok, let me ask Watson!")
-            self.tts.say("Ok, let me ask to my system!")
+            self.tts.say("Ok, let me ask Cognitive System!")
             self.leds.fadeRGB("FaceLeds", "yellow", 0)
             self.autonomousMovement.setBackgroundStrategy("backToNeutral")
     def WhatDidYouSay(self):

@@ -126,7 +126,7 @@ class CognitiveService():
                 #print nlcClassification + "___" + self.nlcClassifierName
                 nlcResponse = self.HandleNlc.returnResponse(self.nlcClassifierName,
                                                        nlcClassification)  # Retrieve correct response for the NLC classification
-                print nlcResponse
+
 
                 self.Naomi.printAndSay(nlcResponse[0])  # Print and say (if the robot is connected) the verbal response
                 self.nlcClassifierID = nlcResponse[1]  # Set the classifier ID to be used for the next NLC request

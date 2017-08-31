@@ -26,15 +26,14 @@ AusConversation = {
 # US South credentials
 USNLC = {
   "url": "https://gateway.watsonplatform.net/natural-language-classifier/api",
-  "username": "b045eb25-5309-4a2c-b191-afb58128beb4",
-  "password": "TetdhkshOOsl"
+  "username": "a072eefd-cf04-4556-9c46-81b2f41b90cb",
+  "password": "OtPbLTcH6dvl"
 }
-USConversation = {
-  "url": "https://gateway.watsonplatform.net/conversation/api",
-  "username": "370913eb-22d2-42cd-bc23-4ea1b4d6900d",
-  "password": "I3BK8LTLS6DD",
+USConversation = {"url": "https://gateway.watsonplatform.net/conversation/api",
+  "username": "5f0c7cef-dc6f-4c1d-bf1d-9eb6997709e6",
+  "password": "RnKnTCXaK6YW",
  # "ID": "1f247258-be1e-4f7b-97ba-fde1711d7efd" version 1
-  "ID": "5ff68f15-f999-408d-97d2-dbf5f2747110"
+  "ID": "a19086e2-7c89-4c79-ba40-fcf1fddb934a"
 
 }
 USSpeechToText = {"url": "https://stream.watsonplatform.net/speech-to-text/api",
@@ -44,7 +43,7 @@ USSpeechToText = {"url": "https://stream.watsonplatform.net/speech-to-text/api",
 USVR = {
   "url": "https://gateway-a.watsonplatform.net/visual-recognition/api",
   "note": "It may take up to 5 minutes for this key to become active",
-  "api_key": "df496f2c2ff054af344b37384ee01dae66e6323e",
+  "api_key": "16f59415dfd5ab8f1aea1678b2a7a6a8cebb92f8",
   "version": "2016-05-20"
 }
 
