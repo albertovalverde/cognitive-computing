@@ -1,1 +1,1 @@
-Essilor Virtual Agent
+AAVAES Virtual Agent
