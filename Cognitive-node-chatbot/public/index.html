@@ -16,7 +16,7 @@
 <html>
 <head>
   <base href="/">
-  <title>Open Financial Cognitive Conversation</title>
+  <title>OpsysWeb Cognitive Computing</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -232,5 +232,27 @@
   <script src="js/api.js"></script>
   <script src="js/conversation.js"></script>
   <script src="js/global.js"></script>
+  
+  <script>
+  (function() 
+{
+    var bgCounter = 0,
+        backgrounds = [
+           "/img/1.png",
+           "/img/2.png",
+           "/img/ofn.jpg"
+        ];
+    function changeBackground()
+    {
+        bgCounter = (bgCounter+1) % backgrounds.length;
+        $('body').css('background', '#000 url('+backgrounds[bgCounter]+') no-repeat');
+        setTimeout(changeBackground, 60000);
+		
+		
+
+    }
+    changeBackground();
+})();
+  </script>
 </body>
 </html>
