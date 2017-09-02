@@ -215,7 +215,7 @@ class SpeechRecoModule(ALModule):
 
                         else:
                             self.Naomi.StartUp()
-                            self.Naomi.printAndSay("Sorry! You need to keep more attention to the vision game. " + str(
+                            self.Naomi.printAndSay("Oh no! You need to keep more attention to the vision game. " + str(
                             self.WebviewResponse) + " " + self.LastSelectColor + " robots were displayed on the screen")  # Print and say (if the robot is connected) the verbal response
 
                         self.Naomi.printAndSay("Do you want to play again?")#ask for play again in any case!
