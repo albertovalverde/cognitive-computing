@@ -543,3 +543,6 @@ what variety of car is this,DoCarRecognition
 which car is this one,DoCarRecognition
 what car would you guess is this,DoCarRecognition
 guess what car this is please,DoCarRecognition
+tell me what tecnical functions do you have,TecnicalFunction
+what tecnical functions do you have,TecnicalFunction
+tell me about your tecnical functions,TecnicalFunction

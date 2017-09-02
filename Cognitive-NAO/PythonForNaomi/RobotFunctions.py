@@ -49,8 +49,8 @@ class Robot:
     def StartUp(self):
         if self.robotCheck:
             # Set starting parameters for Naomi
-            #self.WakeUp() # wake it up
-            #self.StandUp() # make Naomi stand up if not already standing
+            self.WakeUp() # wake it up
+            self.StandUp() # make Naomi stand up if not already standing
             self.leds.fadeRGB("FaceLeds", self.config["listeningColour"], 0) # set eye colour to listeningColour (set in config file)
             self.autonomousMovement.setBackgroundStrategy("backToNeutral") # turn on humanoid 'swaying'
     # define the robot functions
@@ -199,7 +199,7 @@ class Robot:
             self.leds.fadeRGB("FaceLeds", self.config["listeningColour"], 0)
             self.audibleComprehension()
     def printAndSay(self, phrase):
-        print 'Luxilor:', phrase, "\n"
+        print 'ESSI:', phrase, "\n"
         if self.robotCheck: # Speak the response phrase, changing eye colour appropriately, playing comprehension noise, etc.
             #self.audibleComprehension()
             self.leds.post.fadeRGB("FaceLeds", self.config["speakingColour"], 0)

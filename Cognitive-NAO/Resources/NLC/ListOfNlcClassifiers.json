@@ -15,11 +15,11 @@
             "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/e63bb7x210-nlc-68946"
         },
         {
-            "classifier_id": "e63b37x209-nlc-68834",
-            "created": "2017-08-31T07:33:06.810Z",
+            "classifier_id": "e63bb7x210-nlc-80508",
+            "created": "2017-09-02T16:05:11.832Z",
             "language": "en",
             "name": "BasicConversationWithTherapy",
-            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/e63b37x209-nlc-68834"
+            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/e63bb7x210-nlc-80508"
         }
     ]
 }

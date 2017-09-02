@@ -33,21 +33,25 @@ class SpeechRecoModule(ALModule):
             self.asr = None
         self.memory = ALProxy("ALMemory")
 
-    def onLoad(self):
         # Module for Cognitive Services
         self.CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
 
-        from threading import Lock
-        self.bIsRunning = False
-        self.mutex = Lock()
-        self.hasPushed = False
-        self.hasSubscribed = False
         self.BIND_PYTHON(self.getName(), "onWordRecognized")
         self.tts = ALProxy("ALTextToSpeech", IP_global, PORT)
         self.audio = ALProxy("ALAudioDevice", IP_global, PORT)
         self.record = ALProxy("ALAudioRecorder", IP_global, PORT)
         self.aup = ALProxy("ALAudioPlayer", IP_global, PORT)
         self.record_path = '/home/nao/out.wav'
+
+    def onLoad(self):
+
+
+        from threading import Lock
+        self.bIsRunning = False
+        self.mutex = Lock()
+        self.hasPushed = False
+        self.hasSubscribed = False
+
 
     def onUnload(self):
         self.mutex.acquire()
