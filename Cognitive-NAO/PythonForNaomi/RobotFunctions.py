@@ -50,7 +50,7 @@ class Robot:
         if self.robotCheck:
             # Set starting parameters for Naomi
             self.WakeUp() # wake it up
-            self.StandUp() # make Naomi stand up if not already standing
+            #self.StandUp() # make Naomi stand up if not already standing
             self.leds.fadeRGB("FaceLeds", self.config["listeningColour"], 0) # set eye colour to listeningColour (set in config file)
             self.autonomousMovement.setBackgroundStrategy("backToNeutral") # turn on humanoid 'swaying'
     # define the robot functions
