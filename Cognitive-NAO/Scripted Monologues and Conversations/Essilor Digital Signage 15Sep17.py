@@ -37,7 +37,7 @@ class Spot(object):
 
 # make a list of class Person(s)
 personList = []
-personList.append(Spot("ESSILOR LAUNCHES NEW PROGRESSIVE LENS. VARILUX X SERIES.", "A1.jpg",))
+personList.append(Spot("Ray Ban. Gradient lenses follow the latest style trends in terms of shades and provide a wide range of colors creating exciting and unique looks.", "A1.jpg",))
 personList.append(Spot("Essilor introduces a new vision frontier arms length vision with its new premium progressive lens Varilux X series.", "A2.jpg"))
 personList.append(Spot("Essilor has developed a new type of lens, which it says is the first progressive lens to match the maximum volume of vision that wearers need in the modern world.", "A3.jpg",))
 
