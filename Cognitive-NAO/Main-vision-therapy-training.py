@@ -325,7 +325,7 @@ def StartIteration():
     if robotCheck:
         pythonSpeechModule.onLoad()
         pythonSpeechModule.onInput_onStart()
-        time.sleep(400)
+        time.sleep(600)
         pythonSpeechModule.onUnload()
     else:
 
