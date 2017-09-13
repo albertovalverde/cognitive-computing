@@ -52,7 +52,7 @@ class SpeechRecoModule(ALModule):
 
 
     def onUnload(self):
-        self.mutex.acquire()
+        #self.mutex.acquire()
         try:
             if (self.bIsRunning):
                 if (self.hasSubscribed):
@@ -63,7 +63,7 @@ class SpeechRecoModule(ALModule):
             self.mutex.release()
             raise e
         self.bIsRunning = False;
-        self.mutex.release()
+        #self.mutex.release()
 
 
     def onInput_onStart(self):
@@ -81,11 +81,11 @@ class SpeechRecoModule(ALModule):
                 self.asr.pushContexts()
             self.hasPushed = True
             if self.asr:
-                self.asr.pause(True)
+                #self.asr.pause(True)
                 self.asr.setVocabulary(['a'],False)
                 self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
                 self.hasSubscribed = True
-                self.asr.pause(False)
+                #self.asr.pause(False)
 
                 # # # ----------> recording <----------
                 # print 'start recording...'

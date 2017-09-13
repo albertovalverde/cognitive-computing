@@ -100,7 +100,6 @@ class CognitiveService():
 
 
         with sr.WavFile(filename) as source:  # use "test.wav" as the audio source
-            audio = self.google.record(source)
 
             # Speech recognition using Google Speech Recognition
             try:
@@ -109,7 +108,7 @@ class CognitiveService():
                 # instead of `r.recognize_google(audio)`
 
                 if self.roboCheck:
-                    transcript = self.google.recognize_google(audio)
+                    transcript = self.google.recognize_google(self.google.record(source))
                 else:
                     transcript = StartNaomi.getTextFake()
                 print "User Say: " + transcript

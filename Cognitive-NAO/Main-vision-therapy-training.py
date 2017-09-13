@@ -93,7 +93,7 @@ class SpeechRecoModule(ALModule):
 
 
     def onUnload(self):
-        self.mutex.acquire()
+        #self.mutex.acquire()
         try:
             if (self.bIsRunning):
                 if (self.hasSubscribed):
@@ -106,7 +106,7 @@ class SpeechRecoModule(ALModule):
             self.mutex.release()
             raise e
         self.bIsRunning = False;
-        self.mutex.release()
+        #self.mutex.release()
 
     def onInput_onStart(self):
         from threading import Lock
@@ -121,12 +121,12 @@ class SpeechRecoModule(ALModule):
                 self.asr.pushContexts()
             self.hasPushed = True
             if self.asr:
-                self.asr.pause(True)
+                #self.asr.pause(True)
                 self.asr.setVocabulary(['a'],False)
                 self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
                 # self.memory.subscribeToEvent("SpeechDetected", self.getName(), "speechDetected")
                 self.hasSubscribed = True
-                self.asr.pause(False)
+                #self.asr.pause(False)
                 # # # ----------> recording <----------
                 # print 'start recording...'
                 self.record.stopMicrophonesRecording()
@@ -158,14 +158,14 @@ class SpeechRecoModule(ALModule):
         file = open(filename, 'wb')
         self.ftp.retrbinary('RETR %s' % filename, file.write)
         with sr.WavFile(filename) as source:  # use "test.wav" as the audio source
-            audio = self.google.record(source)
+           # audio = self.google.record(source)
             # Speech recognition using Google Speech Recognition
             try:
                 SpeechPause = False
                 # for testing purposes, we're just using the default API key
                 # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
                 # instead of `r.recognize_google(audio)`
-                transcript = self.google.recognize_google(audio)
+                transcript = self.google.recognize_google(self.google.record(source))
                 print transcript
                 self.response = conversation.message(workspace_id=workspace_id,
                                                      message_input={'text': transcript},context=self.response['context'])
@@ -215,8 +215,8 @@ class SpeechRecoModule(ALModule):
 
                         else:
                             self.Naomi.StartUp()
-                            self.Naomi.printAndSay("Oh no! You need to keep more attention to the vision game. " + str(
-                            self.WebviewResponse) + " " + self.LastSelectColor + " robots were displayed on the screen")  # Print and say (if the robot is connected) the verbal response
+                            self.Naomi.printAndSay("Oh no! You need to keep more attention to the vision game.")
+                            self.Naomi.printAndSay( str(self.WebviewResponse) + " " + self.LastSelectColor + " robots were displayed on the screen.")
 
                         self.Naomi.printAndSay("Do you want to play again?")#ask for play again in any case!
 
