@@ -122,6 +122,8 @@ class SpeechRecoModule(ALModule):
         filename = 'out.wav'
         file = open(filename, 'wb')
         self.ftp.retrbinary('RETR %s' % filename, file.write)
+
+
         with sr.WavFile(filename) as source:  # use "test.wav" as the audio source
             try:
                 SpeechPause = False
@@ -159,11 +161,11 @@ class SpeechRecoModule(ALModule):
                     #check the response from the webview (is not always active)
                     if self.WebviewResponse is not None:
                         print self.WebviewResponse
-                        if str(Deserialize.inputText) == str(self.WebviewResponse):
+                        if str(Deserialize.entities) == str(self.WebviewResponse):
                             self.Naomi.StartUp()
                             self.Naomi.printAndSay(
                             "Wou, Congratulations! You are a champion!. " + str(
-                            Deserialize.inputText) + " " + self.LastSelectColor +" robots were displayed on the Screen, Yay!")  # Print and say (if the robot is connected) the verbal response
+                            Deserialize.entities) + " " + self.LastSelectColor +" robots were displayed on the Screen, Yay!")  # Print and say (if the robot is connected) the verbal response
 
                         else:
                             self.Naomi.StartUp()

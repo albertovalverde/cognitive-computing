@@ -92,7 +92,8 @@ class CognitiveService():
 
     def on_modified(self,filename):
         print filename
-
+        import abcdk.sound
+        abcdk.sound.repair(filename)
         with sr.WavFile(filename) as source:  # use "test.wav" as the audio source
             # Speech recognition using Google Speech Recognition
             try:
