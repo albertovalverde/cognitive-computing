@@ -46,7 +46,7 @@ class SpeechRecoModule(ALModule):
 
         from threading import Lock
         self.bIsRunning = False
-        self.mutex = Lock()
+        #self.mutex = Lock()
         self.hasPushed = False
         self.hasSubscribed = False
 
@@ -60,7 +60,7 @@ class SpeechRecoModule(ALModule):
                 if (self.hasPushed and self.asr):
                     self.asr.popContexts()
         except RuntimeError, e:
-            self.mutex.release()
+            #self.mutex.release()
             raise e
         self.bIsRunning = False;
         #self.mutex.release()
@@ -69,9 +69,9 @@ class SpeechRecoModule(ALModule):
     def onInput_onStart(self):
 
         from threading import Lock
-        self.mutex.acquire()
+        #self.mutex.acquire()
         if (self.bIsRunning):
-            self.mutex.release()
+            #self.mutex.release()
             return
         self.bIsRunning = True
         try:
@@ -97,10 +97,10 @@ class SpeechRecoModule(ALModule):
 
 
         except RuntimeError, e:
-            self.mutex.release()
+            #self.mutex.release()
             self.onUnload()
             raise e
-        self.mutex.release()
+        #self.mutex.release()
 
     def onWordRecognized(self, key, value, message):
         self.onUnload()

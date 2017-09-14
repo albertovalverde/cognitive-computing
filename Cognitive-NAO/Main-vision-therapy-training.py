@@ -103,16 +103,16 @@ class SpeechRecoModule(ALModule):
                 if (self.hasPushed and self.asr):
                     self.asr.popContexts()
         except RuntimeError, e:
-            self.mutex.release()
+            #self.mutex.release()
             raise e
         self.bIsRunning = False;
         #self.mutex.release()
 
     def onInput_onStart(self):
         from threading import Lock
-        self.mutex.acquire()
+        #self.mutex.acquire()
         if (self.bIsRunning):
-            self.mutex.release()
+            #self.mutex.release()
             return
         self.bIsRunning = True
         try:
@@ -135,10 +135,10 @@ class SpeechRecoModule(ALModule):
                 #fileID = aup.playFile(record_path, 0.7, 0)
 
         except RuntimeError, e:
-            self.mutex.release()
+            #self.mutex.release()
             self.onUnload()
             raise e
-        self.mutex.release()
+        #self.mutex.release()
 
     # def speechDetected(self, event, detected, id):
 
