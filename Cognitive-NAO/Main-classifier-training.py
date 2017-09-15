@@ -39,9 +39,11 @@ class SpeechRecoModule(ALModule):
         self.aup = ALProxy("ALAudioPlayer", IP_global, PORT)
         self.record_path = '/home/nao/out.wav'
 
+        self.CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
+
     def onLoad(self):
         # Module for Cognitive Services
-        self.CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
+
         self.bIsRunning = False
         self.hasPushed = False
         self.hasSubscribed = False

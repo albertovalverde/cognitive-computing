@@ -73,6 +73,7 @@ watsonFunctions = {  # dictionary of the Watson demos that Naomi can perform
 }
 class CognitiveService():
     def __init__(self, IP_global, PORT, robotCheck):
+
         self.ListOfNlcClassifiers = json.load(
             open('Resources/NLC/ListOfNlcClassifiersManual.json', 'r'))  # load JSON with list of nlc classifiers
         self.nlcClassifierName = config["firstNlc"]  # The first NLC classifier to analyse text against
@@ -92,8 +93,6 @@ class CognitiveService():
 
     def on_modified(self,filename):
         print filename
-        import abcdk.sound
-        abcdk.sound.repair(filename)
         with sr.WavFile(filename) as source:  # use "test.wav" as the audio source
             # Speech recognition using Google Speech Recognition
             try:
@@ -110,7 +109,7 @@ class CognitiveService():
                 if transcript == 'stop':
                     sys.exit('Stop - Error!')
 
-                #self.Naomi.startThinking()  # Prepare to wait for the Watson NLC response
+                self.Naomi.startThinking()  # Prepare to wait for the Watson NLC response
 
                 nlcClassification = self.HandleNlc.classifyText(transcript, self.nlcClassifierName, self.nlcClassifierID)  # Retrieve NLC
 

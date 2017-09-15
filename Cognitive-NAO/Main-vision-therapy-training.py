@@ -51,6 +51,12 @@ class SpeechRecoModule(ALModule):
             self.ftp.login("nao", "nao")
             self.memory = ALProxy("ALMemory")
             self.memory.subscribeToMicroEvent("myMicroEvent", "pythonSpeechModule", "message", "playGameEnd") # catch event from webview
+
+            self.swich = False # for not launch simultaneous events
+            self.memory.subscribeToEvent("RightBumperPressed", "pythonSpeechModule", "RightBumperTouched")
+            self.memory.subscribeToEvent("FrontTactilTouched", "pythonSpeechModule", "FrontTactilTouched")
+
+
             self.google = sr.Recognizer()  # google specch recognition
             self.Naomi = RobotFunctions.Robot(IP_global, PORT, config,
                                               robotCheck)  # Initialise all robot functions in variable "Naomi"
@@ -132,6 +138,7 @@ class SpeechRecoModule(ALModule):
                 # instead of `r.recognize_google(audio)`
                 transcript = self.google.recognize_google(self.google.record(source))
                 print transcript
+                self.Naomi.startThinking()  # Prepare to wait for the Watson NLC response
                 self.response = conversation.message(workspace_id=workspace_id,
                                                      message_input={'text': transcript},context=self.response['context'])
                 print(json.dumps(self.response, indent=2))
@@ -151,7 +158,7 @@ class SpeechRecoModule(ALModule):
                     # STOP the speechrecognition
                     SpeechPause = True
 
-                self.Naomi.StartUp()
+                #self.Naomi.StartUp()
                 self.Naomi.printAndSay(
                     Deserialize.text)  # Print and say (if the robot is connected) the verbal response
 
@@ -162,13 +169,13 @@ class SpeechRecoModule(ALModule):
                     if self.WebviewResponse is not None:
                         print self.WebviewResponse
                         if str(Deserialize.entities) == str(self.WebviewResponse):
-                            self.Naomi.StartUp()
+                            #self.Naomi.StartUp()
                             self.Naomi.printAndSay(
                             "Wou, Congratulations! You are a champion!. " + str(
                             Deserialize.entities) + " " + self.LastSelectColor +" robots were displayed on the Screen, Yay!")  # Print and say (if the robot is connected) the verbal response
 
                         else:
-                            self.Naomi.StartUp()
+                            #self.Naomi.StartUp()
                             self.Naomi.printAndSay("Oh no! You need to keep more attention to the vision game.")
                             self.Naomi.printAndSay( str(self.WebviewResponse) + " " + self.LastSelectColor + " robots were displayed on the screen.")
 
@@ -186,14 +193,49 @@ class SpeechRecoModule(ALModule):
                #Restart the iteration bucle
                StartIteration()
 
+
+
     # Call when finish the webview-game iteration
     def playGameEnd(self, strVarName, value, message):
         """callback when WebView trigger"""
         self.WebviewResponse = value
         print "Count of webview= " + str(value)
-        self.Naomi.StartUp()
+        #self.Naomi.StartUp()
         self.Naomi.printAndSay("Well, Can you say me how many " + self.LastSelectColor + " robots was displaying on the screen?")  # Print and say (if the robot is connected) the verbal response
         StartIteration()
+
+    def RightBumperTouched(self, eventName, value, subsId):
+        self.MagicResponse()
+        print("RightBumperTouched")
+
+    def FrontTactilTouched(self, eventName, value, subsId):
+        print("FrontTactilTouched")
+        self.MagicResponse()
+
+    def MagicResponse(self):
+        if not self.swich:
+            self.swich = True
+            if self.WebviewResponse is not None:
+                self.record.stopMicrophonesRecording()
+                self.onUnload()
+                print("redirecting process to win")
+                print self.WebviewResponse
+                self.Naomi.printAndSay("Alright, You are trying to say " + str(self.WebviewResponse) )  # ask for play again in any case!
+                self.response = conversation.message(workspace_id=workspace_id,
+                                                     message_input={'text': str(self.WebviewResponse)},
+                                                     context=self.response['context'])
+                print(json.dumps(self.response, indent=2))
+                Deserialize = DeserializeResponse(self.response)
+                self.Naomi.printAndSay(
+                    "Wou, Congratulations! You are a champion!. " + str(
+                        Deserialize.entities) + " " + self.LastSelectColor + " robots were displayed on the Screen, Yay!")  # Print and say (if the robot is connected) the verbal response
+
+                self.Naomi.printAndSay("Do you want to play again?")  # ask for play again in any case!
+                self.WebviewResponse = None
+                # Restart the iteration bucle
+                self.swich = False
+                StartIteration()
+            self.swich = False
 
 class Filteresponse:
     text = ""
@@ -303,6 +345,8 @@ def TestConversation():
 
     with open('response.json', 'w') as outfile:
         json.dump(response, outfile)
+
+
 
 def main():
     try:
