@@ -59,9 +59,7 @@ def DoCustomVisualRecognition():
     return [response_phrase, picture["time_elapsed"]]
 def DoPlayGame():
      print "into DoPlayGame of Cognitive_services"
-    # response_phrase = "Into playGame congnitive services"
-    # time.sleep(100)
-    # return [response_phrase, 0]
+
 def DoNothing():
     return [0, 0]
 watsonFunctions = {  # dictionary of the Watson demos that Naomi can perform
@@ -75,7 +73,6 @@ watsonFunctions = {  # dictionary of the Watson demos that Naomi can perform
 }
 class CognitiveService():
     def __init__(self, IP_global, PORT, robotCheck):
-        #threading.Thread.__init__(self)
 
         self.ListOfNlcClassifiers = json.load(
             open('Resources/NLC/ListOfNlcClassifiersManual.json', 'r'))  # load JSON with list of nlc classifiers
@@ -85,31 +82,26 @@ class CognitiveService():
         self.Naomi = RobotFunctions.Robot(IP_global, PORT, config,
                                           robotCheck)  # Initialise all robot functions in variable "Naomi"
         self.Naomi.StartUp()  # Get Naomi out of rest mode, stand it up, set eye colour, etc.
-        #self.speechToPath = speech_path
-
         self.google = sr.Recognizer() # google specch recognition
         self.roboCheck = robotCheck
         self.HandleNlc= HandleNlc
 
         confirmReadyForStartUp()  # Print start-up message to let user know that everything has been started smoothly
+
     def on_deleted(self, event):
         pass  # Ignore file deletions from the transcripts folder
+
     def on_modified(self,filename):
-
         print filename
-
-
         with sr.WavFile(filename) as source:  # use "test.wav" as the audio source
-            audio = self.google.record(source)
-
             # Speech recognition using Google Speech Recognition
             try:
                 # for testing purposes, we're just using the default API key
                 # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
-                # instead of `r.recognize_google(audio)`
+                # instead of `r.recognize_google(audio)
 
                 if self.roboCheck:
-                    transcript = self.google.recognize_google(audio)
+                    transcript = self.google.recognize_google(self.google.record(source))
                 else:
                     transcript = StartNaomi.getTextFake()
                 print "User Say: " + transcript
@@ -117,13 +109,10 @@ class CognitiveService():
                 if transcript == 'stop':
                     sys.exit('Stop - Error!')
 
-
-
-                #self.Naomi.startThinking()  # Prepare to wait for the Watson NLC response
+                self.Naomi.startThinking()  # Prepare to wait for the Watson NLC response
 
                 nlcClassification = self.HandleNlc.classifyText(transcript, self.nlcClassifierName, self.nlcClassifierID)  # Retrieve NLC
 
-                #print nlcClassification + "___" + self.nlcClassifierName
                 nlcResponse = self.HandleNlc.returnResponse(self.nlcClassifierName,
                                                        nlcClassification)  # Retrieve correct response for the NLC classification
 
@@ -148,37 +137,5 @@ class CognitiveService():
             except sr.RequestError as e:
                 print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
-            #Start()
-    def on_CheckPlay(self, filename, value):
-        print filename
-        with sr.WavFile(filename) as source:  # use "test.wav" as the audio source
-            audio = self.google.record(source)
-            # Speech recognition using Google Speech Recognition
-            try:
-                # for testing purposes, we're just using the default API key
-                # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
-                # instead of `r.recognize_google(audio)`
-                if self.roboCheck:
-                    transcript = self.google.recognize_google(audio)
-                else:
-                    transcript = StartNaomi.getTextFake()
-                print "User Say: " + transcript # Print and say (if the robot is connected) the verbal response
-                self.Naomi.printAndSay(
-                    "You say: " + transcript)
-
-                print "Compare:" + str(value) + " = " + str(transcript)
-                if str(value) == str(transcript):
-                    self.Naomi.printAndSay("WOU! You are a champion!, congratulations!")  # Print and say (if the robot is connected) the verbal response
-                else:
-                    self.Naomi.printAndSay(
-                        "Ohhhh! Sorry! you must to improve your vision becouse the correct number is: " + str(value))  # Print and say (if the robot is connected) the verbal response
-
-                return True
-            except sr.UnknownValueError:
-                print("Google Speech Recognition could not understand audio")
-                return False
-            except sr.RequestError as e:
-                print("Could not request results from Google Speech Recognition service; {0}".format(e))
-                return False
     def on_SayAndPrint(self,message):
         self.Naomi.printAndSay(message)

@@ -60,7 +60,7 @@ class HumanGreeter(object):
         elif not self.got_face:  # only speak the first time a face appears
             self.got_face = True
             print "I saw a face!"
-            self.tts.say("Hello, I see you!")
+            self.tts.say("Hello, I can see you!")
             # First Field = TimeStamp.
             timeStamp = value[0]
             print "TimeStamp is: " + str(timeStamp)

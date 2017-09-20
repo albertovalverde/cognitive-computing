@@ -43,7 +43,7 @@ from six.moves import queue
 
 
 # Audio recording parameters
-NAO_IP = "192.168.1.101" # Romeo on table
+NAO_IP = "192.168.1.33" # Romeo on table
 RATE = 48000
 CHUNK = int(RATE / 10)  # 100ms
 

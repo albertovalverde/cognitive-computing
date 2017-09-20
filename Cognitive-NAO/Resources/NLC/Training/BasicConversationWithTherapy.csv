@@ -547,3 +547,5 @@ guess what car this is please,DoCarRecognition
 tell me which technical functions do you have,TechnicalFunction
 tell me what technical functions do you have,TechnicalFunction
 tell me about your technical functions,TechnicalFunction
+which technical functions do you have,TechnicalFunction
+technical functions,TechnicalFunction

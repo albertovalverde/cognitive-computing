@@ -13,7 +13,7 @@
 
 NAO_IP = "localhost"
 # ~ NAO_IP = "10.0.164.132"
-NAO_IP = "192.168.1.36"
+NAO_IP = "192.168.1.33"
 
 from optparse import OptionParser
 import naoqi

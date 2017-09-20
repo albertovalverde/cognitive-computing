@@ -32,6 +32,7 @@ class SpeechRecoModule(ALModule):
         except Exception as e:
             self.asr = None
         self.memory = ALProxy("ALMemory")
+
         self.BIND_PYTHON(self.getName(), "onWordRecognized")
         self.tts = ALProxy("ALTextToSpeech", IP_global, PORT)
         self.audio = ALProxy("ALAudioDevice", IP_global, PORT)
@@ -39,16 +40,19 @@ class SpeechRecoModule(ALModule):
         self.aup = ALProxy("ALAudioPlayer", IP_global, PORT)
         self.record_path = '/home/nao/out.wav'
 
-        self.CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
-
     def onLoad(self):
         # Module for Cognitive Services
+        self.CognitiveConnection = cognitive_services.CognitiveService(IP_global, PORT, robotCheck)
 
+        from threading import Lock
         self.bIsRunning = False
+        #self.mutex = Lock()
         self.hasPushed = False
         self.hasSubscribed = False
 
+
     def onUnload(self):
+        #self.mutex.acquire()
         try:
             if (self.bIsRunning):
                 if (self.hasSubscribed):
@@ -56,14 +60,22 @@ class SpeechRecoModule(ALModule):
                 if (self.hasPushed and self.asr):
                     self.asr.popContexts()
         except RuntimeError, e:
+            #self.mutex.release()
             raise e
         self.bIsRunning = False;
+        #self.mutex.release()
+
 
     def onInput_onStart(self):
+
+        from threading import Lock
+        #self.mutex.acquire()
         if (self.bIsRunning):
+            #self.mutex.release()
             return
         self.bIsRunning = True
         try:
+
             if self.asr:
                 self.asr.setVisualExpression(True)
                 self.asr.pushContexts()
@@ -73,25 +85,38 @@ class SpeechRecoModule(ALModule):
                 self.asr.setVocabulary(['a'],False)
                 self.memory.subscribeToEvent("WordRecognized", self.getName(), "onWordRecognized")
                 self.hasSubscribed = True
+                #self.asr.pause(False)
+
                 # # # ----------> recording <----------
                 # print 'start recording...'
                 self.record.stopMicrophonesRecording()
                 self.record.startMicrophonesRecording(self.record_path, 'wav', 16000, (0, 0, 1, 0))
+
+                # ----------> playing the recorded file <----------
+                #fileID = aup.playFile(record_path, 0.7, 0)
+
+
         except RuntimeError, e:
+            #self.mutex.release()
             self.onUnload()
             raise e
+        #self.mutex.release()
 
     def onWordRecognized(self, key, value, message):
         self.onUnload()
         self.record.stopMicrophonesRecording()
         print 'record over'
+
         filename = 'out.wav'
         file = open(filename, 'wb')
         self.ftp.retrbinary('RETR %s' % filename, file.write)
+
         # Call to Cognitive services in Cloud
         self.CognitiveConnection.on_modified(filename)
+
         # Restart the iteration bucle
         StartIteration()
+
 
 def StartIteration():
     if robotCheck:
