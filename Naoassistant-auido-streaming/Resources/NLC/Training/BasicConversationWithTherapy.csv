@@ -1,0 +1,551 @@
+Hi,Hello
+Hello,Hello
+Greetings,Hello
+Hey,Hello
+Hello Naomi,Hello
+Hi Naomi,Hello
+Welcome,Hello
+Yo,Hello
+How's it hanging,Hello
+what's cracking,Hello
+Hi there,Hello
+What's up,Hello
+Whats up,HowAreYou
+What's up,HowAreYou
+How are you,HowAreYou
+How are you feeling,HowAreYou
+How's your health,HowAreYou
+Hows it going,HowAreYou
+Are you good,HowAreYou
+How do you do,HowAreYou
+Everything ok,HowAreYou
+Everything ok with you Naomi,HowAreYou
+Are you happy,HowAreYou
+What's doing,HowAreYou
+Goodbye,GoodBye
+Farewell,GoodBye
+See you later,GoodBye
+So long,GoodBye
+So long Naomi,GoodBye
+See you,GoodBye
+Bye,GoodBye
+Go away,GoodBye
+Bye Naomi,GoodBye
+I'm going now,GoodBye
+Yeah,Yes
+Yes,Yes
+Affirmative,Yes
+Positive,Yes
+Indeed,Yes
+TRUE,Yes
+"Yes, that is right",Yes
+"Yes, that is correct",Yes
+Yay,Yes
+Absolutely,Yes
+No,No
+Negative,No
+No thanks,No
+I'm afraid not,No
+Not,No
+Unfortunately not,No
+I'm afraid that's a no,No
+That is a no,No
+That's a no,No
+Definitely not,No
+what,WhatDidYouSay
+what did you say,WhatDidYouSay
+I didn't understand you,WhatDidYouSay
+I'm not sure what you said,WhatDidYouSay
+I misheard,WhatDidYouSay
+sorry I didn't understand,WhatDidYouSay
+cant understand you,WhatDidYouSay
+please repeat that,WhatDidYouSay
+I don't think I understood you,WhatDidYouSay
+whats that,WhatDidYouSay
+I'm hungry,ImHungry
+I'm starving,ImHungry
+I am so hungry,ImHungry
+I am very hungry,ImHungry
+I'm famished,ImHungry
+I need to eat,ImHungry
+I need to eat something,ImHungry
+I need some food,ImHungry
+I must eat,ImHungry
+my stomach is growling,ImHungry
+I have hunger pangs,ImHungry
+it's lunch time,ImHungry
+it's time for lunch,ImHungry
+it's dinner time,ImHungry
+it's time for dinner,ImHungry
+I'm thirsty,ImThirsty
+I need something to drink,ImThirsty
+I need some water,ImThirsty
+I really need to drink something,ImThirsty
+I'm dehydrated,ImThirsty
+I'm so thirsty,ImThirsty
+I need a drink,ImThirsty
+Does anyone have a drink,ImThirsty
+I must drink something,ImThirsty
+I have to drink something,ImThirsty
+Tell me something about yourself,TalkAboutSelf
+What do you do,TalkAboutSelf
+Tell me about yourself,TalkAboutSelf
+Can you introduce yourself,TalkAboutSelf
+What are you like,TalkAboutSelf
+What's something interesting about yourself,TalkAboutSelf
+What can you tell me about yourself,TalkAboutSelf
+Say something to describe yourself,TalkAboutSelf
+Describe yourself,TalkAboutSelf
+Can you describe yourself,TalkAboutSelf
+Give me a description of yourself,TalkAboutSelf
+Where do you work,WhereWork
+What do you work as,WhereWork
+Do you have a job,WhereWork
+What's your job,WhereWork
+What is your job,WhereWork
+What do you do for work,WhereWork
+Do you work somewhere,WhereWork
+Have you got a job,WhereWork
+Do you work,WhereWork
+What do you do for a living,WhereWork
+What is your favorite color,FavouriteColour
+what color is your favorite,FavouriteColour
+do you have a favorite color,FavouriteColour
+is there any particular color that you really like,FavouriteColour
+favorite color,FavouriteColour
+choose your favorite color,FavouriteColour
+if you had to choose what would be your favorite color,FavouriteColour
+what is your color of choice,FavouriteColour
+tell me your favorite color,FavouriteColour
+what is the best color,FavouriteColour
+Tell me about your brother,NaoSun
+who is now sun,NaoSun
+do you know now sun,NaoSun
+who is your brother,NaoSun
+what can you tell me about your brother,NaoSun
+what can you tell me about now sun,NaoSun
+who is your brother,NaoSun
+do you have any brothers or sisters,NaoSun
+tell me about now sun,NaoSun
+have you met now sun,NaoSun
+Where were you born,PlaceOfBirth
+what is your place of birth,PlaceOfBirth
+where are you from,PlaceOfBirth
+what is your heritage,PlaceOfBirth
+what city were you born in,PlaceOfBirth
+tell me where you are from,PlaceOfBirth
+where are you from originally,PlaceOfBirth
+where are you originally from,PlaceOfBirth
+what is your origin,PlaceOfBirth
+where were you manufactured,PlaceOfBirth
+what can you do ,WhatCanYouDo
+can you tell me what you can do,WhatCanYouDo
+what are you actually able to do,WhatCanYouDo
+what can you actually do,WhatCanYouDo
+tell us what you can do,WhatCanYouDo
+what Watson capabilities do you have,WhatCanYouDo
+tell us what you are capable of doing,WhatCanYouDo
+can you show us what you can do,WhatCanYouDo
+show me what you can do,WhatCanYouDo
+can you tell this person what you can do,WhatCanYouDo
+tell us about your capabilities,WhatCanYouDo
+tell us what you you have been learning,WhatCanYouDo
+can you stand up,StandUp
+stand up,StandUp
+stand up please,StandUp
+please stand up,StandUp
+please stand,StandUp
+stand,StandUp
+stand up now,StandUp
+"Naomi, stand up",StandUp
+stand up Naomi,StandUp
+stand please,StandUp
+stand up please Naomi,StandUp
+what's your name,WhatsYourName
+what is your name,WhatsYourName
+what are you called,WhatsYourName
+your name,WhatsYourName
+name,WhatsYourName
+tell me your name,WhatsYourName
+can you tell me what your name is,WhatsYourName
+name please,WhatsYourName
+please tell me your name,WhatsYourName
+who are you,WhatsYourName
+what name do you go by,WhatsYourName
+what is your name please,WhatsYourName
+how old are you,HowOldAreYou
+how old are you Naomi,HowOldAreYou
+how old are you now sun,HowOldAreYou
+what is your age,HowOldAreYou
+what's your age,HowOldAreYou
+can you tell me how old you are,HowOldAreYou
+can you tell me your age,HowOldAreYou
+tell me your age,HowOldAreYou
+tell me how old you are,HowOldAreYou
+what is your age Naomi,HowOldAreYou
+what is your age now sun,HowOldAreYou
+can I trust you,Trustworthy
+are you trustworthy,Trustworthy
+can I trust you Naomi,Trustworthy
+can I trust you now sun,Trustworthy
+should I trust you,Trustworthy
+can I put my trust in you,Trustworthy
+can I put my faith in you,Trustworthy
+should I put my trust in you,Trustworthy
+should I put my faith in you,Trustworthy
+could I trust you,Trustworthy
+are you really trustworthy,Trustworthy
+can you see me,CanYouSeeMe
+are you able to see me,CanYouSeeMe
+can you see me Naomi,CanYouSeeMe
+can you see me now sun,CanYouSeeMe
+am I visible to you,CanYouSeeMe
+do you see me,CanYouSeeMe
+do you have the ability to see me,CanYouSeeMe
+do you have an ability to see me,CanYouSeeMe
+see me,CanYouSeeMe
+do see me,CanYouSeeMe
+are you able to see,CanYouSeeMe
+can you see,CanYouSeeMe
+can you hear me,CanYouHearMe
+are you able to hear me,CanYouHearMe
+can you hear me Naomi,CanYouHearMe
+can you hear me now sun,CanYouHearMe
+am I audible to you,CanYouHearMe
+do you hear me,CanYouHearMe
+do you have the ability to hear me,CanYouHearMe
+do you have an ability to hear me,CanYouHearMe
+hear me,CanYouHearMe
+do hear me,CanYouHearMe
+are you able to hear,CanYouHearMe
+can you hear,CanYouHearMe
+what is a robot,WhatIsARobot
+what's a robot,WhatIsARobot
+what is a humanoid robot,WhatIsARobot
+can you describe to me what a robot,WhatIsARobot
+can you describe what a robot is,WhatIsARobot
+what is a robot really,WhatIsARobot
+explain what a robot is,WhatIsARobot
+can you explain to me what a robot is,WhatIsARobot
+a robot is,WhatIsARobot
+is a robot,WhatIsARobot
+can you tell me what a robot is,WhatIsARobot
+can we be friends,CanWeBeFriends
+do you want to be friends,CanWeBeFriends
+do you want to be friends with me,CanWeBeFriends
+are we friends,CanWeBeFriends
+let us be friends,CanWeBeFriends
+let's be friends,CanWeBeFriends
+are you friends with me,CanWeBeFriends
+can be friends with each other,CanWeBeFriends
+let's be friends with each other,CanWeBeFriends
+I want to be friends with you,CanWeBeFriends
+can we start a friendship,CanWeBeFriends
+can you say goodbye,OkGoodbye
+say goodbye,OkGoodbye
+can you please say goodbye,OkGoodbye
+are you able to say goodbye,OkGoodbye
+tell us goodbye,OkGoodbye
+tell him goodbye,OkGoodbye
+tell her goodbye,OkGoodbye
+say bye,OkGoodbye
+say bye bye,OkGoodbye
+can you say bye,OkGoodbye
+please say bye,OkGoodbye
+please say goodbye,OkGoodbye
+do you have a family,DoYouHaveFamily
+do you have family,DoYouHaveFamily
+who is your family,DoYouHaveFamily
+have you got a family,DoYouHaveFamily
+have you family,DoYouHaveFamily
+do you have any family,DoYouHaveFamily
+I wonder if you have a family,DoYouHaveFamily
+can you tell me if you have a family,DoYouHaveFamily
+tell me about your family,DoYouHaveFamily
+tell me if you have a family,DoYouHaveFamily
+family,DoYouHaveFamily
+please sit,SitDown
+sit down,SitDown
+please sit down,SitDown
+take a seat,SitDown
+please take a seat,SitDown
+please be seated,SitDown
+be seated,SitDown
+sit your butt down,SitDown
+please make yourself seated,SitDown
+make yourself seated,SitDown
+get seated,SitDown
+please lie down,LieDown
+please lay down,LieDown
+lay down,LieDown
+lie down,LieDown
+lay yourself down,LieDown
+lie yourself down,LieDown
+lie on the ground,LieDown
+lay on the ground,LieDown
+please lie yourself down,LieDown
+please lie on the ground,LieDown
+please lie,LieDown
+please lay,LieDown
+lie,LieDown
+lay,LieDown
+lie on your belly,LieDownBelly
+lay on your belly,LieDownBelly
+lie down on your front,LieDownBelly
+lie on your front,LieDownBelly
+lay on your front,LieDownBelly
+can you lay down on your front,LieDownBelly
+can you lay down on your belly,LieDownBelly
+please lie on your belly,LieDownBelly
+please lie on your front,LieDownBelly
+lie down on your belly,LieDownBelly
+can you crouch,Crouch
+please crouch,Crouch
+crouch,Crouch
+squat,Crouch
+please squat,Crouch
+can you squat,Crouch
+please show me a crouch,Crouch
+please show me a squat,Crouch
+show me a crouch,Crouch
+show me a squat,Crouch
+please rest,RestSleep
+rest,RestSleep
+go into rest mode,RestSleep
+please go into rest mode,RestSleep
+you deserve some rest,RestSleep
+have some rest,RestSleep
+go to sleep,RestSleep
+please sleep,RestSleep
+you should rest now,RestSleep
+rest now,RestSleep
+sleep now,RestSleep
+you should sleep,RestSleep
+get some sleep,RestSleep
+please wake up,WakeUp
+wake up Naomi,WakeUp
+wake up now sun,WakeUp
+get up,WakeUp
+time to get up,WakeUp
+time to wake up,WakeUp
+wake up,WakeUp
+awake,WakeUp
+please get up,WakeUp
+please get up now,WakeUp
+please awake,WakeUp
+time to awaken,WakeUp
+get up Naomi,WakeUp
+it is time to wake up,WakeUp
+can you play me a song,PlayASong
+please play me a song,PlayASong
+play a song,PlayASong
+play me a song,PlayASong
+please play a song,PlayASong
+can you play some music,PlayASong
+can you play music,PlayASong
+please play some music,PlayASong
+can you play me some music,PlayASong
+can you please play me some music,PlayASong
+play some music,PlayASong
+please play music,PlayASong
+what is your battery level,BatteryLevel
+how much battery do you have,BatteryLevel
+how much battery you got,BatteryLevel
+what level is your battery,BatteryLevel
+how much charge do you have,BatteryLevel
+what is your charge,BatteryLevel
+what level is your charge at,BatteryLevel
+do you need charging,BatteryLevel
+is your battery level good,BatteryLevel
+tell me your battery level,BatteryLevel
+tell me how much charge you have,BatteryLevel
+tell me how much battery you have,BatteryLevel
+can you dance,Dance
+please dance,Dance
+can you please dance for us,Dance
+please dance for us,Dance
+can you show me a dance,Dance
+do a jig,Dance
+cut a jig,Dance
+show me a dance,Dance
+do a dance,Dance
+please do a dance,Dance
+jig,Dance
+dance,Dance
+can you boogie,Dance
+boogie down,Dance
+show us your boogie,Dance
+show us cutting a jig,Dance
+I've heard you're a great dancer,Dance
+is it true that you're a good dancer,Dance
+are you a dancer,Dance
+show us a jig,Dance
+give us a dance demonstration,Dance
+do a dance show,Dance
+what happened to your hand,Fingers
+what happened to your finger,Fingers
+what did you do to your finger,Fingers
+what did you do to your hand,Fingers
+your fingers,Fingers
+what is with your fingers,Fingers
+why are your fingers broken,Fingers
+how did your fingers break,Fingers
+what is with your hand,Fingers
+your hand,Fingers
+what happened to your thing,Fingers
+what is with your thing is,Fingers
+how many robots like you are there,HowManyNaos
+how many robots like you are there in the world,HowManyNaos
+how many now robots are there,HowManyNaos
+do you know how many robots like you there are,HowManyNaos
+are there many now robots,HowManyNaos
+what is the number of now robots in the world,HowManyNaos
+are there many now robots in the world,HowManyNaos
+have many now robots been sold,HowManyNaos
+are there many robots like you,HowManyNaos
+do you know how many now robots there are,HowManyNaos
+how tall are you,HowTallAreYou
+how tall do you stand,HowTallAreYou
+are you tall,HowTallAreYou
+can you tell me how tall you are,HowTallAreYou
+tell me how tall you are,HowTallAreYou
+please tell me how tall you are,HowTallAreYou
+please say how tall you are,HowTallAreYou
+say your height,HowTallAreYou
+what is your height,HowTallAreYou
+give me your height,HowTallAreYou
+who is Romeo,WhoIsRomeo
+what is Romeo,WhoIsRomeo
+can you tell me who Romeo is,WhoIsRomeo
+tell me who Romeo is,WhoIsRomeo
+tell me what Romeo is,WhoIsRomeo
+can you tell me what Romeo is,WhoIsRomeo
+do you know what Romeo is,WhoIsRomeo
+do you know who Romeo is,WhoIsRomeo
+do you know Romeo,WhoIsRomeo
+what do you know about Romeo,WhoIsRomeo
+who is Pepper,WhoIsPepper
+what is Pepper,WhoIsPepper
+can you tell me who Pepper is,WhoIsPepper
+tell me who Pepper is,WhoIsPepper
+tell me what Pepper is,WhoIsPepper
+can you tell me what Pepper is,WhoIsPepper
+do you know what Pepper is,WhoIsPepper
+do you know who Pepper is,WhoIsPepper
+do you know Pepper,WhoIsPepper
+what do you know about Pepper,WhoIsPepper
+who is Peppa,WhoIsPepper
+what is Peppa,WhoIsPepper
+can you tell me who Peppa is,WhoIsPepper
+tell me who Peppa is,WhoIsPepper
+what do you know about Peppa,WhoIsPepper
+how much do you weigh,HowHeavyAreYou
+tell me how much you weigh,HowHeavyAreYou
+what is your weight,HowHeavyAreYou
+do you know your weight,HowHeavyAreYou
+what's your weight,HowHeavyAreYou
+tell me your weight,HowHeavyAreYou
+how heavy are you,HowHeavyAreYou
+are you very heavy,HowHeavyAreYou
+tell me how heavy you are,HowHeavyAreYou
+are you heavy,HowHeavyAreYou
+thanks,ThankYou
+thank you,ThankYou
+I thank you,ThankYou
+thank you for that,ThankYou
+thanks for everything,ThankYou
+wonderful thanks Naomi,ThankYou
+great thanks Naomi,ThankYou
+thank you very much,ThankYou
+thanks a lot,ThankYou
+cheers,ThankYou
+thank you Naomi,ThankYou
+can you walk,TakeStepForward
+walk,TakeStepForward
+take a step ,TakeStepForward
+take a step forward,TakeStepForward
+move forward,TakeStepForward
+walk forward,TakeStepForward
+can you take a step forward,TakeStepForward
+please take a step forward,TakeStepForward
+please walk,TakeStepForward
+can you walk a bit,TakeStepForward
+please walk a little bit,TakeStepForward
+Could you do a personality insight for me,PersonalityInsights
+Please analyse a personality for me,PersonalityInsights
+Can you analyse people,PersonalityInsights
+Can you conduct a personality insight for me,PersonalityInsights
+Could you give me some insight on a personality for me,PersonalityInsights
+Please analyse this person for me,PersonalityInsights
+Can you analyse someone please,PersonalityInsights
+Show me your personality insights capability,PersonalityInsights
+Can you show me how you conduct a personality insight,PersonalityInsights
+Could you please analyse a personality for me,PersonalityInsights
+can you analyse a person,PersonalityInsights
+can we analyse another person,PersonalityInsights
+could we please analyse a person,PersonalityInsights
+how about another person analysis,PersonalityInsights
+what is this picture,DoVisualRecognition
+what is this photo,DoVisualRecognition
+identify this picture for me,DoVisualRecognition
+tell me what this picture is,DoVisualRecognition
+can you identify this image for me,DoVisualRecognition
+what image is this,DoVisualRecognition
+tell me what this image is,DoVisualRecognition
+could you please identify this picture for me,DoVisualRecognition
+what do you think this is,DoVisualRecognition
+what is this,DoVisualRecognition
+can you guess what this is,DoVisualRecognition
+what is this a photo of,DoVisualRecognition
+what is this a picture of,DoVisualRecognition
+please analyse this picture for me,DoVisualRecognition
+please analyse this image for me,DoVisualRecognition
+can you recognise this,DoVisualRecognition
+please recognise this image for me,DoVisualRecognition
+what does this say,DoTextRecognition
+what is this text,DoTextRecognition
+can you read this for me,DoTextRecognition
+read this for me,DoTextRecognition
+can read this to me please,DoTextRecognition
+what does this text say,DoTextRecognition
+can you read this page for me,DoTextRecognition
+can you read this image with text,DoTextRecognition
+please read this,DoTextRecognition
+read this out loud for us,DoTextRecognition
+what is this writing,DoTextRecognition
+read what is written here,DoTextRecognition
+what is written here,DoTextRecognition
+read this,DoTextRecognition
+can you read what is written here please,DoTextRecognition
+who is this,DoFacialRecognition
+which person is this,DoFacialRecognition
+do you recognise this person,DoFacialRecognition
+can you recognise who this is,DoFacialRecognition
+who is the person in this picture,DoFacialRecognition
+can you recognise anyone in this picture,DoFacialRecognition
+tell me who you see here,DoFacialRecognition
+are there any people in this photo,DoFacialRecognition
+is there a person in front of you,DoFacialRecognition
+who are you looking at,DoFacialRecognition
+which person are you looking at,DoFacialRecognition
+what person can you see,DoFacialRecognition
+what kind of car is this,DoCarRecognition
+what car is this,DoCarRecognition
+do you know what kind of car this is,DoCarRecognition
+what type of car is this,DoCarRecognition
+can you tell us what kind of car this is,DoCarRecognition
+look at this car and tell me what kind it is,DoCarRecognition
+take a look at this vehicle and tell me what kind it is,DoCarRecognition
+what sort of car is this,DoCarRecognition
+what sort of automobile is this,DoCarRecognition
+can you tell us what sort of car this is,DoCarRecognition
+what kind of car do you think this is,DoCarRecognition
+what variety of car is this,DoCarRecognition
+which car is this one,DoCarRecognition
+what car would you guess is this,DoCarRecognition
+guess what car this is please,DoCarRecognition
+tell me which technical functions do you have,TechnicalFunction
+tell me what technical functions do you have,TechnicalFunction
+tell me about your technical functions,TechnicalFunction
+which technical functions do you have,TechnicalFunction
+technical functions,TechnicalFunction

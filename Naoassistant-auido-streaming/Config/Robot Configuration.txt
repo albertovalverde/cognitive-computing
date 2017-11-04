@@ -1,0 +1,81 @@
+# This document contains parameters for the robot that can be configured to personalise or 
+# tailor the robot to specific demonstrations.
+
+# DO NOT CHANGE ANY OF THE PARAMETER NAMES (WORDS PRECEDED BY AN UNDERSCORE), JUST THE VALUES
+# PROCEEDING THE COLON (:).
+
+
+# -- Natural Language Classifier -- #
+# First NLC classifier to compare against (this determines flow of conversation). Must be a
+# valid classifier name, not ID.
+_firstNlc: BasicConversationWithTherapy
+# Set minimum confidence threshold for an NLC classification to be accepted (number between
+# 0 and 1, 1 = 100% confidence).
+_nlcConfThreshold: 0.75
+# Maximum number of NLC classifications that are returned, in descending order of confidence.
+# MAXIMUM NUMBER IS 10.
+_nlcNumToReturn: 3
+# Set the region that your instance of NLC exists in. Options are Australia or US South.
+_regionNlc: EE.UU.sur
+
+
+# -- Visual Recognition -- #
+# Set the region that your instance of VR exists in. Options are Australia or US South.
+_regionVr: EE.UU.sur
+# Set name of the custom visual recognition classifier that you want to use.
+_vrClassifierName: Visual Recognition-5s
+# Set minimum confidence threshold for a VR classification to be returned as an option (number between
+# 0 and 1, 1 = 100% confidence).
+_vrConfThreshold: 0.5
+# Set the name of the image file to be used for VR.
+_pictureFileName: NaomiPictureCapture.png
+# Maximum number of VR classifications that are returned, in descending order of confidence.
+_vrNumToReturn: 5
+
+
+# -- Robot eyes -- #
+# Set colour of robot's eyes for different stages of interaction. Colours that you can choose 
+# from are yellow, blue, green, magenta, cyan, and white ONLY.
+# Eye colours when listening, speaking, performing a robot action, and when considering its 
+# response (receiving NLC analysis)
+_listeningColour: blue
+_speakingColour: green
+_actionPerformColour: cyan
+_responseColour: yellow
+_lookingColour: magenta
+# Timing for fade between changing eye colours
+_ledTiming: 0.2
+
+
+# -- Robot speech -- #
+# Set speech speed and other parameters.
+# Speech speed (number between 0 and 200, 100 is default speed)
+_speechSpeed: 87
+
+
+# -- Robot manager -- #
+# Set parameters like sitting/standing speed.
+# SPEEDS HIGHER THAN 0.9 ARE NOT RECOMMENDED. Use personal discretion.
+# Set whether or not fall manager is on or off. 1 = on, 0 = off (recommended: 1).
+_fallManager: 1
+# Time for the robot to stand up, sit down, lie down, and crouch (number between 0 and 1, 1 is
+# fastest, 0 is slowest)
+_standSpeed: 0.8
+_sitSpeed: 0.65
+_lieSpeed: 0.65
+_crouchSpeed: 0.9
+
+
+# -- Robot audio -- #
+# Set parameters for the robot's comprehension/listen sound effects, and other audio. Default
+# setting is two sine waves that are played after each other at different frequencies.
+# Time between sine waves for comprehension/listen sound effects (seconds).
+_sineDelay: 0.06
+# Sine wave frequencies (Hz)
+_sineFreq1: 659.255
+_sineFreq2: 830.609
+# Location of audio files that Naomi can play when requested
+_audioFile1: /home/nao/recordings/quickTune.wav
+_audioFile2: /home/nao/recordings/Beethoven5thIntro.wav
+_audioFile3: 
+_audioFile4: 

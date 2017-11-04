@@ -1,0 +1,25 @@
+{
+    "classifiers": [
+        {
+            "classifier_id": "e63bb7x210-nlc-68947",
+            "created": "2017-08-31T07:30:58.013Z",
+            "language": "en",
+            "name": "BasicConversationWithBankFaqs",
+            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/e63bb7x210-nlc-68947"
+        },
+        {
+            "classifier_id": "e63bb7x210-nlc-68946",
+            "created": "2017-08-31T07:30:47.001Z",
+            "language": "en",
+            "name": "BasicConversation",
+            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/e63bb7x210-nlc-68946"
+        },
+        {
+            "classifier_id": "7de004x223-nlc-4653",
+            "created": "2017-09-15T13:56:27.943Z",
+            "language": "en",
+            "name": "BasicConversationWithTherapy",
+            "url": "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/7de004x223-nlc-4653"
+        }
+    ]
+}

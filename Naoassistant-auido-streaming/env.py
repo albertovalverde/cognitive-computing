@@ -1,0 +1,10 @@
+nao_ip = "192.168.1.33"
+nao_port = 9559
+global_rowing = False
+nao_state_positive = 0.8
+nice_demand = False
+knocking = 0
+speaking = False
+joking = False
+joking_knock = False
+joking_knock_second = False
